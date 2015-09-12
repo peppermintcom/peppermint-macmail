@@ -1,0 +1,12 @@
+syntax: glob
+
+.DS_Store
+.svn
+CVS
+build
+*.mode1v3
+*.pbxuser
+*.xcuserdatad
+.git
+xcshareddata
+

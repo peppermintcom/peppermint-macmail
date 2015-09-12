@@ -1,0 +1,16 @@
+//
+//  XGPeppermint.pch
+//  Peppermint
+//
+//  Created by Boris Remizov on 12/09/15.
+//  Copyright © 2015 Xgen Mobile. All rights reserved.
+//
+
+#pragma once
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#ifdef __OBJC__
+
+#import "Tools/XGLogger.h"
+
+#endif
