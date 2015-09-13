@@ -7,7 +7,7 @@
 //
 
 #import "XGPeppermintPlugin.h"
-#import <objc/runtime.h>
+#import "XGMessageViewerSwizzler.h"
 
 @implementation XGPeppermintPlugin
 
@@ -24,28 +24,12 @@
 + (BOOL)registerMessageViewerToolbarItem:(NSError**)error
 {
 	XG_TRACE_FUNC();
-
-	NSError __autoreleasing* internalError = nil;
-	if (NULL == error)
-		error = &internalError;
-
-	Class MessageViewer = NSClassFromString(@"MessageViewer");
-	if (NULL == MessageViewer)
-	{
-		XG_ERROR(@"Could not find the MessageViewer class, this version of Mail is not supported");
-		*error = [NSError errorWithDomain:NSOSStatusErrorDomain code:-50 userInfo:nil];
-		return FALSE;
-	}
-
-	// TODO: do method swizzling
-
-	return FALSE;
+	return [XGMessageViewerSwizzler swizzle:error];
 }
 
 + (BOOL)registerMessageWindowToolbarItem:(NSError**)error
 {
 	XG_TRACE_FUNC();
-
 	return FALSE;
 }
 
