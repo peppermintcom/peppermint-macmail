@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A16830891BA4F68A009D9F8E /* XGMessageViewerSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A16830881BA4F68A009D9F8E /* XGMessageViewerSwizzler.m */; settings = {ASSET_TAGS = (); }; };
-		A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB0E231BA38CCB000A9A58 /* XGPeppermintPlugin.m */; settings = {ASSET_TAGS = (); }; };
-		A1EB0E2D1BA39B35000A9A58 /* XGLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB0E2C1BA39B35000A9A58 /* XGLogger.m */; settings = {ASSET_TAGS = (); }; };
+		A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A131DB351BA5E24400A5D391 /* Localizable.strings */; };
+		A16830891BA4F68A009D9F8E /* XGMessageViewerSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A16830881BA4F68A009D9F8E /* XGMessageViewerSwizzler.m */; };
+		A1E691761BA5D44D00C4D5ED /* ReplyWithPeppermint.png in Resources */ = {isa = PBXBuildFile; fileRef = A1E691751BA5D44D00C4D5ED /* ReplyWithPeppermint.png */; };
+		A1E691781BA5D45800C4D5ED /* ReplyWithPeppermint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1E691771BA5D45800C4D5ED /* ReplyWithPeppermint@2x.png */; };
+		A1E6917D1BA5DADD00C4D5ED /* XGToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E6917C1BA5DADD00C4D5ED /* XGToolbarItem.m */; };
+		A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB0E231BA38CCB000A9A58 /* XGPeppermintPlugin.m */; };
+		A1EB0E2D1BA39B35000A9A58 /* XGLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB0E2C1BA39B35000A9A58 /* XGLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A131DB341BA5E24400A5D391 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A16830871BA4F68A009D9F8E /* XGMessageViewerSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGMessageViewerSwizzler.h; sourceTree = "<group>"; };
 		A16830881BA4F68A009D9F8E /* XGMessageViewerSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGMessageViewerSwizzler.m; sourceTree = "<group>"; };
+		A1E691751BA5D44D00C4D5ED /* ReplyWithPeppermint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReplyWithPeppermint.png; sourceTree = "<group>"; };
+		A1E691771BA5D45800C4D5ED /* ReplyWithPeppermint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ReplyWithPeppermint@2x.png"; sourceTree = "<group>"; };
+		A1E6917B1BA5DADD00C4D5ED /* XGToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGToolbarItem.h; sourceTree = "<group>"; };
+		A1E6917C1BA5DADD00C4D5ED /* XGToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGToolbarItem.m; sourceTree = "<group>"; };
 		A1EB0E221BA38CCB000A9A58 /* XGPeppermintPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGPeppermintPlugin.h; sourceTree = "<group>"; };
 		A1EB0E231BA38CCB000A9A58 /* XGPeppermintPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGPeppermintPlugin.m; sourceTree = "<group>"; };
 		A1EB0E2B1BA39B35000A9A58 /* XGLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGLogger.h; sourceTree = "<group>"; };
@@ -564,6 +573,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A131DB301BA5E21600A5D391 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A131DB351BA5E24400A5D391 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A1E691741BA5D43D00C4D5ED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A1E691751BA5D44D00C4D5ED /* ReplyWithPeppermint.png */,
+				A1E691771BA5D45800C4D5ED /* ReplyWithPeppermint@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A1EB0E281BA39A71000A9A58 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -1147,6 +1173,7 @@
 				A1EB0E281BA39A71000A9A58 /* Tools */,
 				A1EB1A951BA39F82000A9A58 /* Mail */,
 				A1EBF97B1BA3820E000A9A58 /* Peppermint */,
+				A131DB301BA5E21600A5D391 /* Resources */,
 				A1EBF97A1BA3820E000A9A58 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1163,6 +1190,9 @@
 		A1EBF97B1BA3820E000A9A58 /* Peppermint */ = {
 			isa = PBXGroup;
 			children = (
+				A1E691741BA5D43D00C4D5ED /* Resources */,
+				A1E6917B1BA5DADD00C4D5ED /* XGToolbarItem.h */,
+				A1E6917C1BA5DADD00C4D5ED /* XGToolbarItem.m */,
 				A16830871BA4F68A009D9F8E /* XGMessageViewerSwizzler.h */,
 				A16830881BA4F68A009D9F8E /* XGMessageViewerSwizzler.m */,
 				A1EB0E221BA38CCB000A9A58 /* XGPeppermintPlugin.h */,
@@ -1230,6 +1260,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1E691781BA5D45800C4D5ED /* ReplyWithPeppermint@2x.png in Resources */,
+				A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */,
+				A1E691761BA5D44D00C4D5ED /* ReplyWithPeppermint.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1243,10 +1276,22 @@
 				A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */,
 				A1EB0E2D1BA39B35000A9A58 /* XGLogger.m in Sources */,
 				A16830891BA4F68A009D9F8E /* XGMessageViewerSwizzler.m in Sources */,
+				A1E6917D1BA5DADD00C4D5ED /* XGToolbarItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A131DB351BA5E24400A5D391 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A131DB341BA5E24400A5D391 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A1EBF97D1BA3820E000A9A58 /* Debug */ = {
