@@ -7,8 +7,13 @@
 //
 
 #import "XGMessageViewerSwizzler.h"
+#import "XGToolbarItem.h"
 #import <Cocoa/Cocoa.h>
 #import <objc/runtime.h>
+
+
+static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithPeppermint";
+
 
 @interface XGMessageViewerSwizzler(SwizzleOriginals)
 
@@ -87,22 +92,46 @@ static BOOL class_replaceMethodWithAnother(Class dst, SEL dstName, Class src, SE
 - (NSArray*)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar
 {
 	XG_TRACE_FUNC();
-
-	return [self peppermintSwizzled_toolbarAllowedItemIdentifiers:toolbar];
+	NSArray* items = [self peppermintSwizzled_toolbarAllowedItemIdentifiers:toolbar];
+	return [items containsObject:XGReplyWithPeppermintToolbarItemIdentifier] ? items
+		: [items arrayByAddingObject:XGReplyWithPeppermintToolbarItemIdentifier];
 }
 
 - (NSArray*)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
 {
 	XG_TRACE_FUNC();
-
-	return [self peppermintSwizzled_toolbarDefaultItemIdentifiers:toolbar];
+	NSMutableArray* items = [NSMutableArray arrayWithArray:[self peppermintSwizzled_toolbarDefaultItemIdentifiers:toolbar]];
+	if (![items containsObject:XGReplyWithPeppermintToolbarItemIdentifier])
+	{
+		// insert our identifier at the desired place (or just append)
+		NSUInteger index = 0;
+		for (; index < [items count]; ++index)
+		{
+			if ([items[index] isEqual:@"reply_replyAll_forward" /* optimal place for us, as in Apple Mail 8.2*/])
+				break;
+		}
+		if (index < [items count])
+			// insert "after" the reply_replyAll_forward if found
+			++index;
+		[items insertObject:XGReplyWithPeppermintToolbarItemIdentifier atIndex:index];
+	}
+	
+	XG_DEBUG(@"Adjusted list of toolbar items: %@", items);
+	
+	return items;
 }
 
 - (NSToolbarItem*)toolbar:(NSToolbar*)toolbar itemForItemIdentifier:(NSString*)identifier willBeInsertedIntoToolbar:(BOOL)flag
 {
 	XG_TRACE_FUNC();
 
-	return [self peppermintSwizzled_toolbar:toolbar itemForItemIdentifier:identifier willBeInsertedIntoToolbar:flag];
+	if (![identifier isEqual:XGReplyWithPeppermintToolbarItemIdentifier])
+		return [self peppermintSwizzled_toolbar:toolbar itemForItemIdentifier:identifier willBeInsertedIntoToolbar:flag];
+	
+	// return item for the ReplyWithPeppermint button
+	NSToolbarItem* item = [[XGToolbarItem alloc] initWithItemIdentifier:XGReplyWithPeppermintToolbarItemIdentifier imageName:@"ReplyWithPeppermint"];
+	
+	return item;
 }
 
 @end

@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  Peppermint
+
+  Created by Boris Remizov on 13/09/15.
+  Copyright (c) 2015 Xgen Mobile. All rights reserved.
+*/
+
+replyWithPeppermint_label = "Reply";
+replyWithPeppermint_paletteLabel = "Reply with Peppermint";
