@@ -7,6 +7,7 @@
 //
 
 #import "XGToolbarItem.h"
+#import "Mail/MessageViewer.h"
 
 @implementation XGToolbarItem
 
@@ -44,8 +45,8 @@
 
 - (IBAction)replyWithPeppermint:(id)sender
 {
-	// run record recording window, similar to the MessageEditorWindow
-	NSRunAlertPanel(@"Reply with Reppermint", @"", @"OK", @"Cancel", nil);
+	// TODO: run record recording window, similar to the MessageEditorWindow
+	[[NSApplication sharedApplication] sendAction:@selector(showComposeWindow:) to:nil from:sender];
 }
 
 @end

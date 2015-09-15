@@ -50,13 +50,13 @@ static NSFileHandle* createLogFileForFile(NSString* file)
 }
 
 
-void XGLog(NSInteger logLevel, NSString* format, ...)
+int XGLog(NSInteger logLevel, NSString* format, ...)
 {
     static NSFileHandle* logFile = nil;
     static NSDateFormatter* dateFormatter = nil;
 
     if ([[NSUserDefaults standardUserDefaults] integerForKey:XGTraceLevelKey] < logLevel)
-        return;
+        return 0;
 
     if (nil == logFile)
     {
@@ -78,5 +78,8 @@ void XGLog(NSInteger logLevel, NSString* format, ...)
 
     NSString* fullLogString = [NSString stringWithFormat:@"%@\t%@\t%@\n", [dateFormatter stringFromDate:[NSDate date]], @(logLevel), logString];
 
-    [logFile writeData:[fullLogString dataUsingEncoding:NSUTF8StringEncoding]];
+	NSData* fullLogData = [fullLogString dataUsingEncoding:NSUTF8StringEncoding];
+    [logFile writeData:fullLogData];
+
+	return (int)[fullLogData length];
 }

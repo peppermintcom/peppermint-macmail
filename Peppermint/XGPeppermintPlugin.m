@@ -7,7 +7,7 @@
 //
 
 #import "XGPeppermintPlugin.h"
-#import "XGMessageViewerSwizzler.h"
+#import "XGToolbarDelegateSwizzler.h"
 
 @implementation XGPeppermintPlugin
 
@@ -24,7 +24,8 @@
 + (BOOL)registerMessageViewerToolbarItem:(NSError**)error
 {
 	XG_TRACE_FUNC();
-	return [XGMessageViewerSwizzler swizzle:error];
+//	return [XGMessageViewerSwizzler swizzle:error];
+	return FALSE;
 }
 
 + (BOOL)registerMessageWindowToolbarItem:(NSError**)error

@@ -20,7 +20,7 @@ extern NSString* const XGTraceHistory;
 
 __BEGIN_DECLS
 
-extern void XGLog(NSInteger logLevel, NSString* format, ...);
+extern int XGLog(NSInteger logLevel, NSString* format, ...);
 
 #define XG_TRACE_FUNC() XGLog(2, @"%s@%@:%d", __PRETTY_FUNCTION__, [[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lastPathComponent], __LINE__)
 #define XG_DEBUG(format, ...) XGLog(3, format, ##__VA_ARGS__)
@@ -28,8 +28,8 @@ extern void XGLog(NSInteger logLevel, NSString* format, ...);
 #define XG_WARNING(format, ...) XGLog(1, format, ##__VA_ARGS__)
 #define XG_ERROR(format, ...) XGLog(0, format, ##__VA_ARGS__)
 
-#define XG_CHECK(expr, format, ...) if (!(expr)) XG_ERROR(format, ##__VA_ARGS__)
+#define XG_CHECK(expr, format, ...) if (!(expr)) XGLog(0, format, ##__VA_ARGS__)
 
-#define XG_ASSERT(expr, format, ...)  (expr)
+#define XG_ASSERT(expr, format, ...)  if (!(expr)) {XGLog(0, format, ##__VA_ARGS__); assert(false);}
 
 __END_DECLS
