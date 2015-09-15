@@ -12,10 +12,10 @@
 #import "Tools/XGSwizzle.h"
 
 
-NS_ENUM(NSInteger)
-{
-	XGAlreadySwizzledError = 920927
-};
+//NS_ENUM(NSInteger)
+//{
+//	XGAlreadySwizzledError = 920927
+//};
 
 
 static NSMutableDictionary* swizzlers = nil;
@@ -39,18 +39,18 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 
 @interface XGToolbarDelegateSwizzler(Override)
 
-- (nullable NSToolbarItem *)overrideToolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag;
-- (NSArray<NSString *> *)overrideToolbarDefaultItemIdentifiers:(NSToolbar *)toolbar;
-- (NSArray<NSString *> *)overrideToolbarAllowedItemIdentifiers:(NSToolbar *)toolbar;
+- (NSToolbarItem *)overrideToolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag;
+- (NSArray*)overrideToolbarDefaultItemIdentifiers:(NSToolbar *)toolbar;
+- (NSArray*)overrideToolbarAllowedItemIdentifiers:(NSToolbar *)toolbar;
 
 @end
 
 
 @protocol XGToolbarDelegateSwizzlerOriginal
 
-- (nullable NSToolbarItem *)originalToolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag;
-- (NSArray<NSString *> *)originalToolbarDefaultItemIdentifiers:(NSToolbar *)toolbar;
-- (NSArray<NSString *> *)originalToolbarAllowedItemIdentifiers:(NSToolbar *)toolbar;
+- (NSToolbarItem*)originalToolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag;
+- (NSArray*)originalToolbarDefaultItemIdentifiers:(NSToolbar *)toolbar;
+- (NSArray*)originalToolbarAllowedItemIdentifiers:(NSToolbar *)toolbar;
 
 @end
 
@@ -120,7 +120,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 }
 
 // default NSToolbarDelegate implementation
-- (nullable NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag
+- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag
 {
 	XG_TRACE_FUNC();
 
@@ -132,7 +132,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	return [original originalToolbar:toolbar itemForItemIdentifier:itemIdentifier willBeInsertedIntoToolbar:flag];
 }
 
-- (NSArray<NSString *> *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar
+- (NSArray*)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
 {
 	XG_TRACE_FUNC();
 
@@ -144,7 +144,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	return [original originalToolbarDefaultItemIdentifiers:toolbar];
 }
 
-- (NSArray<NSString *> *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar
+- (NSArray*)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar
 {
 	XG_TRACE_FUNC();
 
@@ -160,7 +160,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 
 @implementation XGToolbarDelegateSwizzler(Override)
 
-- (nullable NSToolbarItem *)overrideToolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag
+- (NSToolbarItem *)overrideToolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag
 {
 	XG_DEBUG(@"%@ called in class %@", __PRETTY_FUNCTION__, NSStringFromClass([self class]));
 
@@ -176,7 +176,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	return item;
 }
 
-- (NSArray<NSString *> *)overrideToolbarDefaultItemIdentifiers:(NSToolbar *)toolbar
+- (NSArray*)overrideToolbarDefaultItemIdentifiers:(NSToolbar *)toolbar
 {
 	XG_DEBUG(@"%@ called in class %@", __PRETTY_FUNCTION__, NSStringFromClass([self class]));
 
@@ -192,7 +192,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 
 }
 
-- (NSArray<NSString *> *)overrideToolbarAllowedItemIdentifiers:(NSToolbar *)toolbar
+- (NSArray*)overrideToolbarAllowedItemIdentifiers:(NSToolbar *)toolbar
 {
 	XG_DEBUG(@"%@ called in class %@", __PRETTY_FUNCTION__, NSStringFromClass([self class]));
 

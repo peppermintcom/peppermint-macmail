@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A128486D1BA8262B00DD38CF /* XGMessageViewerSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A128486C1BA8262B00DD38CF /* XGMessageViewerSwizzler.m */; };
+		A12848771BA8272900DD38CF /* PeppermintUT.m in Sources */ = {isa = PBXBuildFile; fileRef = A12848761BA8272900DD38CF /* PeppermintUT.m */; };
+		A128487D1BA8279A00DD38CF /* Peppermint.mailbundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EBF9791BA3820E000A9A58 /* Peppermint.mailbundle */; };
+		A128487F1BA830C300DD38CF /* MessageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A128487E1BA830C300DD38CF /* MessageViewer.m */; };
 		A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A131DB351BA5E24400A5D391 /* Localizable.strings */; };
 		A16830891BA4F68A009D9F8E /* XGToolbarDelegateSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A16830881BA4F68A009D9F8E /* XGToolbarDelegateSwizzler.m */; };
 		A1E691761BA5D44D00C4D5ED /* ReplyWithPeppermint.png in Resources */ = {isa = PBXBuildFile; fileRef = A1E691751BA5D44D00C4D5ED /* ReplyWithPeppermint.png */; };
@@ -14,10 +18,26 @@
 		A1E6917D1BA5DADD00C4D5ED /* XGToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E6917C1BA5DADD00C4D5ED /* XGToolbarItem.m */; };
 		A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB0E231BA38CCB000A9A58 /* XGPeppermintPlugin.m */; };
 		A1EB0E2D1BA39B35000A9A58 /* XGLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB0E2C1BA39B35000A9A58 /* XGLogger.m */; };
-		A1FCBBF11BA795EC00D6107A /* XGSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FCBBF01BA795EC00D6107A /* XGSwizzle.m */; settings = {ASSET_TAGS = (); }; };
+		A1FCBBF11BA795EC00D6107A /* XGSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FCBBF01BA795EC00D6107A /* XGSwizzle.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A128487B1BA8278E00DD38CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1EBF9711BA3820E000A9A58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1EBF9781BA3820E000A9A58;
+			remoteInfo = Peppermint;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		A128486B1BA8262B00DD38CF /* XGMessageViewerSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGMessageViewerSwizzler.h; sourceTree = "<group>"; };
+		A128486C1BA8262B00DD38CF /* XGMessageViewerSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGMessageViewerSwizzler.m; sourceTree = "<group>"; };
+		A12848721BA8272900DD38CF /* PeppermintUT.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeppermintUT.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A12848751BA8272900DD38CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A12848761BA8272900DD38CF /* PeppermintUT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeppermintUT.m; sourceTree = "<group>"; };
+		A128487E1BA830C300DD38CF /* MessageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewer.m; sourceTree = "<group>"; };
 		A131DB341BA5E24400A5D391 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A16830871BA4F68A009D9F8E /* XGToolbarDelegateSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGToolbarDelegateSwizzler.h; sourceTree = "<group>"; };
 		A16830881BA4F68A009D9F8E /* XGToolbarDelegateSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGToolbarDelegateSwizzler.m; sourceTree = "<group>"; };
@@ -38,6 +58,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A128486F1BA8272900DD38CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A128487D1BA8279A00DD38CF /* Peppermint.mailbundle in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1EBF9761BA3820E000A9A58 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -48,6 +76,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A12848731BA8272900DD38CF /* PeppermintUT */ = {
+			isa = PBXGroup;
+			children = (
+				A12848741BA8272900DD38CF /* Supporting Files */,
+				A12848761BA8272900DD38CF /* PeppermintUT.m */,
+				A128487E1BA830C300DD38CF /* MessageViewer.m */,
+			);
+			path = PeppermintUT;
+			sourceTree = "<group>";
+		};
+		A12848741BA8272900DD38CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A12848751BA8272900DD38CF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A131DB301BA5E21600A5D391 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +137,7 @@
 				A1EB1A951BA39F82000A9A58 /* Mail */,
 				A1EBF97B1BA3820E000A9A58 /* Peppermint */,
 				A131DB301BA5E21600A5D391 /* Resources */,
+				A12848731BA8272900DD38CF /* PeppermintUT */,
 				A1EBF97A1BA3820E000A9A58 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				A1EBF9791BA3820E000A9A58 /* Peppermint.mailbundle */,
+				A12848721BA8272900DD38CF /* PeppermintUT.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				A1E691741BA5D43D00C4D5ED /* Resources */,
+				A128486B1BA8262B00DD38CF /* XGMessageViewerSwizzler.h */,
+				A128486C1BA8262B00DD38CF /* XGMessageViewerSwizzler.m */,
 				A1E6917B1BA5DADD00C4D5ED /* XGToolbarItem.h */,
 				A1E6917C1BA5DADD00C4D5ED /* XGToolbarItem.m */,
 				A16830871BA4F68A009D9F8E /* XGToolbarDelegateSwizzler.h */,
@@ -123,6 +173,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A12848711BA8272900DD38CF /* PeppermintUT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A12848781BA8272900DD38CF /* Build configuration list for PBXNativeTarget "PeppermintUT" */;
+			buildPhases = (
+				A128486E1BA8272900DD38CF /* Sources */,
+				A128486F1BA8272900DD38CF /* Frameworks */,
+				A12848701BA8272900DD38CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A128487C1BA8278E00DD38CF /* PBXTargetDependency */,
+			);
+			name = PeppermintUT;
+			productName = PeppermintUT;
+			productReference = A12848721BA8272900DD38CF /* PeppermintUT.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A1EBF9781BA3820E000A9A58 /* Peppermint */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1EBF97F1BA3820E000A9A58 /* Build configuration list for PBXNativeTarget "Peppermint" */;
@@ -150,6 +218,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Xgen Mobile";
 				TargetAttributes = {
+					A12848711BA8272900DD38CF = {
+						CreatedOnToolsVersion = 6.1;
+					};
 					A1EBF9781BA3820E000A9A58 = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -168,11 +239,19 @@
 			projectRoot = "";
 			targets = (
 				A1EBF9781BA3820E000A9A58 /* Peppermint */,
+				A12848711BA8272900DD38CF /* PeppermintUT */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A12848701BA8272900DD38CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1EBF9771BA3820E000A9A58 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -186,12 +265,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A128486E1BA8272900DD38CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A12848771BA8272900DD38CF /* PeppermintUT.m in Sources */,
+				A128487F1BA830C300DD38CF /* MessageViewer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1EBF9751BA3820E000A9A58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */,
 				A1EB0E2D1BA39B35000A9A58 /* XGLogger.m in Sources */,
+				A128486D1BA8262B00DD38CF /* XGMessageViewerSwizzler.m in Sources */,
 				A16830891BA4F68A009D9F8E /* XGToolbarDelegateSwizzler.m in Sources */,
 				A1E6917D1BA5DADD00C4D5ED /* XGToolbarItem.m in Sources */,
 				A1FCBBF11BA795EC00D6107A /* XGSwizzle.m in Sources */,
@@ -199,6 +288,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A128487C1BA8278E00DD38CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1EBF9781BA3820E000A9A58 /* Peppermint */;
+			targetProxy = A128487B1BA8278E00DD38CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A131DB351BA5E24400A5D391 /* Localizable.strings */ = {
@@ -212,6 +309,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A12848791BA8272900DD38CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = PeppermintUT/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A128487A1BA8272900DD38CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PeppermintUT/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A1EBF97D1BA3820E000A9A58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -328,6 +463,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A12848781BA8272900DD38CF /* Build configuration list for PBXNativeTarget "PeppermintUT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A12848791BA8272900DD38CF /* Debug */,
+				A128487A1BA8272900DD38CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A1EBF9741BA3820E000A9A58 /* Build configuration list for PBXProject "Peppermint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
