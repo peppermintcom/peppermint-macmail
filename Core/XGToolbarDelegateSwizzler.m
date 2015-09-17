@@ -7,16 +7,7 @@
 //
 
 #import "XGToolbarDelegateSwizzler.h"
-#import "XGToolbarItem.h"
-
-#import "Tools/XGSwizzle.h"
-
-
-//NS_ENUM(NSInteger)
-//{
-//	XGAlreadySwizzledError = 920927
-//};
-
+#import "XGSwizzle.h"
 
 static NSMutableDictionary* swizzlers = nil;
 
@@ -66,7 +57,10 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 + (void)initialize
 {
 	XG_TRACE_FUNC();
-	XG_ASSERT(swizzlers == nil, @"XGToolbarDelegateSwizzler was already initialized");
+
+	if (swizzlers)
+		return;
+
 	swizzlers = [NSMutableDictionary new];
 }
 
@@ -119,16 +113,21 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	// TODO: unswizzle
 }
 
+- (id)curentSwizzledObject
+{
+	// call original method (got from current context)
+	NSDictionary* context = swizzleContextForClass(self.swizzledClass);
+	return [context[@"Original"] nonretainedObjectValue];
+}
+
 // default NSToolbarDelegate implementation
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag
 {
 	XG_TRACE_FUNC();
 
 	// call original method (got from current context)
-	NSDictionary* context = swizzleContextForClass(_swizzledClass);
-	XG_ASSERT(context[@"Original"], @"The Original pointer not found in swizzle context. %@", context);
-
-	id<XGToolbarDelegateSwizzlerOriginal> original = context[@"Original"];
+	id<XGToolbarDelegateSwizzlerOriginal> original = self.curentSwizzledObject;
+	XG_ASSERT(original, @"The Original pointer not found in swizzle context");
 	return [original originalToolbar:toolbar itemForItemIdentifier:itemIdentifier willBeInsertedIntoToolbar:flag];
 }
 
@@ -137,10 +136,8 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	XG_TRACE_FUNC();
 
 	// call original method (got from current context)
-	NSDictionary* context = swizzleContextForClass(_swizzledClass);
-	XG_ASSERT(context[@"Original"], @"The Original pointer not found in swizzle context. %@", context);
-
-	id<XGToolbarDelegateSwizzlerOriginal> original = context[@"Original"];
+	id<XGToolbarDelegateSwizzlerOriginal> original = self.curentSwizzledObject;
+	XG_ASSERT(original, @"The Original pointer not found in swizzle context");
 	return [original originalToolbarDefaultItemIdentifiers:toolbar];
 }
 
@@ -149,10 +146,8 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	XG_TRACE_FUNC();
 
 	// call original method (got from current context)
-	NSDictionary* context = swizzleContextForClass(_swizzledClass);
-	XG_ASSERT(context[@"Original"], @"The Original pointer not found in swizzle context. %@", context);
-
-	id<XGToolbarDelegateSwizzlerOriginal> original = context[@"Original"];
+	id<XGToolbarDelegateSwizzlerOriginal> original = self.curentSwizzledObject;
+	XG_ASSERT(original, @"The Original pointer not found in swizzle context");
 	return [original originalToolbarAllowedItemIdentifiers:toolbar];
 }
 
@@ -162,15 +157,18 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 
 - (NSToolbarItem *)overrideToolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag
 {
-	XG_DEBUG(@"%@ called in class %@", __PRETTY_FUNCTION__, NSStringFromClass([self class]));
+	XG_DEBUG(@"%s called in class %@", __PRETTY_FUNCTION__, NSStringFromClass([self class]));
 
 	NSMutableDictionary* context = swizzleContextForClass([self class]);
-	id<NSToolbarDelegate> swizzler = context[@"Swizzler"];
+	id<NSToolbarDelegate> swizzler = [context[@"Swizzler"] nonretainedObjectValue];
 
 	// update contet and call overriding method in overriding class
-	context[@"Original"] = self;
+	// self here is an object of the "swizzledClass", not XGToolbarDelegateSwizzler
+	context[@"Original"] = [NSValue valueWithNonretainedObject:self];
 
+	// forward call to "swizzler" i.e. our XGToolbarDelegateSwizzler class/subclass
 	NSToolbarItem* item = [swizzler toolbar:toolbar itemForItemIdentifier:itemIdentifier willBeInsertedIntoToolbar:flag];
+
 	[context removeObjectForKey:@"Original"];
 
 	return item;
@@ -178,14 +176,18 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 
 - (NSArray*)overrideToolbarDefaultItemIdentifiers:(NSToolbar *)toolbar
 {
-	XG_DEBUG(@"%@ called in class %@", __PRETTY_FUNCTION__, NSStringFromClass([self class]));
+	XG_DEBUG(@"%s called in class %@", __PRETTY_FUNCTION__, NSStringFromClass([self class]));
 
 	NSMutableDictionary* context = swizzleContextForClass([self class]);
-	id<NSToolbarDelegate> swizzler = context[@"Swizzler"];
+	id<NSToolbarDelegate> swizzler = [context[@"Swizzler"] nonretainedObjectValue];
 
 	// update contet and call overriding method in overriding class
-	context[@"Original"] = self;
+	// self here is an object of the "swizzledClass", not XGToolbarDelegateSwizzler
+	context[@"Original"] = [NSValue valueWithNonretainedObject:self];
+
+	// forward call to "swizzler" i.e. our XGToolbarDelegateSwizzler class/subclass
 	NSArray* identifiers = [swizzler toolbarDefaultItemIdentifiers:toolbar];
+
 	[context removeObjectForKey:@"Original"];
 
 	return identifiers;
@@ -194,14 +196,18 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 
 - (NSArray*)overrideToolbarAllowedItemIdentifiers:(NSToolbar *)toolbar
 {
-	XG_DEBUG(@"%@ called in class %@", __PRETTY_FUNCTION__, NSStringFromClass([self class]));
+	XG_DEBUG(@"%s called in class %@", __PRETTY_FUNCTION__, NSStringFromClass([self class]));
 
 	NSMutableDictionary* context = swizzleContextForClass([self class]);
-	id<NSToolbarDelegate> swizzler = context[@"Swizzler"];
+	id<NSToolbarDelegate> swizzler = [context[@"Swizzler"] nonretainedObjectValue];
 
 	// update contet and call overriding method in overriding class
-	context[@"Original"] = self;
+	// self here is an object of the "swizzledClass", not XGToolbarDelegateSwizzler
+	context[@"Original"] = [NSValue valueWithNonretainedObject:self];
+
+	// forward call to "swizzler" i.e. our XGToolbarDelegateSwizzler class/subclass
 	NSArray* identifiers = [swizzler toolbarAllowedItemIdentifiers:toolbar];
+
 	[context removeObjectForKey:@"Original"];
 
 	return identifiers;

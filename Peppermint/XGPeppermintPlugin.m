@@ -7,10 +7,12 @@
 //
 
 #import "XGPeppermintPlugin.h"
-#import "XGMessageViewerSwizzler.h"
-#import "XGToolbarDelegateSwizzler.h"
+#import "ReplyWithPeppermint/XGMessageViewerSwizzler.h"
 
 @implementation XGPeppermintPlugin
+
+id _swizzler1;
+id _swizzler2;
 
 + (void)load
 {
@@ -25,8 +27,7 @@
 + (BOOL)registerMessageViewerToolbarItem:(NSError**)error
 {
 	XG_TRACE_FUNC();
-	return [XGMessageViewerSwizzler swizzle:error];
-	return FALSE;
+	return ([XGMessageViewerSwizzler sharedInstance] != nil);
 }
 
 + (BOOL)registerMessageWindowToolbarItem:(NSError**)error

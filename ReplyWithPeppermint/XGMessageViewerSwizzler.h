@@ -6,10 +6,11 @@
 //  Copyright © 2015 Xgen Mobile. All rights reserved.
 //
 
+#import "Core/XGToolbarDelegateSwizzler.h"
 #import <Foundation/Foundation.h>
 
-@interface XGMessageViewerSwizzler : NSObject
+@interface XGMessageViewerSwizzler : XGToolbarDelegateSwizzler
 
-+ (BOOL)swizzle:(NSError**)error;
++ (instancetype)sharedInstance;
 
 @end
