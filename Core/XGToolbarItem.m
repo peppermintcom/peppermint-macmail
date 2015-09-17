@@ -34,19 +34,7 @@
 
 	self.paletteLabel = NSLocalizedStringFromTableInBundle([itemIdentifier stringByAppendingString:@"_paletteLabel"], nil, [NSBundle bundleForClass:[self class]], "String of form ToolbarItemIdentifier_paletteLabel");
 	
-	// subclasses cound configure target and action in this method too
-	
-	// test
-	self.target = self;
-	self.action = @selector(replyWithPeppermint:);
-	
 	return self;
-}
-
-- (IBAction)replyWithPeppermint:(id)sender
-{
-	// TODO: run record recording window, similar to the MessageEditorWindow
-	[[NSApplication sharedApplication] sendAction:@selector(showComposeWindow:) to:nil from:sender];
 }
 
 @end
