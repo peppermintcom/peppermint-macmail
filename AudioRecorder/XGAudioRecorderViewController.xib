@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6249" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6249"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="XGAudioRecorderViewController">
             <connections>
+                <outlet property="playStopButton" destination="9hP-Ju-476" id="aZf-1w-6Pp"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -39,7 +40,11 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="elapsedSeconds" id="Z6K-TS-XFt"/>
+                        <binding destination="-2" name="value" keyPath="elapsedSeconds" id="vuM-H5-e4V">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">XG2DigitsNumberFormatter</string>
+                            </dictionary>
+                        </binding>
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nbN-Wd-Rrc">
@@ -53,7 +58,11 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="elapsedMinutes" id="FKB-GE-goq"/>
+                        <binding destination="-2" name="value" keyPath="elapsedMinutes" id="28z-46-TVU">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">XG2DigitsNumberFormatter</string>
+                            </dictionary>
+                        </binding>
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MXu-ud-8Oa">
@@ -83,7 +92,11 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="elapsedMilliseconds" id="k9Y-QR-ZZZ"/>
+                        <binding destination="-2" name="value" keyPath="elapsedMilliseconds" id="N2y-K6-OIY">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">XG3DigitsNumberFormatter</string>
+                            </dictionary>
+                        </binding>
                     </connections>
                 </textField>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="9hP-Ju-476">
@@ -93,7 +106,7 @@
                         <constraint firstAttribute="width" constant="48" id="tYT-Q7-keI"/>
                     </constraints>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Rec" imagePosition="only" alignment="center" alternateImage="Stop" imageScaling="proportionallyUpOrDown" inset="2" id="TLs-0n-3ZH">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                         <string key="keyEquivalent">r</string>
                         <modifierMask key="keyEquivalentModifierMask" command="YES"/>
@@ -110,9 +123,9 @@
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="Mic" id="kFm-Cn-JD4"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oCE-aQ-VSU">
+                <textField autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oCE-aQ-VSU" customClass="XGMouseTransparrentTextField">
                     <rect key="frame" x="62" y="18" width="21" height="28"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" id="fmt-I8-aok">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" usesSingleLineMode="YES" id="fmt-I8-aok">
                         <font key="font" size="23" name=".HelveticaNeueDeskInterface-Thin"/>
                         <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

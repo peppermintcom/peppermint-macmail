@@ -13,6 +13,10 @@
 
 @property (nonatomic, strong) XGAudioRecorderViewController* audioRecorder;
 @property (nonatomic, assign) IBOutlet NSView* audioRecorderFrameView;
+
+- (IBAction)reply:(id)sender;
+- (IBAction)cancel:(id)sender;
+
 @end
 
 @implementation XGReplyWithPeppermintWindowController
@@ -44,6 +48,18 @@
 	[[self class] addEdgeConstraint:NSLayoutAttributeRight superview:self.audioRecorderFrameView subview:self.audioRecorder.view];
 	[[self class] addEdgeConstraint:NSLayoutAttributeTop superview:self.audioRecorderFrameView subview:self.audioRecorder.view];
 	[[self class] addEdgeConstraint:NSLayoutAttributeBottom superview:self.audioRecorderFrameView subview:self.audioRecorder.view];
+}
+
+- (IBAction)reply:(id)sender
+{
+	[self.audioRecorder stop];
+	
+}
+
+- (IBAction)cancel:(id)sender
+{
+	[self.audioRecorder stop];
+	[self.window orderOut:sender];
 }
 
 @end
