@@ -7,7 +7,7 @@
 //
 
 #import "XGAudioRecorderViewController.h"
-#import "Tools/XGTemporaryURL.h"
+#import "Core/XGTemporaryURL.h"
 #import <CoreAudio/CoreAudioTypes.h>
 @import AVFoundation;
 
@@ -32,6 +32,8 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 
 @property (nonatomic) BOOL recording;
 
+@property (nonatomic, assign) IBOutlet NSButton* playStopButton;
+
 - (IBAction)recStopDidToggle:(id)sender;
 
 - (BOOL)startRecording;
@@ -48,12 +50,23 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do view setup here.
+
+	// bind the play/stop button state with recording state
+	[self.playStopButton bind:@"state" toObject:self withKeyPath:@"recording" options:nil];
 }
 
 - (void)dealloc
 {
 	[self stop];
+	[self.playStopButton unbind:@"state"];
+	
+	if ([[NSFileManager defaultManager] fileExistsAtPath:self.lastRecordedURL.path])
+	{
+		NSError* error = nil;
+		BOOL result = [[NSFileManager defaultManager] removeItemAtPath:self.lastRecordedURL.path error:&error];
+		if (!result)
+			XG_ERROR(@"Could not delete the lastRecordedURL %@. %@", self.lastRecordedURL, error);
+	}
 }
 
 - (BOOL)record:(NSError**)error
@@ -181,6 +194,9 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 	self.refreshTimer = nil;
 
 	self.preparationCounter = 0;
+	self.elapsedMilliseconds = 0;
+	self.elapsedSeconds = 0;
+	self.elapsedMilliseconds = 0;
 }
 
 - (IBAction)recStopDidToggle:(id)sender
