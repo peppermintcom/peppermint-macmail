@@ -14,6 +14,12 @@
 
 static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithPeppermint";
 
+@interface XGMessageViewerSwizzler()
+
+@property(nonatomic, strong) NSWindowController* replyWithPeppermintWindowController;
+
+@end
+
 @implementation XGMessageViewerSwizzler
 
 + (instancetype)sharedInstance
@@ -78,8 +84,8 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 
 - (IBAction)replyWithPeppermint:(id)sender
 {
-	XGReplyWithPeppermintWindowController* controller = [XGReplyWithPeppermintWindowController controller];
-	[controller showWindow:controller.window];
+	self.replyWithPeppermintWindowController = [XGReplyWithPeppermintWindowController controller];
+	[self.replyWithPeppermintWindowController showWindow:self.replyWithPeppermintWindowController.window];
 }
 
 @end

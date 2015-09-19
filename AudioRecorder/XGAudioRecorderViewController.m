@@ -62,9 +62,10 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 
 	// record to temporary file
 	NSDictionary* settings = @{
-		AVFormatIDKey:@(kAudioFormatMPEGLayer3),
+		AVFormatIDKey:@(kAudioFormatMPEG4AAC_HE),
 		AVSampleRateKey:@(44100),
-		AVNumberOfChannelsKey:@(1)
+		AVNumberOfChannelsKey:@(2),
+		AVEncoderAudioQualityKey: @(AVAudioQualityHigh)
 	};
 
 	self.recorder = [[AVAudioRecorder alloc] initWithURL:XGTemporaryURL()
@@ -138,7 +139,7 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 	// recording started, update context
 	self.recordStartTime = [NSDate date];
 
-	self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self
+	self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:0.011 target:self
 													   selector:@selector(refreshTimerDidFire:)
 													   userInfo:NULL
 														repeats:YES];
