@@ -26,7 +26,21 @@
 		NSString* path = [bundle pathForResource:imageName ofType:@"tiff"];
 		if (nil == path)
 			XG_ERROR(@"Resource %@ cound not be found in bundle %@", imageName, [bundle bundlePath]);
-		self.image = [[NSImage alloc] initWithContentsOfFile:path];
+
+		NSImage* image = [[NSImage alloc] initWithContentsOfFile:path];
+
+#if 1
+		// create button instead of image
+		NSButton* button = [[NSButton alloc] initWithFrame:CGRectMake(0, 0, image.size.width,
+																	  image.size.height)];
+		button.bordered = NO;
+		button.transparent = YES;
+		button.image = image;
+		self.view = button;
+#else
+		self.image = image;
+#endif
+
 	}
 
 	// initialize labels
