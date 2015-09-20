@@ -8,6 +8,7 @@
 
 #import "XGToolbarItem.h"
 #import "Mail/MessageViewer.h"
+#import "Mail/MFMailAccount.h"
 
 @implementation XGToolbarItem
 
@@ -29,18 +30,13 @@
 
 		NSImage* image = [[NSImage alloc] initWithContentsOfFile:path];
 
-#if 1
 		// create button instead of image
 		NSButton* button = [[NSButton alloc] initWithFrame:CGRectMake(0, 0, image.size.width,
 																	  image.size.height)];
-		button.bordered = NO;
-		button.transparent = YES;
-		button.image = image;
+		button.bezelStyle = NSTexturedRoundedBezelStyle;
+		button.title = NSLocalizedStringFromTableInBundle([itemIdentifier stringByAppendingString:@"_label"], nil, [NSBundle bundleForClass:[self class]], "String of form ToolbarItemIdentifier_label");
 		self.view = button;
-#else
-		self.image = image;
-#endif
-
+		self.minSize = CGSizeMake(64, 23);
 	}
 
 	// initialize labels
