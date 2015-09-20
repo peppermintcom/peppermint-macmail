@@ -10,6 +10,8 @@
 #import "XGToolbarItem.h"
 #import "XGReplyWithPeppermintWindowController.h"
 #import "Mail/MessageViewer.h"
+#import "Mail/MCMessageGenerator.h"
+#import "Mail/MCMutableMessageHeaders.h"
 #import <Cocoa/Cocoa.h>
 
 static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithPeppermint";
@@ -84,8 +86,40 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 
 - (IBAction)replyWithPeppermint:(id)sender
 {
+	XG_TRACE_FUNC();
+
+	// debug code
+	for (NSWindow* window in [NSApplication sharedApplication].windows)
+	{
+		XG_DEBUG(@"Window %@: Delegate %@", window.title, window.delegate);
+		if ([NSStringFromClass(window.delegate.class) isEqual:@"DocumentEditor"])
+		{
+			XG_DEBUG(@"%@ wit attachments: %@", [(id)window.delegate document], [[(id)window.delegate document] attachments]);
+		}
+	}
+
+	NSArray* basicHeaders = [NSClassFromString(@"MCMessageHeaders") basicHeaderKeys];
+	XG_DEBUG(@"Headers: %@", basicHeaders);
+
+
+	MCMutableMessageHeaders* headers = [NSClassFromString(@"MCMutableMessageHeaders") new];
+	[headers setHeader:@"catflight@gmail.com" forKey:@"from"];
+	[headers setHeader:@"Test" forKey:@"subject"];
+
+	id message = [[NSClassFromString(@"MCMessageGenerator") new] newMessageWithAttributedString:[[NSAttributedString alloc] initWithString:@"Test"]
+																		   headers:headers];
+	XG_DEBUG(@"Message: %p - %@", message, NSStringFromClass([message class]));
+
+	return;
+
+
 	self.replyWithPeppermintWindowController = [XGReplyWithPeppermintWindowController controller];
-	[self.replyWithPeppermintWindowController showWindow:self.replyWithPeppermintWindowController.window];
+//	[self.replyWithPeppermintWindowController showWindow:self.replyWithPeppermintWindowController.window];
+
+	[[sender window] beginSheet:self.replyWithPeppermintWindowController.window completionHandler:^(NSModalResponse returnCode) {
+
+		self.replyWithPeppermintWindowController = nil;
+	}];
 }
 
 @end
