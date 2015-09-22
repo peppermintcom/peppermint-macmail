@@ -4,9 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2012 by Steve Nygard.
  */
 
-#import "NSObject.h"
-
-#import "NSURLSessionDownloadDelegate.h"
+@import Foundation;
 
 @class MCMimeBody, MCMimePart, NSArray, NSBlockOperation, NSData, NSDate, NSDictionary, NSError, NSFileWrapper, NSImage, NSNumber, NSPort, NSProgress, NSString, NSURL, StationeryCompositeImage;
 
@@ -99,7 +97,7 @@
 @property(retain, nonatomic) NSProgress *downloadProgress; // @synthesize downloadProgress=_downloadProgress;
 @property(nonatomic) unsigned int creator; // @synthesize creator=_creator;
 @property(copy, nonatomic) NSString *contentID; // @synthesize contentID=_contentID;
-- (void).cxx_destruct;
+//- (void).cxx_destruct;
 - (void)_finishedCoordinatedFileReadingWithURL:(id)arg1;
 - (BOOL)hasPendingBackgroundRead;
 - (void)beginBackgroundFileReading;

@@ -6,6 +6,8 @@
 
 @import Foundation;
 
+@class NSData;
+
 @interface MCMessageHeaders : NSObject <NSCopying, NSMutableCopying>
 {
     NSData *_data;
