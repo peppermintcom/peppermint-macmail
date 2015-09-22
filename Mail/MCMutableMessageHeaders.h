@@ -5,7 +5,8 @@
  */
 
 #import "Mail/MCMessageHeaders.h"
-@import Foundation;
+
+@class NSMutableArray, NSMutableDictionary;
 
 @interface MCMutableMessageHeaders : MCMessageHeaders
 {
