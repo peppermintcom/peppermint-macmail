@@ -8,3 +8,5 @@
 
 replyWithPeppermint_label = "Reply";
 replyWithPeppermint_paletteLabel = "Reply with Peppermint";
+insertPeppermint_label = "Attach";
+insertPeppermint_paletteLabel = "Attach with Peppermint";

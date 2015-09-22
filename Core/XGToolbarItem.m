@@ -7,8 +7,6 @@
 //
 
 #import "XGToolbarItem.h"
-#import "Mail/MessageViewer.h"
-#import "Mail/MFMailAccount.h"
 
 @implementation XGToolbarItem
 
