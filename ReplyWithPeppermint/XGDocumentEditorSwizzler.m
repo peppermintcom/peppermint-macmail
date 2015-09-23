@@ -7,9 +7,10 @@
 //
 
 #import "XGDocumentEditorSwizzler.h"
+#import "XGAttachPeppermintWindowController.h"
 #import "Core/XGToolbarItem.h"
 #import "Mail/DocumentEditor.h"
-#import "Mail/WebViewEditor.h"
+#import "Mail/MailWebViewEditor.h"
 #import "Mail/MCMutableMessageHeaders.h"
 #import "Mail/MCMessageGenerator.h"
 #import "Mail/MFWebMessageDocument.h"
@@ -78,13 +79,15 @@ static NSString* const XGAttachWithPeppermintToolbarItemIdentifier = @"insertPep
 {
 	XG_TRACE_FUNC();
 
-	// debug code
-	DocumentEditor* documentEditor = [[sender window] delegate];
-	MFWebMessageDocument* document = [documentEditor webMessageDocument];
+	[[XGAttachPeppermintWindowController controller] beginSheetModalForWindow:[sender window]
+															completionHandler:^(NSURL *audioFile, NSError *error) {
+		if (nil == audioFile)
+			return;
 
-	WebViewEditor* editor = documentEditor.webViewEditor;
-	NSURL* fileUrl = [NSURL fileURLWithPath:@"/Users/boris/Downloads/31F374060D441A59E826659B5F6A624697E4CC3BE56D4FAFD9pimgpsh_fullsize_distr.jpg"];
-	[editor addAttachmentsForFiles:@[fileUrl]];
+		DocumentEditor* documentEditor = (DocumentEditor*)[[sender window] delegate];
+		WebViewEditor* editor = documentEditor.webViewEditor;
+		[editor addAttachmentsForFiles:@[audioFile]];
+	}];
 }
 
 @end

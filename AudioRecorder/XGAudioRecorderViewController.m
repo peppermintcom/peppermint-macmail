@@ -33,6 +33,7 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 @property (nonatomic) BOOL recording;
 
 @property (nonatomic, assign) IBOutlet NSButton* playStopButton;
+@property (nonatomic, strong) id windowNotificationsObserver;
 
 - (IBAction)recStopDidToggle:(id)sender;
 
@@ -48,15 +49,50 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 														   bundle:[NSBundle bundleForClass:self]];
 }
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (!self)
+		return nil;
+
+	// set some default values
+	self.preparationInterval = XGAudioRecorderViewControllerPreparationInterval;
+	self.maxDuration = 60.0;
+
+	return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
 	// bind the play/stop button state with recording state
 	[self.playStopButton bind:@"state" toObject:self withKeyPath:@"recording" options:nil];
+
+	// monitor all NSWondow events to catch situation our view did activated to start recording
+	// if the startsRecordingAutomatically property is set
+	self.windowNotificationsObserver = [[NSNotificationCenter defaultCenter] addObserverForName:NSWindowDidBecomeKeyNotification
+																						 object:nil
+																						  queue:[NSOperationQueue currentQueue]
+																					 usingBlock:^(NSNotification * _Nonnull note) {
+		// check it is our window
+		if (self.view.window != note.object)
+			return;
+
+		if (!self.recording && self.startsRecordingAutomatically)
+		{
+			NSError* error = nil;
+			BOOL result = [self record:&error];
+			if (!result)
+				XG_ERROR(@"Could not start recording automatically. %@", error);
+		}
+	}];
 }
 
 - (void)dealloc
 {
+	if (self.windowNotificationsObserver)
+		[[NSNotificationCenter defaultCenter] removeObserver:self.windowNotificationsObserver];
+
 	[self stop];
 	[self.playStopButton unbind:@"state"];
 	
@@ -81,7 +117,7 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 		AVEncoderAudioQualityKey: @(AVAudioQualityHigh)
 	};
 
-	self.recorder = [[AVAudioRecorder alloc] initWithURL:XGTemporaryURL()
+	self.recorder = [[AVAudioRecorder alloc] initWithURL:[XGTemporaryURL() URLByAppendingPathExtension:@"m4a"]
 												settings:settings
 												   error:error];
 	if (nil == self.recorder)
@@ -97,7 +133,7 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 		XG_ERROR(@"Can not prepare recording");
 	}
 
-	self.preparationCounter = XGAudioRecorderViewControllerPreparationInterval / 1.0;
+	self.preparationCounter = self.preparationInterval / 1.0;
 	if (self.preparationCounter > 0)
 	{
 		// start 3 secons prepare interval timer
@@ -135,6 +171,9 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 	self.elapsedMinutes = millisecondsElapsed / (60 * 1000);
 	self.elapsedSeconds = (millisecondsElapsed % 60000) / 1000;
 	self.elapsedMilliseconds = millisecondsElapsed % 1000;
+
+	if ((NSTimeInterval)millisecondsElapsed / 1000.0 >= self.maxDuration)
+		[self stop];
 }
 
 - (BOOL)startRecording
