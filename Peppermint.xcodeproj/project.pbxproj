@@ -16,6 +16,8 @@
 		A128487D1BA8279A00DD38CF /* Peppermint.mailbundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EBF9791BA3820E000A9A58 /* Peppermint.mailbundle */; };
 		A128487F1BA830C300DD38CF /* MessageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A128487E1BA830C300DD38CF /* MessageViewer.m */; };
 		A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A131DB351BA5E24400A5D391 /* Localizable.strings */; };
+		A1B427771BB33BD6007345A1 /* XGAttachPeppermintWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */; settings = {ASSET_TAGS = (); }; };
+		A1B427781BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */; settings = {ASSET_TAGS = (); }; };
 		A1B8BC4D1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8BC4C1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m */; settings = {ASSET_TAGS = (); }; };
 		A1B8BC501BB0A6250047ABC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1B8BC4E1BB0A6250047ABC6 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
 		A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB0E231BA38CCB000A9A58 /* XGPeppermintPlugin.m */; };
@@ -63,6 +65,10 @@
 		A128487E1BA830C300DD38CF /* MessageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewer.m; sourceTree = "<group>"; };
 		A131DB341BA5E24400A5D391 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A1B427731BB20FBC007345A1 /* WebViewEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewEditor.h; sourceTree = "<group>"; };
+		A1B427741BB33BD6007345A1 /* XGAttachPeppermintWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGAttachPeppermintWindowController.h; sourceTree = "<group>"; };
+		A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGAttachPeppermintWindowController.m; sourceTree = "<group>"; };
+		A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XGAttachPeppermintWindowController.xib; sourceTree = "<group>"; };
+		A1B427791BB34532007345A1 /* MailWebViewEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MailWebViewEditor.h; sourceTree = "<group>"; };
 		A1B8BC4B1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGDocumentEditorSwizzler.h; sourceTree = "<group>"; };
 		A1B8BC4C1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGDocumentEditorSwizzler.m; sourceTree = "<group>"; };
 		A1B8BC4F1BB0A6250047ABC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
@@ -156,6 +162,7 @@
 			children = (
 				A1B8BC591BB0B48C0047ABC6 /* DocumentEditor.h */,
 				A1B427731BB20FBC007345A1 /* WebViewEditor.h */,
+				A1B427791BB34532007345A1 /* MailWebViewEditor.h */,
 				A1B8BC5B1BB0B9F20047ABC6 /* EditableWebMessageDocument.h */,
 				A1B8BC521BB0B02E0047ABC6 /* MessageViewer.h */,
 				A1B8BC531BB0B0400047ABC6 /* MCMessageGenerator.h */,
@@ -261,6 +268,9 @@
 				A1F6B20B1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.xib */,
 				A1B8BC4B1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.h */,
 				A1B8BC4C1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m */,
+				A1B427741BB33BD6007345A1 /* XGAttachPeppermintWindowController.h */,
+				A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */,
+				A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */,
 			);
 			path = ReplyWithPeppermint;
 			sourceTree = "<group>";
@@ -373,6 +383,7 @@
 				A1B8BC501BB0A6250047ABC6 /* Localizable.strings in Resources */,
 				A1F6B1E21BAA1A5500075351 /* Rec.png in Resources */,
 				A1F6B1E41BAA1A5500075351 /* Stop.png in Resources */,
+				A1B427781BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib in Resources */,
 				A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */,
 				A1F6B1E51BAA1A5500075351 /* Stop@2x.png in Resources */,
 				A1F6B1E31BAA1A5500075351 /* Rec@2x.png in Resources */,
@@ -407,6 +418,7 @@
 				A1F6B20F1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.m in Sources */,
 				A1F6B1F11BAA285800075351 /* XGToolbarItem.m in Sources */,
 				A11CB64F1BAD951A00E77061 /* XGMouseTransparrentTextField.m in Sources */,
+				A1B427771BB33BD6007345A1 /* XGAttachPeppermintWindowController.m in Sources */,
 				A11CB6441BAD89B500E77061 /* XGLogger.m in Sources */,
 				A1F6B20E1BAA35DD00075351 /* XGMessageViewerSwizzler.m in Sources */,
 				A11CB64C1BAD8E0400E77061 /* XGBinding.m in Sources */,

@@ -11,7 +11,12 @@
 @interface XGAudioRecorderViewController : NSViewController
 
 @property (nonatomic, readonly, copy) NSURL* lastRecordedURL;
+@property (nonatomic, readonly, copy) NSError* lastError;
 @property (nonatomic, readonly) BOOL recording;
+
+@property (nonatomic) NSTimeInterval maxDuration;
+@property (nonatomic) NSTimeInterval preparationInterval;
+@property (nonatomic) BOOL startsRecordingAutomatically;
 
 - (BOOL)record:(NSError**)error;
 - (void)stop;
