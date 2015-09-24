@@ -7,6 +7,7 @@
 //
 
 #import "XGToolbarItem.h"
+#import "Core/XGLocalizedString.h"
 
 @implementation XGToolbarItem
 
@@ -32,15 +33,14 @@
 		NSButton* button = [[NSButton alloc] initWithFrame:CGRectMake(0, 0, image.size.width,
 																	  image.size.height)];
 		button.bezelStyle = NSTexturedRoundedBezelStyle;
-		button.title = NSLocalizedStringFromTableInBundle([itemIdentifier stringByAppendingString:@"_label"], nil, [NSBundle bundleForClass:[self class]], "String of form ToolbarItemIdentifier_label");
+		button.title = XGLocalizedString([itemIdentifier stringByAppendingString:@"_label"], "String of form ToolbarItemIdentifier_label");
 		self.view = button;
 		self.minSize = CGSizeMake(64, 23);
 	}
 
 	// initialize labels
-	self.label = NSLocalizedStringFromTableInBundle([itemIdentifier stringByAppendingString:@"_label"], nil, [NSBundle bundleForClass:[self class]], "String of form ToolbarItemIdentifier_label");
-
-	self.paletteLabel = NSLocalizedStringFromTableInBundle([itemIdentifier stringByAppendingString:@"_paletteLabel"], nil, [NSBundle bundleForClass:[self class]], "String of form ToolbarItemIdentifier_paletteLabel");
+	self.label = XGLocalizedString([itemIdentifier stringByAppendingString:@"_label"], "String of form ToolbarItemIdentifier_label");
+	self.paletteLabel = XGLocalizedString([itemIdentifier stringByAppendingString:@"_paletteLabel"], "String of form ToolbarItemIdentifier_paletteLabel");
 	
 	return self;
 }

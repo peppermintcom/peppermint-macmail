@@ -12,7 +12,8 @@
 #import "Mail/MessageViewer.h"
 #import "Mail/MCMessageGenerator.h"
 #import "Mail/MCMutableMessageHeaders.h"
-#import <Cocoa/Cocoa.h>
+#import "Mail/EditingMessageWebView.h"
+@import Cocoa;
 
 static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithPeppermint";
 
