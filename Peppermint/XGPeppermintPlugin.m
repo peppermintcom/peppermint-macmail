@@ -19,10 +19,14 @@ id _swizzler2;
 {
 	XG_TRACE_FUNC();
 
-	// instantiate plugin objects and register them into app infrastructure
-	NSError* error = nil;
-//	XG_CHECK([self registerMessageViewerToolbarItem:&error], @"Failed to inject MessageViewer toolbar item. %@", error);
-	XG_CHECK([self registerMessageWindowToolbarItem:&error], @"Failed to inject DocumentEditor toolbar item. %@", error);
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+
+		// instantiate plugin objects and register them into app infrastructure
+		NSError* error = nil;
+		//	XG_CHECK([self registerMessageViewerToolbarItem:&error], @"Failed to inject MessageViewer toolbar item. %@", error);
+		XG_CHECK([self registerMessageWindowToolbarItem:&error], @"Failed to inject DocumentEditor toolbar item. %@", error);
+	});
 }
 
 + (BOOL)registerMessageViewerToolbarItem:(NSError**)error

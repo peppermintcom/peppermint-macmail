@@ -18,6 +18,7 @@
 		A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A131DB351BA5E24400A5D391 /* Localizable.strings */; };
 		A1B427771BB33BD6007345A1 /* XGAttachPeppermintWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */; settings = {ASSET_TAGS = (); }; };
 		A1B427781BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */; settings = {ASSET_TAGS = (); }; };
+		A1B427831BB4A602007345A1 /* XGPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B427821BB4A602007345A1 /* XGPreferences.m */; settings = {ASSET_TAGS = (); }; };
 		A1B8BC4D1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8BC4C1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m */; settings = {ASSET_TAGS = (); }; };
 		A1B8BC501BB0A6250047ABC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1B8BC4E1BB0A6250047ABC6 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
 		A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB0E231BA38CCB000A9A58 /* XGPeppermintPlugin.m */; };
@@ -69,6 +70,16 @@
 		A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGAttachPeppermintWindowController.m; sourceTree = "<group>"; };
 		A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XGAttachPeppermintWindowController.xib; sourceTree = "<group>"; };
 		A1B427791BB34532007345A1 /* MailWebViewEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MailWebViewEditor.h; sourceTree = "<group>"; };
+		A1B4277A1BB495FD007345A1 /* EditingMessageWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditingMessageWebView.h; sourceTree = "<group>"; };
+		A1B4277B1BB49626007345A1 /* TilingWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TilingWebView.h; sourceTree = "<group>"; };
+		A1B4277C1BB496DD007345A1 /* NSInspectorBarClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSInspectorBarClient.h; sourceTree = "<group>"; };
+		A1B4277D1BB4A3BF007345A1 /* ComposeBackEnd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeBackEnd.h; sourceTree = "<group>"; };
+		A1B4277E1BB4A3DD007345A1 /* NSUserActivityDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSUserActivityDelegate.h; sourceTree = "<group>"; };
+		A1B4277F1BB4A433007345A1 /* ImageResizerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageResizerDelegate.h; sourceTree = "<group>"; };
+		A1B427801BB4A4C6007345A1 /* MCActivityTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCActivityTarget.h; sourceTree = "<group>"; };
+		A1B427811BB4A602007345A1 /* XGPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGPreferences.h; sourceTree = "<group>"; };
+		A1B427821BB4A602007345A1 /* XGPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGPreferences.m; sourceTree = "<group>"; };
+		A1B427841BB4AF2C007345A1 /* XGLocalizedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGLocalizedString.h; sourceTree = "<group>"; };
 		A1B8BC4B1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGDocumentEditorSwizzler.h; sourceTree = "<group>"; };
 		A1B8BC4C1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGDocumentEditorSwizzler.m; sourceTree = "<group>"; };
 		A1B8BC4F1BB0A6250047ABC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
@@ -164,13 +175,20 @@
 				A1B427731BB20FBC007345A1 /* WebViewEditor.h */,
 				A1B427791BB34532007345A1 /* MailWebViewEditor.h */,
 				A1B8BC5B1BB0B9F20047ABC6 /* EditableWebMessageDocument.h */,
+				A1B4277B1BB49626007345A1 /* TilingWebView.h */,
+				A1B4277A1BB495FD007345A1 /* EditingMessageWebView.h */,
+				A1B4277F1BB4A433007345A1 /* ImageResizerDelegate.h */,
 				A1B8BC521BB0B02E0047ABC6 /* MessageViewer.h */,
+				A1B4277D1BB4A3BF007345A1 /* ComposeBackEnd.h */,
+				A1B4277E1BB4A3DD007345A1 /* NSUserActivityDelegate.h */,
+				A1B4277C1BB496DD007345A1 /* NSInspectorBarClient.h */,
 				A1B8BC531BB0B0400047ABC6 /* MCMessageGenerator.h */,
 				A1B8BC541BB0B0540047ABC6 /* MCMutableMessageHeaders.h */,
 				A1B8BC551BB0B06D0047ABC6 /* MCMessageHeaders.h */,
 				A1B8BC561BB0B0940047ABC6 /* MFWebMessageDocument.h */,
 				A1B8BC571BB0B0A30047ABC6 /* MFWebMessageDocument-Attachments.h */,
 				A1B8BC581BB0B2310047ABC6 /* MCAttachment.h */,
+				A1B427801BB4A4C6007345A1 /* MCActivityTarget.h */,
 				A1B8BC5A1BB0B8EF0047ABC6 /* MFAttachmentViewController.h */,
 			);
 			path = Mail;
@@ -207,6 +225,8 @@
 				A1EB0E221BA38CCB000A9A58 /* XGPeppermintPlugin.h */,
 				A1EB0E231BA38CCB000A9A58 /* XGPeppermintPlugin.m */,
 				A1EB0E2E1BA39C23000A9A58 /* XGPeppermint.pch */,
+				A1B427811BB4A602007345A1 /* XGPreferences.h */,
+				A1B427821BB4A602007345A1 /* XGPreferences.m */,
 			);
 			path = Peppermint;
 			sourceTree = "<group>";
@@ -253,6 +273,7 @@
 				A1F6B1EC1BAA280000075351 /* XGToolbarDelegateSwizzler.m */,
 				A11CB64A1BAD8E0400E77061 /* XGBinding.h */,
 				A11CB64B1BAD8E0400E77061 /* XGBinding.m */,
+				A1B427841BB4AF2C007345A1 /* XGLocalizedString.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -415,6 +436,7 @@
 				A11CB6491BAD8C8400E77061 /* XGNumberTransformers.m in Sources */,
 				A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */,
 				A11CB6451BAD89B500E77061 /* XGTemporaryURL.m in Sources */,
+				A1B427831BB4A602007345A1 /* XGPreferences.m in Sources */,
 				A1F6B20F1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.m in Sources */,
 				A1F6B1F11BAA285800075351 /* XGToolbarItem.m in Sources */,
 				A11CB64F1BAD951A00E77061 /* XGMouseTransparrentTextField.m in Sources */,
