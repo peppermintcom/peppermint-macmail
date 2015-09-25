@@ -1,5 +1,5 @@
 //
-//  XGAttachPeppermintWindowController.h
+//  XGAudioRecorderWindowController.h
 //  Peppermint
 //
 //  Created by Boris Remizov on 23/09/15.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface XGAttachPeppermintWindowController : NSWindowController
+@interface XGAudioRecorderWindowController : NSWindowController
 
 + (instancetype)controller;
 

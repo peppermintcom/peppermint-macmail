@@ -7,8 +7,8 @@
 //
 
 #import "XGPeppermintPlugin.h"
-#import "ReplyWithPeppermint/XGMessageViewerSwizzler.h"
-#import "ReplyWithPeppermint/XGDocumentEditorSwizzler.h"
+#import "XGMessageViewerSwizzler.h"
+#import "XGDocumentEditorSwizzler.h"
 
 @implementation XGPeppermintPlugin
 

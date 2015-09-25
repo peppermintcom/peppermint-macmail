@@ -7,7 +7,7 @@
 //
 
 #import "XGAttachementGenerator.h"
-#import "Peppermint/XGPreferences.h"
+#import "Core/XGPreferences.h"
 #import "Mail/MailWebViewEditor.h"
 #import "Mail/ComposeBackEnd.h"
 #import "Mail/MCMutableMessageHeaders.h"
