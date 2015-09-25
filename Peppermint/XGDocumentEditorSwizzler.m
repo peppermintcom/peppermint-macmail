@@ -7,10 +7,9 @@
 //
 
 #import "XGDocumentEditorSwizzler.h"
-#import "XGAttachPeppermintWindowController.h"
 #import "XGAttachementGenerator.h"
+#import "AudioRecorder/XGAudioRecorderWindowController.h"
 #import "Core/XGToolbarItem.h"
-#import "Peppermint/XGPreferences.h"
 #import "Mail/DocumentEditor.h"
 #import "Mail/MailWebViewEditor.h"
 #import "Mail/MCMessageGenerator.h"
@@ -78,7 +77,7 @@ static NSString* const XGAttachWithPeppermintToolbarItemIdentifier = @"insertPep
 {
 	XG_TRACE_FUNC();
 
-	[[XGAttachPeppermintWindowController controller] beginSheetModalForWindow:[sender window]
+	[[XGAudioRecorderWindowController controller] beginSheetModalForWindow:[sender window]
 															completionHandler:^(NSURL *audioFile, NSError *error) {
 		XG_DEBUG(@"Got audio file %@ after record sheet completed", audioFile);
 		if (nil == audioFile)

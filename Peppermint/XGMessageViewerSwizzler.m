@@ -8,7 +8,7 @@
 
 #import "XGMessageViewerSwizzler.h"
 #import "XGAttachementGenerator.h"
-#import "XGAttachPeppermintWindowController.h"
+#import "AudioRecorder/XGAudioRecorderWindowController.h"
 #import "Core/XGToolbarItem.h"
 #import "Mail/MessageViewer.h"
 #import "Mail/MCMessageGenerator.h"
@@ -20,7 +20,7 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 
 @interface XGMessageViewerSwizzler()
 
-@property (nonatomic, strong) XGAttachPeppermintWindowController* recordController;
+@property (nonatomic, strong) XGAudioRecorderWindowController* recordController;
 @property (nonatomic, strong) id<NSObject> windowObserver;
 @property (nonatomic, strong) NSMutableSet* windowsBeingRepliedWithPeppermint;
 
@@ -145,7 +145,7 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 		// run recording
 		XG_TRACE(@"Starting record sheet...");
 		
-		self.recordController = [XGAttachPeppermintWindowController controller];
+		self.recordController = [XGAudioRecorderWindowController controller];
 		[self.recordController beginSheetModalForWindow:note.object completionHandler:^(NSURL *audioFile, NSError* error) {
 			
 			XG_DEBUG(@"Url %@ got after the recording ended. Error: %@", audioFile, error);

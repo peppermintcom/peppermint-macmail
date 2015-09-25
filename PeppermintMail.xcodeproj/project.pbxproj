@@ -16,12 +16,12 @@
 		A128487D1BA8279A00DD38CF /* Peppermint.mailbundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EBF9791BA3820E000A9A58 /* Peppermint.mailbundle */; };
 		A128487F1BA830C300DD38CF /* MessageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A128487E1BA830C300DD38CF /* MessageViewer.m */; };
 		A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A131DB351BA5E24400A5D391 /* Localizable.strings */; };
-		A1AE41C11BB59E2900B06BD3 /* XGAttachementGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE41C01BB59E2900B06BD3 /* XGAttachementGenerator.m */; };
-		A1B427771BB33BD6007345A1 /* XGAttachPeppermintWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */; };
-		A1B427781BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */; };
-		A1B427831BB4A602007345A1 /* XGPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B427821BB4A602007345A1 /* XGPreferences.m */; };
-		A1B8BC4D1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8BC4C1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m */; };
-		A1B8BC501BB0A6250047ABC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1B8BC4E1BB0A6250047ABC6 /* Localizable.strings */; };
+		A1AE41C51BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1AE41C21BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib */; };
+		A1AE41C61BB5A4C800B06BD3 /* XGAudioRecorderWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE41C41BB5A4C800B06BD3 /* XGAudioRecorderWindowController.m */; };
+		A1AE41CD1BB5A66B00B06BD3 /* XGAttachementGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE41C81BB5A66B00B06BD3 /* XGAttachementGenerator.m */; };
+		A1AE41CE1BB5A66B00B06BD3 /* XGDocumentEditorSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE41CA1BB5A66B00B06BD3 /* XGDocumentEditorSwizzler.m */; };
+		A1AE41CF1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE41CC1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.m */; };
+		A1AE41D21BB5A68B00B06BD3 /* XGPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE41D11BB5A68B00B06BD3 /* XGPreferences.m */; };
 		A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB0E231BA38CCB000A9A58 /* XGPeppermintPlugin.m */; };
 		A1F6B1E01BAA1A5500075351 /* Mic.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F6B1D71BAA1A5500075351 /* Mic.png */; };
 		A1F6B1E11BAA1A5500075351 /* Mic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F6B1D81BAA1A5500075351 /* Mic@2x.png */; };
@@ -34,11 +34,6 @@
 		A1F6B1ED1BAA280000075351 /* XGSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F6B1EA1BAA280000075351 /* XGSwizzle.m */; };
 		A1F6B1EE1BAA280000075351 /* XGToolbarDelegateSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F6B1EC1BAA280000075351 /* XGToolbarDelegateSwizzler.m */; };
 		A1F6B1F11BAA285800075351 /* XGToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F6B1F01BAA285800075351 /* XGToolbarItem.m */; };
-		A1F6B20C1BAA35DD00075351 /* ReplyWithPeppermint.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F6B2051BAA35DD00075351 /* ReplyWithPeppermint.png */; };
-		A1F6B20D1BAA35DD00075351 /* ReplyWithPeppermint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F6B2061BAA35DD00075351 /* ReplyWithPeppermint@2x.png */; };
-		A1F6B20E1BAA35DD00075351 /* XGMessageViewerSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F6B2081BAA35DD00075351 /* XGMessageViewerSwizzler.m */; };
-		A1F6B20F1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F6B20A1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.m */; };
-		A1F6B2101BAA35DD00075351 /* XGReplyWithPeppermintWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1F6B20B1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,12 +61,18 @@
 		A12848761BA8272900DD38CF /* PeppermintUT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeppermintUT.m; sourceTree = "<group>"; };
 		A128487E1BA830C300DD38CF /* MessageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewer.m; sourceTree = "<group>"; };
 		A131DB341BA5E24400A5D391 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A1AE41BF1BB59E2900B06BD3 /* XGAttachementGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGAttachementGenerator.h; sourceTree = "<group>"; };
-		A1AE41C01BB59E2900B06BD3 /* XGAttachementGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGAttachementGenerator.m; sourceTree = "<group>"; };
+		A1AE41C21BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XGAudioRecorderWindowController.xib; sourceTree = "<group>"; };
+		A1AE41C31BB5A4C800B06BD3 /* XGAudioRecorderWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGAudioRecorderWindowController.h; sourceTree = "<group>"; };
+		A1AE41C41BB5A4C800B06BD3 /* XGAudioRecorderWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGAudioRecorderWindowController.m; sourceTree = "<group>"; };
+		A1AE41C71BB5A66B00B06BD3 /* XGAttachementGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGAttachementGenerator.h; sourceTree = "<group>"; };
+		A1AE41C81BB5A66B00B06BD3 /* XGAttachementGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGAttachementGenerator.m; sourceTree = "<group>"; };
+		A1AE41C91BB5A66B00B06BD3 /* XGDocumentEditorSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGDocumentEditorSwizzler.h; sourceTree = "<group>"; };
+		A1AE41CA1BB5A66B00B06BD3 /* XGDocumentEditorSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGDocumentEditorSwizzler.m; sourceTree = "<group>"; };
+		A1AE41CB1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGMessageViewerSwizzler.h; sourceTree = "<group>"; };
+		A1AE41CC1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGMessageViewerSwizzler.m; sourceTree = "<group>"; };
+		A1AE41D01BB5A68B00B06BD3 /* XGPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGPreferences.h; sourceTree = "<group>"; };
+		A1AE41D11BB5A68B00B06BD3 /* XGPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGPreferences.m; sourceTree = "<group>"; };
 		A1B427731BB20FBC007345A1 /* WebViewEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewEditor.h; sourceTree = "<group>"; };
-		A1B427741BB33BD6007345A1 /* XGAttachPeppermintWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGAttachPeppermintWindowController.h; sourceTree = "<group>"; };
-		A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGAttachPeppermintWindowController.m; sourceTree = "<group>"; };
-		A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XGAttachPeppermintWindowController.xib; sourceTree = "<group>"; };
 		A1B427791BB34532007345A1 /* MailWebViewEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MailWebViewEditor.h; sourceTree = "<group>"; };
 		A1B4277A1BB495FD007345A1 /* EditingMessageWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditingMessageWebView.h; sourceTree = "<group>"; };
 		A1B4277B1BB49626007345A1 /* TilingWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TilingWebView.h; sourceTree = "<group>"; };
@@ -80,12 +81,7 @@
 		A1B4277E1BB4A3DD007345A1 /* NSUserActivityDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSUserActivityDelegate.h; sourceTree = "<group>"; };
 		A1B4277F1BB4A433007345A1 /* ImageResizerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageResizerDelegate.h; sourceTree = "<group>"; };
 		A1B427801BB4A4C6007345A1 /* MCActivityTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCActivityTarget.h; sourceTree = "<group>"; };
-		A1B427811BB4A602007345A1 /* XGPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGPreferences.h; sourceTree = "<group>"; };
-		A1B427821BB4A602007345A1 /* XGPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGPreferences.m; sourceTree = "<group>"; };
 		A1B427841BB4AF2C007345A1 /* XGLocalizedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGLocalizedString.h; sourceTree = "<group>"; };
-		A1B8BC4B1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGDocumentEditorSwizzler.h; sourceTree = "<group>"; };
-		A1B8BC4C1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGDocumentEditorSwizzler.m; sourceTree = "<group>"; };
-		A1B8BC4F1BB0A6250047ABC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		A1B8BC521BB0B02E0047ABC6 /* MessageViewer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewer.h; sourceTree = "<group>"; };
 		A1B8BC531BB0B0400047ABC6 /* MCMessageGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCMessageGenerator.h; sourceTree = "<group>"; };
 		A1B8BC541BB0B0540047ABC6 /* MCMutableMessageHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCMutableMessageHeaders.h; sourceTree = "<group>"; };
@@ -116,13 +112,6 @@
 		A1F6B1EC1BAA280000075351 /* XGToolbarDelegateSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGToolbarDelegateSwizzler.m; sourceTree = "<group>"; };
 		A1F6B1EF1BAA285800075351 /* XGToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGToolbarItem.h; sourceTree = "<group>"; };
 		A1F6B1F01BAA285800075351 /* XGToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGToolbarItem.m; sourceTree = "<group>"; };
-		A1F6B2051BAA35DD00075351 /* ReplyWithPeppermint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReplyWithPeppermint.png; sourceTree = "<group>"; };
-		A1F6B2061BAA35DD00075351 /* ReplyWithPeppermint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ReplyWithPeppermint@2x.png"; sourceTree = "<group>"; };
-		A1F6B2071BAA35DD00075351 /* XGMessageViewerSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGMessageViewerSwizzler.h; sourceTree = "<group>"; };
-		A1F6B2081BAA35DD00075351 /* XGMessageViewerSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGMessageViewerSwizzler.m; sourceTree = "<group>"; };
-		A1F6B2091BAA35DD00075351 /* XGReplyWithPeppermintWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGReplyWithPeppermintWindowController.h; sourceTree = "<group>"; };
-		A1F6B20A1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGReplyWithPeppermintWindowController.m; sourceTree = "<group>"; };
-		A1F6B20B1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XGReplyWithPeppermintWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +193,6 @@
 				A1EB1A951BA39F82000A9A58 /* Mail */,
 				A1F6B1D51BAA1A5500075351 /* AudioRecorder */,
 				A1EBF97B1BA3820E000A9A58 /* Peppermint */,
-				A1F6B2031BAA35DD00075351 /* ReplyWithPeppermint */,
 				A12848731BA8272900DD38CF /* PeppermintUT */,
 				A1EBF97A1BA3820E000A9A58 /* Products */,
 			);
@@ -227,9 +215,12 @@
 				A131DB301BA5E21600A5D391 /* Resources */,
 				A1EB0E221BA38CCB000A9A58 /* XGPeppermintPlugin.h */,
 				A1EB0E231BA38CCB000A9A58 /* XGPeppermintPlugin.m */,
-				A1EB0E2E1BA39C23000A9A58 /* XGPeppermint.pch */,
-				A1B427811BB4A602007345A1 /* XGPreferences.h */,
-				A1B427821BB4A602007345A1 /* XGPreferences.m */,
+				A1AE41C71BB5A66B00B06BD3 /* XGAttachementGenerator.h */,
+				A1AE41C81BB5A66B00B06BD3 /* XGAttachementGenerator.m */,
+				A1AE41C91BB5A66B00B06BD3 /* XGDocumentEditorSwizzler.h */,
+				A1AE41CA1BB5A66B00B06BD3 /* XGDocumentEditorSwizzler.m */,
+				A1AE41CB1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.h */,
+				A1AE41CC1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.m */,
 			);
 			path = Peppermint;
 			sourceTree = "<group>";
@@ -237,6 +228,9 @@
 		A1F6B1D51BAA1A5500075351 /* AudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				A1AE41C21BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib */,
+				A1AE41C31BB5A4C800B06BD3 /* XGAudioRecorderWindowController.h */,
+				A1AE41C41BB5A4C800B06BD3 /* XGAudioRecorderWindowController.m */,
 				A1F6B1D61BAA1A5500075351 /* Resources */,
 				A11CB6481BAD8C8400E77061 /* XGNumberTransformers.m */,
 				A1F6B1DD1BAA1A5500075351 /* XGAudioRecorderViewController.h */,
@@ -264,6 +258,8 @@
 		A1F6B1E81BAA280000075351 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A1AE41D01BB5A68B00B06BD3 /* XGPreferences.h */,
+				A1AE41D11BB5A68B00B06BD3 /* XGPreferences.m */,
 				A11CB6401BAD89B500E77061 /* XGLogger.h */,
 				A11CB6411BAD89B500E77061 /* XGLogger.m */,
 				A11CB6421BAD89B500E77061 /* XGTemporaryURL.h */,
@@ -281,39 +277,10 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		A1F6B2031BAA35DD00075351 /* ReplyWithPeppermint */ = {
-			isa = PBXGroup;
-			children = (
-				A1F6B2041BAA35DD00075351 /* Resources */,
-				A1F6B2071BAA35DD00075351 /* XGMessageViewerSwizzler.h */,
-				A1F6B2081BAA35DD00075351 /* XGMessageViewerSwizzler.m */,
-				A1F6B2091BAA35DD00075351 /* XGReplyWithPeppermintWindowController.h */,
-				A1F6B20A1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.m */,
-				A1F6B20B1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.xib */,
-				A1B8BC4B1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.h */,
-				A1B8BC4C1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m */,
-				A1B427741BB33BD6007345A1 /* XGAttachPeppermintWindowController.h */,
-				A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */,
-				A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */,
-				A1AE41BF1BB59E2900B06BD3 /* XGAttachementGenerator.h */,
-				A1AE41C01BB59E2900B06BD3 /* XGAttachementGenerator.m */,
-			);
-			path = ReplyWithPeppermint;
-			sourceTree = "<group>";
-		};
-		A1F6B2041BAA35DD00075351 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A1B8BC4E1BB0A6250047ABC6 /* Localizable.strings */,
-				A1F6B2051BAA35DD00075351 /* ReplyWithPeppermint.png */,
-				A1F6B2061BAA35DD00075351 /* ReplyWithPeppermint@2x.png */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		A1F6B2111BAA361D00075351 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A1EB0E2E1BA39C23000A9A58 /* XGPeppermint.pch */,
 				A1EBF97C1BA3820E000A9A58 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -406,16 +373,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1F6B1E71BAA1A5500075351 /* XGAudioRecorderViewController.xib in Resources */,
-				A1B8BC501BB0A6250047ABC6 /* Localizable.strings in Resources */,
 				A1F6B1E21BAA1A5500075351 /* Rec.png in Resources */,
 				A1F6B1E41BAA1A5500075351 /* Stop.png in Resources */,
-				A1B427781BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib in Resources */,
 				A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */,
 				A1F6B1E51BAA1A5500075351 /* Stop@2x.png in Resources */,
+				A1AE41C51BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib in Resources */,
 				A1F6B1E31BAA1A5500075351 /* Rec@2x.png in Resources */,
-				A1F6B20C1BAA35DD00075351 /* ReplyWithPeppermint.png in Resources */,
-				A1F6B20D1BAA35DD00075351 /* ReplyWithPeppermint@2x.png in Resources */,
-				A1F6B2101BAA35DD00075351 /* XGReplyWithPeppermintWindowController.xib in Resources */,
 				A1F6B1E01BAA1A5500075351 /* Mic.png in Resources */,
 				A1F6B1E11BAA1A5500075351 /* Mic@2x.png in Resources */,
 			);
@@ -438,21 +401,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1F6B1E61BAA1A5500075351 /* XGAudioRecorderViewController.m in Sources */,
+				A1AE41C61BB5A4C800B06BD3 /* XGAudioRecorderWindowController.m in Sources */,
 				A11CB6491BAD8C8400E77061 /* XGNumberTransformers.m in Sources */,
 				A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */,
-				A1AE41C11BB59E2900B06BD3 /* XGAttachementGenerator.m in Sources */,
 				A11CB6451BAD89B500E77061 /* XGTemporaryURL.m in Sources */,
-				A1B427831BB4A602007345A1 /* XGPreferences.m in Sources */,
-				A1F6B20F1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.m in Sources */,
 				A1F6B1F11BAA285800075351 /* XGToolbarItem.m in Sources */,
 				A11CB64F1BAD951A00E77061 /* XGMouseTransparrentTextField.m in Sources */,
-				A1B427771BB33BD6007345A1 /* XGAttachPeppermintWindowController.m in Sources */,
 				A11CB6441BAD89B500E77061 /* XGLogger.m in Sources */,
-				A1F6B20E1BAA35DD00075351 /* XGMessageViewerSwizzler.m in Sources */,
 				A11CB64C1BAD8E0400E77061 /* XGBinding.m in Sources */,
 				A1F6B1ED1BAA280000075351 /* XGSwizzle.m in Sources */,
+				A1AE41D21BB5A68B00B06BD3 /* XGPreferences.m in Sources */,
 				A1F6B1EE1BAA280000075351 /* XGToolbarDelegateSwizzler.m in Sources */,
-				A1B8BC4D1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m in Sources */,
+				A1AE41CD1BB5A66B00B06BD3 /* XGAttachementGenerator.m in Sources */,
+				A1AE41CF1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.m in Sources */,
+				A1AE41CE1BB5A66B00B06BD3 /* XGDocumentEditorSwizzler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,14 +433,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A131DB341BA5E24400A5D391 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		A1B8BC4E1BB0A6250047ABC6 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1B8BC4F1BB0A6250047ABC6 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

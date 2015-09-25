@@ -1,15 +1,15 @@
 //
-//  XGAttachPeppermintWindowController.m
+//  XGAudioRecorderWindowController.m
 //  Peppermint
 //
 //  Created by Boris Remizov on 23/09/15.
 //  Copyright © 2015 Xgen Mobile. All rights reserved.
 //
 
-#import "XGAttachPeppermintWindowController.h"
+#import "XGAudioRecorderWindowController.h"
 #import "AudioRecorder/XGAudioRecorderViewController.h"
 
-@interface XGAttachPeppermintWindowController ()
+@interface XGAudioRecorderWindowController ()
 
 @property (nonatomic, strong) XGAudioRecorderViewController* audioRecorder;
 @property (nonatomic, assign) IBOutlet NSView* audioRecorderFrameView;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation XGAttachPeppermintWindowController
+@implementation XGAudioRecorderWindowController
 
 + (void)addEdgeConstraint:(NSLayoutAttribute)edge superview:(NSView *)superview subview:(NSView *)subview {
 	[superview addConstraint:[NSLayoutConstraint constraintWithItem:subview
@@ -32,7 +32,7 @@
 
 + (instancetype)controller
 {
-	return [[XGAttachPeppermintWindowController alloc] initWithWindowNibName:@"XGAttachPeppermintWindowController"];
+	return [[XGAudioRecorderWindowController alloc] initWithWindowNibName:@"XGAudioRecorderWindowController"];
 }
 
 - (void)dealloc
