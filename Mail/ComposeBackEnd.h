@@ -6,6 +6,8 @@
 
 #import "Mail/ImageResizerDelegate.h"
 #import "Mail/MCActivityTarget.h"
+#import "Mail/MCMessageHeaders.h"
+
 @import Cocoa;
 
 @class DOMNode, EditableWebMessageDocument, MCInvocationQueue, MCParsedMessage, MFMailAccount, MFMailbox, NSArray, NSInputStream, NSMutableArray, NSMutableData, NSMutableDictionary, NSMutableSet, NSNumber, NSOutputStream, NSPort, NSString, NSURL, NSUUID, NSUndoManager, NSUserActivity, StationeryController;

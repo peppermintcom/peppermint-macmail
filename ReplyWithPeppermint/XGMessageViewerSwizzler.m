@@ -7,8 +7,9 @@
 //
 
 #import "XGMessageViewerSwizzler.h"
-#import "XGToolbarItem.h"
-#import "XGReplyWithPeppermintWindowController.h"
+#import "XGAttachementGenerator.h"
+#import "XGAttachPeppermintWindowController.h"
+#import "Core/XGToolbarItem.h"
 #import "Mail/MessageViewer.h"
 #import "Mail/MCMessageGenerator.h"
 #import "Mail/MCMutableMessageHeaders.h"
@@ -19,7 +20,9 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 
 @interface XGMessageViewerSwizzler()
 
-@property(nonatomic, strong) NSWindowController* replyWithPeppermintWindowController;
+@property (nonatomic, strong) XGAttachPeppermintWindowController* recordController;
+@property (nonatomic, strong) id<NSObject> windowObserver;
+@property (nonatomic, strong) NSMutableSet* windowsBeingRepliedWithPeppermint;
 
 @end
 
@@ -33,6 +36,17 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 		singleton = [[XGMessageViewerSwizzler alloc] initWithClass:NSClassFromString(@"MessageViewer")];
 	});
 	return singleton;
+}
+
+- (instancetype)initWithClass:(Class)classToSwizzle
+{
+	self = [super initWithClass:classToSwizzle];
+	if (!self)
+		return nil;
+	
+	self.windowsBeingRepliedWithPeppermint = [NSMutableSet set];
+	
+	return self;
 }
 
 - (NSArray*)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar
@@ -89,13 +103,66 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 {
 	XG_TRACE_FUNC();
 
-	self.replyWithPeppermintWindowController = [XGReplyWithPeppermintWindowController controller];
-//	[self.replyWithPeppermintWindowController showWindow:self.replyWithPeppermintWindowController.window];
+	MessageViewer* messageViewer = (MessageViewer*)[[sender window] delegate];
+	XG_ASSERT([messageViewer isKindOfClass:NSClassFromString(@"MessageViewer")], @"Unexpected class %@ of MessageViewer", NSStringFromClass([messageViewer class]));
 
-	[[sender window] beginSheet:self.replyWithPeppermintWindowController.window completionHandler:^(NSModalResponse returnCode) {
+	// subscribe on window appearence events to catch event the DocumentEditor appeared and make it showing the recording sheet
+	self.windowObserver = [[NSNotificationCenter defaultCenter] addObserverForName:NSWindowDidBecomeKeyNotification object:nil queue:[NSOperationQueue currentQueue] usingBlock:^(NSNotification *note) {
+		
+		// unsubscribe, since we are awaiting just one window
+		[[NSNotificationCenter defaultCenter] removeObserver:self.windowObserver];
+		self.windowObserver = nil;
 
-		self.replyWithPeppermintWindowController = nil;
+		NSWindow* documentEditorWindow = note.object;
+		XG_ASSERT([documentEditorWindow isKindOfClass:[NSWindow class]], @"Invalid object prameter, must be NSWindow");
+		
+		if (![[note.object delegate] isKindOfClass:NSClassFromString(@"DocumentEditor")])
+		{
+			XG_DEBUG(@"Unexpected class of window delegate, skipping recording");
+			return;
+		}
+		
+		NSSet* oldRecordings = [self.windowsBeingRepliedWithPeppermint objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+			*stop = [obj pointerValue] == (__bridge void *)(documentEditorWindow);
+			return *stop;
+		}];
+
+		if ([oldRecordings count] > 0)
+		{
+			XG_TRACE(@"Already did a recording in %@, skipped", documentEditorWindow);
+			return;
+		}
+		
+		[self.windowsBeingRepliedWithPeppermint addObject:[NSValue valueWithPointer:(__bridge const void *)(documentEditorWindow)]];
+		
+		if (self.recordController)
+		{
+			// recording is already in progress
+			XG_DEBUG(@"Recording is already in progress, exiting");
+			return;
+		}
+
+		// run recording
+		XG_TRACE(@"Starting record sheet...");
+		
+		self.recordController = [XGAttachPeppermintWindowController controller];
+		[self.recordController beginSheetModalForWindow:note.object completionHandler:^(NSURL *audioFile, NSError* error) {
+			
+			XG_DEBUG(@"Url %@ got after the recording ended. Error: %@", audioFile, error);
+			
+			if (audioFile)
+			{
+				NSError* attachementError = nil;
+				[[XGAttachementGenerator generatorWithDocument:(DocumentEditor*)[note.object delegate]] addAudioAttachment:audioFile error:&attachementError];
+			}
+			
+			self.recordController = nil;
+			
+		}];
 	}];
+
+	// show reply sheet
+	[messageViewer replyAllMessage:sender];
 }
 
 @end
