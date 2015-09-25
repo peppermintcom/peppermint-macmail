@@ -15,7 +15,7 @@
 
 @property (nonatomic, readonly) Class swizzledClass;
 
-- (instancetype)initWithClass:(Class)classToSwizzle;
+- (instancetype)initWithClass:(Class)classToSwizzle NS_DESIGNATED_INITIALIZER;
 
 // @brief Get object of "swizzledClass" which method calls were overriden at
 //		  this moment. Only available within the NSToolbarDelegate methods

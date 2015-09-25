@@ -16,6 +16,7 @@
 		A128487D1BA8279A00DD38CF /* Peppermint.mailbundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EBF9791BA3820E000A9A58 /* Peppermint.mailbundle */; };
 		A128487F1BA830C300DD38CF /* MessageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A128487E1BA830C300DD38CF /* MessageViewer.m */; };
 		A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A131DB351BA5E24400A5D391 /* Localizable.strings */; };
+		A1AE41C11BB59E2900B06BD3 /* XGAttachementGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE41C01BB59E2900B06BD3 /* XGAttachementGenerator.m */; };
 		A1B427771BB33BD6007345A1 /* XGAttachPeppermintWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */; };
 		A1B427781BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */; };
 		A1B427831BB4A602007345A1 /* XGPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B427821BB4A602007345A1 /* XGPreferences.m */; };
@@ -65,6 +66,8 @@
 		A12848761BA8272900DD38CF /* PeppermintUT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeppermintUT.m; sourceTree = "<group>"; };
 		A128487E1BA830C300DD38CF /* MessageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewer.m; sourceTree = "<group>"; };
 		A131DB341BA5E24400A5D391 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A1AE41BF1BB59E2900B06BD3 /* XGAttachementGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGAttachementGenerator.h; sourceTree = "<group>"; };
+		A1AE41C01BB59E2900B06BD3 /* XGAttachementGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGAttachementGenerator.m; sourceTree = "<group>"; };
 		A1B427731BB20FBC007345A1 /* WebViewEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewEditor.h; sourceTree = "<group>"; };
 		A1B427741BB33BD6007345A1 /* XGAttachPeppermintWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGAttachPeppermintWindowController.h; sourceTree = "<group>"; };
 		A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGAttachPeppermintWindowController.m; sourceTree = "<group>"; };
@@ -292,6 +295,8 @@
 				A1B427741BB33BD6007345A1 /* XGAttachPeppermintWindowController.h */,
 				A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */,
 				A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */,
+				A1AE41BF1BB59E2900B06BD3 /* XGAttachementGenerator.h */,
+				A1AE41C01BB59E2900B06BD3 /* XGAttachementGenerator.m */,
 			);
 			path = ReplyWithPeppermint;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				A1F6B1E61BAA1A5500075351 /* XGAudioRecorderViewController.m in Sources */,
 				A11CB6491BAD8C8400E77061 /* XGNumberTransformers.m in Sources */,
 				A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */,
+				A1AE41C11BB59E2900B06BD3 /* XGAttachementGenerator.m in Sources */,
 				A11CB6451BAD89B500E77061 /* XGTemporaryURL.m in Sources */,
 				A1B427831BB4A602007345A1 /* XGPreferences.m in Sources */,
 				A1F6B20F1BAA35DD00075351 /* XGReplyWithPeppermintWindowController.m in Sources */,
