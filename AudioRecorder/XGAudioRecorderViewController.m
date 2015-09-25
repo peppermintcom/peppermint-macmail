@@ -73,7 +73,7 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 	self.windowNotificationsObserver = [[NSNotificationCenter defaultCenter] addObserverForName:NSWindowDidBecomeKeyNotification
 																						 object:nil
 																						  queue:[NSOperationQueue currentQueue]
-																					 usingBlock:^(NSNotification * _Nonnull note) {
+																					 usingBlock:^(NSNotification* note) {
 		// check it is our window
 		if (self.view.window != note.object)
 			return;
