@@ -16,11 +16,11 @@
 		A128487D1BA8279A00DD38CF /* Peppermint.mailbundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EBF9791BA3820E000A9A58 /* Peppermint.mailbundle */; };
 		A128487F1BA830C300DD38CF /* MessageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A128487E1BA830C300DD38CF /* MessageViewer.m */; };
 		A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A131DB351BA5E24400A5D391 /* Localizable.strings */; };
-		A1B427771BB33BD6007345A1 /* XGAttachPeppermintWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */; settings = {ASSET_TAGS = (); }; };
-		A1B427781BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */; settings = {ASSET_TAGS = (); }; };
-		A1B427831BB4A602007345A1 /* XGPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B427821BB4A602007345A1 /* XGPreferences.m */; settings = {ASSET_TAGS = (); }; };
-		A1B8BC4D1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8BC4C1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m */; settings = {ASSET_TAGS = (); }; };
-		A1B8BC501BB0A6250047ABC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1B8BC4E1BB0A6250047ABC6 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
+		A1B427771BB33BD6007345A1 /* XGAttachPeppermintWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B427751BB33BD6007345A1 /* XGAttachPeppermintWindowController.m */; };
+		A1B427781BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B427761BB33BD6007345A1 /* XGAttachPeppermintWindowController.xib */; };
+		A1B427831BB4A602007345A1 /* XGPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B427821BB4A602007345A1 /* XGPreferences.m */; };
+		A1B8BC4D1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8BC4C1BB09EBA0047ABC6 /* XGDocumentEditorSwizzler.m */; };
+		A1B8BC501BB0A6250047ABC6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1B8BC4E1BB0A6250047ABC6 /* Localizable.strings */; };
 		A1EB0E241BA38CCB000A9A58 /* XGPeppermintPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB0E231BA38CCB000A9A58 /* XGPeppermintPlugin.m */; };
 		A1F6B1E01BAA1A5500075351 /* Mic.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F6B1D71BAA1A5500075351 /* Mic.png */; };
 		A1F6B1E11BAA1A5500075351 /* Mic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F6B1D81BAA1A5500075351 /* Mic@2x.png */; };
@@ -370,7 +370,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A1EBF9741BA3820E000A9A58 /* Build configuration list for PBXProject "Peppermint" */;
+			buildConfigurationList = A1EBF9741BA3820E000A9A58 /* Build configuration list for PBXProject "PeppermintMail" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -484,10 +484,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -497,7 +493,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PeppermintUT;
 			};
 			name = Debug;
 		};
@@ -506,15 +502,11 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = PeppermintUT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PeppermintUT;
 			};
 			name = Release;
 		};
@@ -612,7 +604,7 @@
 				INFOPLIST_FILE = Peppermint/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xzenmobile.Peppermint;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Peppermint;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = mailbundle;
 			};
@@ -625,7 +617,7 @@
 				INFOPLIST_FILE = Peppermint/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xzenmobile.Peppermint;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Peppermint;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = mailbundle;
 			};
@@ -643,7 +635,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1EBF9741BA3820E000A9A58 /* Build configuration list for PBXProject "Peppermint" */ = {
+		A1EBF9741BA3820E000A9A58 /* Build configuration list for PBXProject "PeppermintMail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1EBF97D1BA3820E000A9A58 /* Debug */,
