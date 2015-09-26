@@ -22,6 +22,8 @@ __BEGIN_DECLS
 
 extern int XGLog(NSInteger logLevel, NSString* format, ...);
 
+#define XG_PRINT(format, ...) XGLog(0, format, ##__VA_ARGS__)
+
 #define XG_TRACE_FUNC() XGLog(2, @"%s@%@:%d", __PRETTY_FUNCTION__, [[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lastPathComponent], __LINE__)
 #define XG_DEBUG(format, ...) XGLog(3, format, ##__VA_ARGS__)
 #define XG_TRACE(format, ...) XGLog(2, format, ##__VA_ARGS__)

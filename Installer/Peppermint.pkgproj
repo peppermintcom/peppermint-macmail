@@ -204,8 +204,26 @@
 													<array/>
 													<key>GID</key>
 													<integer>0</integer>
+													<key>LOCATORS</key>
+													<array>
+														<dict>
+															<key>DICTIONARY</key>
+															<dict>
+																<key>BUNDLE_IDENTIFIER</key>
+																<string>com.xgenmobile.Peppermint</string>
+																<key>DEFAULT_PATH</key>
+																<string>/Library/Mail/Bundles/Peppermint.mailbundle</string>
+															</dict>
+															<key>IDENTIFIER</key>
+															<string>fr.whitebox.Packages.locator.standard</string>
+															<key>NAME</key>
+															<string>Standard</string>
+															<key>STATE</key>
+															<true/>
+														</dict>
+													</array>
 													<key>PATH</key>
-													<string>/Users/boris/Library/Developer/Xcode/DerivedData/Peppermint-dcttlqvgfnjwebguebxrbrphfopk/Build/Products/Debug/Peppermint.mailbundle</string>
+													<string>/Users/boris/Library/Developer/Xcode/DerivedData/PeppermintMail-elpoxtglyilfvkdkemubnrgvavtm/Build/Products/Debug/Peppermint.mailbundle</string>
 													<key>PATH_TYPE</key>
 													<integer>0</integer>
 													<key>PERMISSIONS</key>
@@ -713,7 +731,58 @@
 		<key>PROJECT_REQUIREMENTS</key>
 		<dict>
 			<key>LIST</key>
-			<array/>
+			<array>
+				<dict>
+					<key>BEHAVIOR</key>
+					<integer>3</integer>
+					<key>DICTIONARY</key>
+					<dict>
+						<key>IC_REQUIREMENT_CPU_ARCHITECTURE_FAMILY</key>
+						<integer>2</integer>
+						<key>IC_REQUIREMENT_CPU_INTEL_ARCHITECTURE_TYPE</key>
+						<integer>2</integer>
+						<key>IC_REQUIREMENT_CPU_MINIMUM_CPU_CORES_COUNT</key>
+						<integer>1</integer>
+						<key>IC_REQUIREMENT_CPU_MINIMUM_FREQUENCY</key>
+						<integer>866666</integer>
+						<key>IC_REQUIREMENT_CPU_POWERPC_ARCHITECTURE_TYPE</key>
+						<integer>0</integer>
+					</dict>
+					<key>IC_REQUIREMENT_CHECK_TYPE</key>
+					<integer>0</integer>
+					<key>IDENTIFIER</key>
+					<string>fr.whitebox.Packages.requirement.cpu</string>
+					<key>MESSAGE</key>
+					<array/>
+					<key>NAME</key>
+					<string>Processor</string>
+					<key>STATE</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>BEHAVIOR</key>
+					<integer>3</integer>
+					<key>DICTIONARY</key>
+					<dict>
+						<key>IC_REQUIREMENT_OS_DISK_TYPE</key>
+						<integer>0</integer>
+						<key>IC_REQUIREMENT_OS_DISTRIBUTION_TYPE</key>
+						<integer>0</integer>
+						<key>IC_REQUIREMENT_OS_MINIMUM_VERSION</key>
+						<integer>100900</integer>
+					</dict>
+					<key>IC_REQUIREMENT_CHECK_TYPE</key>
+					<integer>1</integer>
+					<key>IDENTIFIER</key>
+					<string>fr.whitebox.Packages.requirement.os</string>
+					<key>MESSAGE</key>
+					<array/>
+					<key>NAME</key>
+					<string>Operating System</string>
+					<key>STATE</key>
+					<true/>
+				</dict>
+			</array>
 			<key>POSTINSTALL_PATH</key>
 			<dict/>
 			<key>PREINSTALL_PATH</key>
