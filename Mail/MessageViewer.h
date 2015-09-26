@@ -422,8 +422,8 @@
 - (id)messagesTargetedByAction:(SEL)arg1;
 - (void)_firstResponderIsViewingPane:(char *)arg1 isMessageList:(char *)arg2;
 - (BOOL)outgoingMailboxSelected;
-- (void)setSelectedMessages:(id)arg1;
-- (id)selectedMessages;
+- (void)setSelectedMessages:(NSArray*)arg1;
+- (NSArray*)selectedMessages;
 - (void)setSelectedMailboxes:(id)arg1 scrollToVisible:(BOOL)arg2;
 - (void)setSelectedMailboxes:(id)arg1;
 - (void)didCloseContextMenu:(id)arg1;

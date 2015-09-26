@@ -729,8 +729,20 @@
 			<dict>
 				<key>installer-script.domains:enable_currentUserHome</key>
 				<true/>
+				<key>installer-script.options.platforms.client:arch</key>
+				<array>
+					<string>x86_64</string>
+				</array>
+				<key>installer-script.options.platforms.server:arch</key>
+				<array>
+					<string>x86_64</string>
+				</array>
 				<key>installer-script.options:allow-external-scripts</key>
 				<false/>
+				<key>installer-script.options:hostArchitectures</key>
+				<array>
+					<string></string>
+				</array>
 			</dict>
 			<key>BUILD_FORMAT</key>
 			<integer>0</integer>

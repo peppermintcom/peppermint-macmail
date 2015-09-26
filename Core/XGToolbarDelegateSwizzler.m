@@ -49,9 +49,6 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 @implementation XGToolbarDelegateSwizzler
 {
 	Class _swizzledClass;
-	SEL _originalToolbarAllowedItemIdentifiers;
-	SEL _originalToolbarDefaultItemIdentifiers;
-	SEL _originalToolbarItemForItemIdentifierWillBeInsertedIntoToolbar;
 }
 
 + (void)initialize
@@ -162,7 +159,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	NSMutableDictionary* context = swizzleContextForClass([self class]);
 	id<NSToolbarDelegate> swizzler = [context[@"Swizzler"] nonretainedObjectValue];
 
-	// update contet and call overriding method in overriding class
+	// update context and call overriding method in overriding class
 	// self here is an object of the "swizzledClass", not XGToolbarDelegateSwizzler
 	context[@"Original"] = [NSValue valueWithNonretainedObject:self];
 
@@ -181,7 +178,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	NSMutableDictionary* context = swizzleContextForClass([self class]);
 	id<NSToolbarDelegate> swizzler = [context[@"Swizzler"] nonretainedObjectValue];
 
-	// update contet and call overriding method in overriding class
+	// update context and call overriding method in overriding class
 	// self here is an object of the "swizzledClass", not XGToolbarDelegateSwizzler
 	context[@"Original"] = [NSValue valueWithNonretainedObject:self];
 
@@ -201,7 +198,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	NSMutableDictionary* context = swizzleContextForClass([self class]);
 	id<NSToolbarDelegate> swizzler = [context[@"Swizzler"] nonretainedObjectValue];
 
-	// update contet and call overriding method in overriding class
+	// update context and call overriding method in overriding class
 	// self here is an object of the "swizzledClass", not XGToolbarDelegateSwizzler
 	context[@"Original"] = [NSValue valueWithNonretainedObject:self];
 
