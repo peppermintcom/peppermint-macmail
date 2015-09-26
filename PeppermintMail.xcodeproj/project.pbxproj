@@ -12,6 +12,7 @@
 		A11CB6491BAD8C8400E77061 /* XGNumberTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = A11CB6481BAD8C8400E77061 /* XGNumberTransformers.m */; };
 		A11CB64C1BAD8E0400E77061 /* XGBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = A11CB64B1BAD8E0400E77061 /* XGBinding.m */; };
 		A11CB64F1BAD951A00E77061 /* XGMouseTransparrentTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A11CB64E1BAD951A00E77061 /* XGMouseTransparrentTextField.m */; };
+		A120589B1BB6EBE900D9DF09 /* XGMessageViewerToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A120589A1BB6EBE900D9DF09 /* XGMessageViewerToolbarItem.m */; settings = {ASSET_TAGS = (); }; };
 		A12848771BA8272900DD38CF /* PeppermintUT.m in Sources */ = {isa = PBXBuildFile; fileRef = A12848761BA8272900DD38CF /* PeppermintUT.m */; };
 		A128487D1BA8279A00DD38CF /* Peppermint.mailbundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EBF9791BA3820E000A9A58 /* Peppermint.mailbundle */; };
 		A128487F1BA830C300DD38CF /* MessageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A128487E1BA830C300DD38CF /* MessageViewer.m */; };
@@ -56,6 +57,9 @@
 		A11CB64B1BAD8E0400E77061 /* XGBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGBinding.m; sourceTree = "<group>"; };
 		A11CB64D1BAD951A00E77061 /* XGMouseTransparrentTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGMouseTransparrentTextField.h; sourceTree = "<group>"; };
 		A11CB64E1BAD951A00E77061 /* XGMouseTransparrentTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGMouseTransparrentTextField.m; sourceTree = "<group>"; };
+		A12058981BB6E77F00D9DF09 /* MCMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCMessage.h; sourceTree = "<group>"; };
+		A12058991BB6EBE900D9DF09 /* XGMessageViewerToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGMessageViewerToolbarItem.h; sourceTree = "<group>"; };
+		A120589A1BB6EBE900D9DF09 /* XGMessageViewerToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGMessageViewerToolbarItem.m; sourceTree = "<group>"; };
 		A12848721BA8272900DD38CF /* PeppermintUT.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeppermintUT.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12848751BA8272900DD38CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A12848761BA8272900DD38CF /* PeppermintUT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeppermintUT.m; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				A1B8BC581BB0B2310047ABC6 /* MCAttachment.h */,
 				A1B427801BB4A4C6007345A1 /* MCActivityTarget.h */,
 				A1B8BC5A1BB0B8EF0047ABC6 /* MFAttachmentViewController.h */,
+				A12058981BB6E77F00D9DF09 /* MCMessage.h */,
 			);
 			path = Mail;
 			sourceTree = "<group>";
@@ -221,6 +226,8 @@
 				A1AE41CA1BB5A66B00B06BD3 /* XGDocumentEditorSwizzler.m */,
 				A1AE41CB1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.h */,
 				A1AE41CC1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.m */,
+				A12058991BB6EBE900D9DF09 /* XGMessageViewerToolbarItem.h */,
+				A120589A1BB6EBE900D9DF09 /* XGMessageViewerToolbarItem.m */,
 			);
 			path = Peppermint;
 			sourceTree = "<group>";
@@ -415,6 +422,7 @@
 				A1AE41CD1BB5A66B00B06BD3 /* XGAttachementGenerator.m in Sources */,
 				A1AE41CF1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.m in Sources */,
 				A1AE41CE1BB5A66B00B06BD3 /* XGDocumentEditorSwizzler.m in Sources */,
+				A120589B1BB6EBE900D9DF09 /* XGMessageViewerToolbarItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

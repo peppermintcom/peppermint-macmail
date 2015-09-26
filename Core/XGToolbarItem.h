@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Xgen Mobile. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
 @interface XGToolbarItem : NSToolbarItem
 

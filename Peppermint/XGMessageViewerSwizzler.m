@@ -8,11 +8,9 @@
 
 #import "XGMessageViewerSwizzler.h"
 #import "XGAttachementGenerator.h"
+#import "XGMessageViewerToolbarItem.h"
 #import "AudioRecorder/XGAudioRecorderWindowController.h"
-#import "Core/XGToolbarItem.h"
 #import "Mail/MessageViewer.h"
-#import "Mail/MCMessageGenerator.h"
-#import "Mail/MCMutableMessageHeaders.h"
 #import "Mail/EditingMessageWebView.h"
 @import Cocoa;
 
@@ -92,7 +90,8 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 		return [super toolbar:toolbar itemForItemIdentifier:identifier willBeInsertedIntoToolbar:flag];
 
 	// return item for the ReplyWithPeppermint button
-	NSToolbarItem* item = [[XGToolbarItem alloc] initWithItemIdentifier:XGReplyWithPeppermintToolbarItemIdentifier imageName:@"ReplyWithPeppermint"];
+	XGToolbarItem* item = [[XGMessageViewerToolbarItem alloc] initWithItemIdentifier:XGReplyWithPeppermintToolbarItemIdentifier
+																		   imageName:@"ReplyWithPeppermint"];
 	item.target = self;
 	item.action = @selector(replyWithPeppermint:);
 
