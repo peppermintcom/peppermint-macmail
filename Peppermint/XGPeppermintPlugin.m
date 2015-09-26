@@ -22,6 +22,8 @@ id _swizzler2;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 
+		XG_PRINT(@"Peppermint plugin loaded");
+
 		// instantiate plugin objects and register them into app infrastructure
 		NSError* error = nil;
 		XG_CHECK([self registerMessageViewerToolbarItem:&error], @"Failed to inject MessageViewer toolbar item. %@", error);
