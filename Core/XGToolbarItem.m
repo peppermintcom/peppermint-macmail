@@ -19,23 +19,27 @@
 	if (!self)
 		return nil;
 	
-	// load image from our bundle, not the Mail's mainBundle
+	// create button instead of image
+	NSButton* button = [[NSButton alloc] initWithFrame:CGRectZero];
+	button.bezelStyle = NSTexturedRoundedBezelStyle;
+	self.view = button;
+
 	if (imageName)
 	{
+		// load image from our bundle, not the Mail's mainBundle
 		NSBundle* bundle = [NSBundle bundleForClass:[self class]];
 		NSString* path = [bundle pathForResource:imageName ofType:@"tiff"];
 		if (nil == path)
 			XG_ERROR(@"Resource %@ cound not be found in bundle %@", imageName, [bundle bundlePath]);
 
-		NSImage* image = [[NSImage alloc] initWithContentsOfFile:path];
-
-		// create button instead of image
-		NSButton* button = [[NSButton alloc] initWithFrame:CGRectMake(0, 0, image.size.width,
-																	  image.size.height)];
-		button.bezelStyle = NSTexturedRoundedBezelStyle;
+		button.image = [[NSImage alloc] initWithContentsOfFile:path];
+		button.imagePosition = NSImageOnly;
+		self.minSize = CGSizeMake(40, 23);
+	}
+	else
+	{
+		self.minSize = CGSizeMake(48, 23);
 		button.title = XGLocalizedString([itemIdentifier stringByAppendingString:@"_label"], "String of form ToolbarItemIdentifier_label");
-		self.view = button;
-		self.minSize = CGSizeMake(64, 23);
 	}
 
 	// initialize labels

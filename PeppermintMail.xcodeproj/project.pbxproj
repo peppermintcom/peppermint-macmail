@@ -17,6 +17,8 @@
 		A128487D1BA8279A00DD38CF /* Peppermint.mailbundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EBF9791BA3820E000A9A58 /* Peppermint.mailbundle */; };
 		A128487F1BA830C300DD38CF /* MessageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = A128487E1BA830C300DD38CF /* MessageViewer.m */; };
 		A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A131DB351BA5E24400A5D391 /* Localizable.strings */; };
+		A17FB29E1BB81C0E004B9194 /* btn_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A17FB29D1BB81C0E004B9194 /* btn_logo@2x.png */; settings = {ASSET_TAGS = (); }; };
+		A17FB2A01BB81C37004B9194 /* btn_logo@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A17FB29F1BB81C37004B9194 /* btn_logo@1x.png */; settings = {ASSET_TAGS = (); }; };
 		A1AE41C51BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1AE41C21BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib */; };
 		A1AE41C61BB5A4C800B06BD3 /* XGAudioRecorderWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE41C41BB5A4C800B06BD3 /* XGAudioRecorderWindowController.m */; };
 		A1AE41CD1BB5A66B00B06BD3 /* XGAttachementGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE41C81BB5A66B00B06BD3 /* XGAttachementGenerator.m */; };
@@ -65,6 +67,8 @@
 		A12848761BA8272900DD38CF /* PeppermintUT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeppermintUT.m; sourceTree = "<group>"; };
 		A128487E1BA830C300DD38CF /* MessageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewer.m; sourceTree = "<group>"; };
 		A131DB341BA5E24400A5D391 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A17FB29D1BB81C0E004B9194 /* btn_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_logo@2x.png"; sourceTree = "<group>"; };
+		A17FB29F1BB81C37004B9194 /* btn_logo@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_logo@1x.png"; sourceTree = "<group>"; };
 		A1AE41C21BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XGAudioRecorderWindowController.xib; sourceTree = "<group>"; };
 		A1AE41C31BB5A4C800B06BD3 /* XGAudioRecorderWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGAudioRecorderWindowController.h; sourceTree = "<group>"; };
 		A1AE41C41BB5A4C800B06BD3 /* XGAudioRecorderWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGAudioRecorderWindowController.m; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 		A1F6B2111BAA361D00075351 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A17FB29F1BB81C37004B9194 /* btn_logo@1x.png */,
+				A17FB29D1BB81C0E004B9194 /* btn_logo@2x.png */,
 				A1EB0E2E1BA39C23000A9A58 /* XGPeppermint.pch */,
 				A1EBF97C1BA3820E000A9A58 /* Info.plist */,
 			);
@@ -381,11 +387,13 @@
 			files = (
 				A1F6B1E71BAA1A5500075351 /* XGAudioRecorderViewController.xib in Resources */,
 				A1F6B1E21BAA1A5500075351 /* Rec.png in Resources */,
+				A17FB29E1BB81C0E004B9194 /* btn_logo@2x.png in Resources */,
 				A1F6B1E41BAA1A5500075351 /* Stop.png in Resources */,
 				A131DB331BA5E24400A5D391 /* Localizable.strings in Resources */,
 				A1F6B1E51BAA1A5500075351 /* Stop@2x.png in Resources */,
 				A1AE41C51BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib in Resources */,
 				A1F6B1E31BAA1A5500075351 /* Rec@2x.png in Resources */,
+				A17FB2A01BB81C37004B9194 /* btn_logo@1x.png in Resources */,
 				A1F6B1E01BAA1A5500075351 /* Mic.png in Resources */,
 				A1F6B1E11BAA1A5500075351 /* Mic@2x.png in Resources */,
 			);
