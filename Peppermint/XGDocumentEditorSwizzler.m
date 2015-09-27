@@ -66,7 +66,8 @@ static NSString* const XGAttachWithPeppermintToolbarItemIdentifier = @"insertPep
 		return [super toolbar:toolbar itemForItemIdentifier:identifier willBeInsertedIntoToolbar:flag];
 
 	// return item for the ReplyWithPeppermint button
-	NSToolbarItem* item = [[XGToolbarItem alloc] initWithItemIdentifier:XGAttachWithPeppermintToolbarItemIdentifier imageName:@"ReplyWithPeppermint"];
+	NSToolbarItem* item = [[XGToolbarItem alloc] initWithItemIdentifier:XGAttachWithPeppermintToolbarItemIdentifier
+															  imageName:@"btn_logo"];
 	item.target = self;
 	item.action = @selector(attachWithPeppermint:);
 
