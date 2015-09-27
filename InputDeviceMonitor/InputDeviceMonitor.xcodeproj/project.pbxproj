@@ -1,0 +1,249 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A12E2A7F1BB8829C004A311B /* XGInputDeviceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A12E2A7E1BB8829C004A311B /* XGInputDeviceMonitor.m */; settings = {ASSET_TAGS = (); }; };
+		A12E2A811BB89596004A311B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A12E2A801BB89596004A311B /* main.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A12E2A711BB88214004A311B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A12E2A731BB88214004A311B /* InputDeviceMonitor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = InputDeviceMonitor; sourceTree = BUILT_PRODUCTS_DIR; };
+		A12E2A7D1BB8829C004A311B /* XGInputDeviceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGInputDeviceMonitor.h; sourceTree = SOURCE_ROOT; };
+		A12E2A7E1BB8829C004A311B /* XGInputDeviceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGInputDeviceMonitor.m; sourceTree = SOURCE_ROOT; };
+		A12E2A801BB89596004A311B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A12E2A701BB88214004A311B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A12E2A6A1BB88214004A311B = {
+			isa = PBXGroup;
+			children = (
+				A12E2A751BB88214004A311B /* MicDetection */,
+				A12E2A741BB88214004A311B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A12E2A741BB88214004A311B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A12E2A731BB88214004A311B /* InputDeviceMonitor */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A12E2A751BB88214004A311B /* MicDetection */ = {
+			isa = PBXGroup;
+			children = (
+				A12E2A801BB89596004A311B /* main.m */,
+				A12E2A7D1BB8829C004A311B /* XGInputDeviceMonitor.h */,
+				A12E2A7E1BB8829C004A311B /* XGInputDeviceMonitor.m */,
+			);
+			path = MicDetection;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A12E2A721BB88214004A311B /* InputDeviceMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A12E2A7A1BB88214004A311B /* Build configuration list for PBXNativeTarget "InputDeviceMonitor" */;
+			buildPhases = (
+				A12E2A6F1BB88214004A311B /* Sources */,
+				A12E2A701BB88214004A311B /* Frameworks */,
+				A12E2A711BB88214004A311B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InputDeviceMonitor;
+			productName = MicDetection;
+			productReference = A12E2A731BB88214004A311B /* InputDeviceMonitor */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A12E2A6B1BB88214004A311B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Xgen Mobile";
+				TargetAttributes = {
+					A12E2A721BB88214004A311B = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = A12E2A6E1BB88214004A311B /* Build configuration list for PBXProject "InputDeviceMonitor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A12E2A6A1BB88214004A311B;
+			productRefGroup = A12E2A741BB88214004A311B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A12E2A721BB88214004A311B /* InputDeviceMonitor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A12E2A6F1BB88214004A311B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A12E2A811BB89596004A311B /* main.m in Sources */,
+				A12E2A7F1BB8829C004A311B /* XGInputDeviceMonitor.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A12E2A781BB88214004A311B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A12E2A791BB88214004A311B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A12E2A7B1BB88214004A311B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = InputDeviceMonitor;
+			};
+			name = Debug;
+		};
+		A12E2A7C1BB88214004A311B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = InputDeviceMonitor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A12E2A6E1BB88214004A311B /* Build configuration list for PBXProject "InputDeviceMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A12E2A781BB88214004A311B /* Debug */,
+				A12E2A791BB88214004A311B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A12E2A7A1BB88214004A311B /* Build configuration list for PBXNativeTarget "InputDeviceMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A12E2A7B1BB88214004A311B /* Debug */,
+				A12E2A7C1BB88214004A311B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A12E2A6B1BB88214004A311B /* Project object */;
+}
