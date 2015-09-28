@@ -10,6 +10,12 @@
 
 @interface XGInputDeviceMonitor : NSObject
 
+@property (nonatomic, readonly) BOOL inputDevicePresents;
+@property (nonatomic, readonly) float currentSignalLevel;
+
 + (instancetype)sharedMonitor;
+
+- (BOOL)startMonitoring:(NSError**)error;
+- (void)stop;
 
 @end
