@@ -12,14 +12,19 @@
 
 @interface XGInputDeviceMonitor()
 
+@property (nonatomic) float currentSignalLevel;
+
 @end
 
 
 @implementation XGInputDeviceMonitor
 {
+	AudioObjectID _currentInput;
 	AudioQueueRef _inputAudioQueue;
 	dispatch_queue_t _inputDispatchQueue;
 }
+
+@dynamic inputDevicePresents;
 
 + (instancetype)sharedMonitor
 {
@@ -37,8 +42,94 @@
 	if (!self)
 		return nil;
 
-	// start microphone monitoring by opening default input device and monitoring signal level on it
+	// monitor change of the default input device
+	AudioObjectPropertyAddress address = {
+		kAudioHardwarePropertyDefaultInputDevice,
+		kAudioObjectPropertyScopeGlobal,
+		0
+	};
+	OSStatus result = AudioObjectAddPropertyListenerBlock(kAudioObjectSystemObject, &address, dispatch_get_main_queue(), ^(UInt32 inNumberAddresses, const AudioObjectPropertyAddress* inAddresses) {
+
+		printf("Input configuration changed\n");
+		[self updateCurrentInput];
+	});
+
+	if (noErr != result)
+	{
+		printf("Error %d listening the kAudioHardwarePropertyDefaultInputDevice property change\n", result);
+		return nil;
+	}
+
+	// perform microphone monitoring in separate thread
 	_inputDispatchQueue = dispatch_queue_create("XGInputDetectionQueue", DISPATCH_QUEUE_SERIAL);
+
+	[self updateCurrentInput];
+
+	return self;
+}
+
+- (void)dealloc
+{
+	[self stopAudioInputMonitoring];
+}
+
+- (BOOL)inputDevicePresents
+{
+	return 0 != _currentInput;
+}
+
+- (void)updateCurrentInput
+{
+	printf("%s\n", __PRETTY_FUNCTION__);
+
+	assert(_inputDispatchQueue);
+
+	// monitor change of the default input device
+	AudioObjectPropertyAddress address = {
+		kAudioHardwarePropertyDefaultInputDevice,
+		kAudioObjectPropertyScopeGlobal,
+		0
+	};
+
+	// check current input device is configured
+	AudioObjectID defaultInput = 0;
+	UInt32 dataSize = sizeof(defaultInput);
+	OSStatus result = AudioObjectGetPropertyData(kAudioObjectSystemObject, &address, 0, NULL, &dataSize, &defaultInput);
+	if (noErr != result)
+	{
+		printf("Can't get the kAudioHardwarePropertyDefaultInputDevice property value, error %d\n", result);
+		[self stopAudioInputMonitoring];
+		return;
+	}
+
+	printf("Default audio input is 0x%x\n", defaultInput);
+
+	if (_currentInput == defaultInput)
+		return;
+
+	if (0 == defaultInput)
+		[self stopAudioInputMonitoring];
+
+	[self willChangeValueForKey:@"inputDevicePresents"];
+	_currentInput = defaultInput;
+	[self didChangeValueForKey:@"inputDevicePresents"];
+}
+
+- (BOOL)startAudioInputMonitoring:(NSError**)error
+{
+	if (_inputAudioQueue)
+		return TRUE;			// already started
+
+	NSError __autoreleasing* internalError = nil;
+	if (NULL == error)
+		error = &internalError;
+
+	if (0 == _currentInput)
+	{
+		// no configured input devices found
+		*error = [NSError errorWithDomain:NSOSStatusErrorDomain code:hardwareConfigErr userInfo:nil];
+		return FALSE;
+	}
 
 	// start audio queue on default input
 	AudioStreamBasicDescription inputFormat = {0};
@@ -64,7 +155,10 @@
 		}
 
 		// TODO: analyze level metters and make verdict about attachement of the mic
-		printf("mAveragePower = %f\n", channels[0].mAveragePower);
+		Float32 leftChannelLevel = channels[0].mAveragePower;
+		dispatch_async(dispatch_get_main_queue(), ^{
+			self.currentSignalLevel = leftChannelLevel;
+		});
 
 		// return buffer to the queue
 		result = AudioQueueEnqueueBuffer(_inputAudioQueue, inBuffer, 0, NULL);
@@ -80,7 +174,8 @@
 	if (noErr != result)
 	{
 		printf("Error %d enabing level mettering on input device", result);
-		return nil;
+		*error = [NSError errorWithDomain:NSOSStatusErrorDomain code:result userInfo:nil];
+		return FALSE;
 	}
 
 	// enqueue buffers to allow receive data to the queue before start
@@ -91,29 +186,41 @@
 		if (noErr != result)
 		{
 			printf("Error %d allocating audio buffer\n", result);
-			break;
+			*error = [NSError errorWithDomain:NSOSStatusErrorDomain code:result userInfo:nil];
+			return FALSE;
 		}
 
 		result = AudioQueueEnqueueBuffer(_inputAudioQueue, audioBuffer, 0, NULL);
 		if (noErr != result)
 		{
 			printf("Error %d enqueueing audio buffer\n", result);
-			break;
+			*error = [NSError errorWithDomain:NSOSStatusErrorDomain code:result userInfo:nil];
+			return FALSE;
 		}
 	}
 
-	AudioQueueStart(_inputAudioQueue, NULL);
+	result = AudioQueueStart(_inputAudioQueue, NULL);
+	if (noErr != result)
+	{
+		*error = [NSError errorWithDomain:NSOSStatusErrorDomain code:result userInfo:nil];
+		return FALSE;
+	}
 
-	return self;
+	return TRUE;
 }
 
-- (void)dealloc
+- (void)stopAudioInputMonitoring
 {
-	if (_inputAudioQueue)
-	{
-		AudioQueueStop(_inputAudioQueue, true);
-		AudioQueueDispose(_inputAudioQueue, true);
-	}
+	printf("%s\n", __PRETTY_FUNCTION__);
+
+	if (NULL == _inputAudioQueue)
+		return;
+
+	self.currentSignalLevel = 0;
+
+	AudioQueueStop(_inputAudioQueue, YES);
+	AudioQueueDispose(_inputAudioQueue, YES);
+	_inputAudioQueue = NULL;
 }
 
 @end
