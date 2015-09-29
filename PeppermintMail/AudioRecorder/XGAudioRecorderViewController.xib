@@ -7,30 +7,17 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="XGAudioRecorderViewController">
             <connections>
-                <outlet property="playStopButton" destination="9hP-Ju-476" id="aZf-1w-6Pp"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="384" height="437"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="249"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="7jq-gn-eLS">
-                    <rect key="frame" x="0.0" y="-2" width="384" height="5"/>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <font key="titleFont" metaFont="system"/>
-                </box>
-                <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="SPi-1q-APZ">
-                    <rect key="frame" x="0.0" y="59" width="384" height="5"/>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <font key="titleFont" metaFont="system"/>
-                </box>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="23d-wI-TL3">
-                    <rect key="frame" x="165" y="9" width="54" height="44"/>
+                    <rect key="frame" x="123" y="9" width="54" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="PxV-3d-obm"/>
                     </constraints>
@@ -45,10 +32,15 @@
                                 <string key="NSValueTransformerName">XG2DigitsNumberFormatter</string>
                             </dictionary>
                         </binding>
+                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="VuW-FG-1yW">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nbN-Wd-Rrc">
-                    <rect key="frame" x="102" y="9" width="54" height="44"/>
+                    <rect key="frame" x="60" y="9" width="54" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="A75-is-IOk"/>
                     </constraints>
@@ -63,122 +55,133 @@
                                 <string key="NSValueTransformerName">XG2DigitsNumberFormatter</string>
                             </dictionary>
                         </binding>
+                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="fO1-UT-ozK">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MXu-ud-8Oa">
-                    <rect key="frame" x="153" y="9" width="19" height="44"/>
+                    <rect key="frame" x="111" y="9" width="19" height="44"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title=":" id="iNL-Uu-Tbo">
                         <font key="font" size="36" name=".HelveticaNeueDeskInterface-Thin"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="sml-0p-If9">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MHN-3r-W6X">
-                    <rect key="frame" x="217" y="9" width="19" height="44"/>
+                    <rect key="frame" x="175" y="9" width="19" height="44"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title=":" id="mWA-4g-WM5">
                         <font key="font" size="36" name=".HelveticaNeueDeskInterface-Thin"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="fJH-m1-XTk">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E0Y-ua-Qsy">
-                    <rect key="frame" x="229" y="9" width="79" height="44"/>
+                    <rect key="frame" x="187" y="9" width="58" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="75" id="L2p-Ci-eFJ"/>
+                        <constraint firstAttribute="width" constant="54" id="L2p-Ci-eFJ"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="000" id="beh-9s-p6J">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="beh-9s-p6J">
                         <font key="font" size="36" name=".HelveticaNeueDeskInterface-Thin"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="elapsedMilliseconds" id="N2y-K6-OIY">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">XG3DigitsNumberFormatter</string>
-                            </dictionary>
-                        </binding>
-                    </connections>
-                </textField>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="9hP-Ju-476">
-                    <rect key="frame" x="48" y="7" width="48" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="48" id="dpg-B2-h28"/>
-                        <constraint firstAttribute="width" constant="48" id="tYT-Q7-keI"/>
-                    </constraints>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Rec" imagePosition="only" alignment="center" alternateImage="Stop" imageScaling="proportionallyUpOrDown" inset="2" id="TLs-0n-3ZH">
-                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                        <string key="keyEquivalent">r</string>
-                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="recStopDidToggle:" target="-2" id="NxX-oJ-4f6"/>
-                        <binding destination="-2" name="hidden" keyPath="startsRecordingAutomatically" id="2jc-Xf-Ycm"/>
-                    </connections>
-                </button>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cpR-a8-oGb">
-                    <rect key="frame" x="64" y="108" width="256" height="256"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="256" id="WNw-Xo-JRN"/>
-                        <constraint firstAttribute="height" constant="256" id="hVB-YQ-dIV"/>
-                    </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="Mic" id="kFm-Cn-JD4"/>
-                </imageView>
-                <textField autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oCE-aQ-VSU" customClass="XGMouseTransparrentTextField">
-                    <rect key="frame" x="62" y="18" width="21" height="28"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" usesSingleLineMode="YES" id="fmt-I8-aok">
-                        <font key="font" size="23" name=".HelveticaNeueDeskInterface-Thin"/>
-                        <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <connections>
-                        <binding destination="-2" name="hidden2" keyPath="startsRecordingAutomatically" previousBinding="F6u-OL-ca5" id="aed-TI-fig">
-                            <dictionary key="options">
-                                <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                <integer key="NSNullPlaceholder" value="-1"/>
-                            </dictionary>
-                        </binding>
-                        <binding destination="-2" name="hidden" keyPath="preparationCounter" id="F6u-OL-ca5">
+                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="k9C-6S-Ntv">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
                             </dictionary>
                         </binding>
-                        <binding destination="-2" name="value" keyPath="preparationCounter" id="bIM-tQ-Jfc"/>
+                        <binding destination="-2" name="value" keyPath="elapsedMilliseconds" id="JBF-Qh-b6g">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">XG2DigitsNumberFormatter</string>
+                            </dictionary>
+                        </binding>
                     </connections>
                 </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1S9-bm-3OX">
+                    <rect key="frame" x="107" y="82" width="86" height="86"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="86" id="gEY-5V-i6z"/>
+                        <constraint firstAttribute="height" constant="86" id="sm7-Pu-H9e"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="icon_mic_off" id="UuA-Jx-8X7"/>
+                    <connections>
+                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="dp4-PL-N6o"/>
+                    </connections>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yud-1G-5a6">
+                    <rect key="frame" x="73" y="18" width="154" height="24"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="No MIC Attached" id="A2h-zB-A9f">
+                        <font key="font" size="20" name=".HelveticaNeueDeskInterface-Thin"/>
+                        <color key="textColor" red="1" green="0.037557740190000001" blue="0.044115084190000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="gaz-mU-4hb"/>
+                        <binding destination="-2" name="value" keyPath="elapsedSeconds" id="4bu-3J-G7B">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">XG2DigitsNumberFormatter</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cpR-a8-oGb">
+                    <rect key="frame" x="107" y="81" width="86" height="86"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="86" id="WNw-Xo-JRN"/>
+                        <constraint firstAttribute="height" constant="86" id="hVB-YQ-dIV"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="icon_mic_on" id="kFm-Cn-JD4"/>
+                    <connections>
+                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="LPL-DL-5eF">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </imageView>
             </subviews>
             <constraints>
                 <constraint firstItem="E0Y-ua-Qsy" firstAttribute="baseline" secondItem="nbN-Wd-Rrc" secondAttribute="baseline" id="2RH-kW-VVX"/>
+                <constraint firstAttribute="bottom" secondItem="Yud-1G-5a6" secondAttribute="bottom" constant="18" id="50f-fI-2p9"/>
                 <constraint firstItem="MXu-ud-8Oa" firstAttribute="baseline" secondItem="nbN-Wd-Rrc" secondAttribute="baseline" id="Abo-dr-bZt"/>
                 <constraint firstItem="E0Y-ua-Qsy" firstAttribute="leading" secondItem="MHN-3r-W6X" secondAttribute="trailing" constant="-3" id="BB7-FN-mcr"/>
-                <constraint firstItem="nbN-Wd-Rrc" firstAttribute="top" secondItem="SPi-1q-APZ" secondAttribute="bottom" constant="8" id="FHB-3S-n0e"/>
                 <constraint firstItem="23d-wI-TL3" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="G4c-Rs-DAQ"/>
-                <constraint firstItem="nbN-Wd-Rrc" firstAttribute="centerY" secondItem="9hP-Ju-476" secondAttribute="centerY" id="I44-PX-QAQ"/>
+                <constraint firstItem="1S9-bm-3OX" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Hy6-fd-R2J"/>
+                <constraint firstAttribute="bottom" secondItem="E0Y-ua-Qsy" secondAttribute="bottom" constant="9" id="ITh-Bo-nKz"/>
                 <constraint firstItem="MHN-3r-W6X" firstAttribute="baseline" secondItem="nbN-Wd-Rrc" secondAttribute="baseline" id="MLW-iO-7e0"/>
                 <constraint firstItem="23d-wI-TL3" firstAttribute="baseline" secondItem="nbN-Wd-Rrc" secondAttribute="baseline" id="OQk-Kh-dSp"/>
-                <constraint firstAttribute="bottom" secondItem="7jq-gn-eLS" secondAttribute="bottom" id="ULU-CV-DV9"/>
                 <constraint firstItem="MHN-3r-W6X" firstAttribute="leading" secondItem="23d-wI-TL3" secondAttribute="trailing" constant="2" id="Xch-8f-zUV"/>
-                <constraint firstItem="7jq-gn-eLS" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="XeZ-lY-yRZ"/>
-                <constraint firstItem="oCE-aQ-VSU" firstAttribute="centerY" secondItem="9hP-Ju-476" secondAttribute="centerY" constant="-1" id="abj-Ia-mwH"/>
-                <constraint firstItem="oCE-aQ-VSU" firstAttribute="centerX" secondItem="9hP-Ju-476" secondAttribute="centerX" id="bOQ-qc-pFW"/>
-                <constraint firstItem="nbN-Wd-Rrc" firstAttribute="leading" secondItem="9hP-Ju-476" secondAttribute="trailing" constant="8" id="fVp-SS-My9"/>
-                <constraint firstAttribute="trailing" secondItem="SPi-1q-APZ" secondAttribute="trailing" id="iYD-Yt-74L"/>
+                <constraint firstItem="cpR-a8-oGb" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="gq4-Zb-qph"/>
                 <constraint firstItem="23d-wI-TL3" firstAttribute="leading" secondItem="MXu-ud-8Oa" secondAttribute="trailing" constant="-3" id="jhh-EZ-9th"/>
-                <constraint firstAttribute="trailing" secondItem="7jq-gn-eLS" secondAttribute="trailing" id="jhu-4K-3lV"/>
-                <constraint firstItem="7jq-gn-eLS" firstAttribute="top" secondItem="nbN-Wd-Rrc" secondAttribute="bottom" constant="8" id="k40-nO-aoe"/>
                 <constraint firstItem="cpR-a8-oGb" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="kPR-8c-0x2"/>
-                <constraint firstItem="SPi-1q-APZ" firstAttribute="top" secondItem="cpR-a8-oGb" secondAttribute="bottom" constant="46" id="oBa-SS-T2K"/>
-                <constraint firstItem="SPi-1q-APZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ppx-Z5-RSg"/>
+                <constraint firstItem="Yud-1G-5a6" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="mck-Oy-vSo"/>
+                <constraint firstItem="1S9-bm-3OX" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="nXW-4e-sQY"/>
                 <constraint firstItem="MXu-ud-8Oa" firstAttribute="leading" secondItem="nbN-Wd-Rrc" secondAttribute="trailing" constant="1" id="wF7-aI-JvL"/>
             </constraints>
-            <point key="canvasLocation" x="280" y="86.5"/>
+            <point key="canvasLocation" x="322" y="180.5"/>
         </customView>
+        <customObject id="3Ob-Dc-BBd" customClass="XGInputDeviceMonitor"/>
     </objects>
     <resources>
-        <image name="Mic" width="256" height="256"/>
-        <image name="Rec" width="64" height="64"/>
-        <image name="Stop" width="64" height="64"/>
+        <image name="icon_mic_off" width="86" height="86"/>
+        <image name="icon_mic_on" width="86" height="86"/>
     </resources>
 </document>

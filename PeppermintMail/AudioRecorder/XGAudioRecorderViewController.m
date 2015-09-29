@@ -166,13 +166,13 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 
 - (void)refreshTimerDidFire:(NSTimer*)timer
 {
-	NSUInteger millisecondsElapsed = [[NSDate date] timeIntervalSinceDate:self.recordStartTime] * 1000.0;
+	NSUInteger millisecondsElapsed = [[NSDate date] timeIntervalSinceDate:self.recordStartTime] * 100.0;
 
-	self.elapsedMinutes = millisecondsElapsed / (60 * 1000);
-	self.elapsedSeconds = (millisecondsElapsed % 60000) / 1000;
-	self.elapsedMilliseconds = millisecondsElapsed % 1000;
+	self.elapsedMinutes = millisecondsElapsed / (60 * 100);
+	self.elapsedSeconds = (millisecondsElapsed % 6000) / 100;
+	self.elapsedMilliseconds = millisecondsElapsed % 100;
 
-	if ((NSTimeInterval)millisecondsElapsed / 1000.0 >= self.maxDuration)
+	if ((NSTimeInterval)millisecondsElapsed >= self.maxDuration * 100.0)
 		[self stop];
 }
 

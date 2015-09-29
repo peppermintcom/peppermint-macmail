@@ -8,17 +8,20 @@
 
 #import "XGAudioRecorderWindowController.h"
 #import "AudioRecorder/XGAudioRecorderViewController.h"
+#import "InputDeviceMonitor/XGInputDeviceMonitor.h"
+#import "Core/XGLocalizedString.h"
 
 @interface XGAudioRecorderWindowController ()
 
 @property (nonatomic, strong) XGAudioRecorderViewController* audioRecorder;
 @property (nonatomic, assign) IBOutlet NSView* audioRecorderFrameView;
-
 @property (nonatomic, strong) NSWindow* parentWindow;
-
+@property (nonatomic, readonly, copy) NSString* defaultButtonLocalizedTitle;
 @end
 
 @implementation XGAudioRecorderWindowController
+
+@dynamic defaultButtonLocalizedTitle;
 
 + (void)addEdgeConstraint:(NSLayoutAttribute)edge superview:(NSView *)superview subview:(NSView *)subview {
 	[superview addConstraint:[NSLayoutConstraint constraintWithItem:subview
@@ -35,19 +38,21 @@
 	return [[XGAudioRecorderWindowController alloc] initWithWindowNibName:@"XGAudioRecorderWindowController"];
 }
 
-- (void)dealloc
-{
-
-}
-
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
+
 	// place audio recorder on to place
 	self.audioRecorder = [XGAudioRecorderViewController controller];
 	self.audioRecorder.preparationInterval = 0;
-	self.audioRecorder.startsRecordingAutomatically = YES;
+
+	if ([XGInputDeviceMonitor sharedMonitor].inputDevicePresents)
+	{
+		NSError* error = nil;
+		BOOL result = [self.audioRecorder record:&error];
+		if (!result)
+			XG_ERROR(@"Automatic recording start failed. %@", error);
+	}
 
 	self.audioRecorder.view.frame = self.audioRecorderFrameView.bounds;
 	[self.audioRecorderFrameView addSubview:self.audioRecorder.view];
@@ -69,14 +74,37 @@
 	}];
 }
 
-- (IBAction)done:(id)sender
+- (IBAction)recordOrDone:(id)sender
 {
-	[self.parentWindow endSheet:self.window returnCode:NSModalResponseContinue];
+	if (self.audioRecorder.recording || self.audioRecorder.lastRecordedURL)
+	{
+		// close record sheet
+		[self.parentWindow endSheet:self.window returnCode:NSModalResponseContinue];
+	}
+	else
+	{
+		// start recording
+		NSError* error = nil;
+		BOOL result = [self.audioRecorder record:&error];
+		if (!result)
+			XG_ERROR(@"Failed to start recording, %@", error);
+	}
 }
 
 - (IBAction)cancelOperation:(id)sender
 {
 	[self.parentWindow endSheet:self.window returnCode:NSModalResponseCancel];
+}
+
++ (NSSet*)keyPathsForValuesAffectingDefaultButtonLocalizedTitle
+{
+	return [NSSet setWithObjects:@"audioRecorder.recording", @"audioRecorder.recording", nil];
+}
+
+- (NSString*)defaultButtonLocalizedTitle
+{
+	return (self.audioRecorder.recording || (nil != self.audioRecorder.lastRecordedURL)) ?
+		XGLocalizedString(@"btn_done", "") : XGLocalizedString(@"btn_record", "");
 }
 
 @end
