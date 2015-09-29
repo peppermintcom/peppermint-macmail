@@ -142,7 +142,7 @@
 	inputFormat.mBitsPerChannel = 32;
 	inputFormat.mBytesPerFrame = inputFormat.mChannelsPerFrame * inputFormat.mBitsPerChannel / 8;
 	inputFormat.mBytesPerPacket = inputFormat.mBytesPerFrame * inputFormat.mFramesPerPacket;
-	AudioQueueNewInputWithDispatchQueue(&_inputAudioQueue, &inputFormat, 0, _inputDispatchQueue, ^(AudioQueueRef  _Nonnull inAQ, AudioQueueBufferRef  _Nonnull inBuffer, const AudioTimeStamp * _Nonnull inStartTime, UInt32 inNumberPacketDescriptions, const AudioStreamPacketDescription * _Nullable inPacketDescs) {
+	AudioQueueNewInputWithDispatchQueue(&_inputAudioQueue, &inputFormat, 0, _inputDispatchQueue, ^(AudioQueueRef  inAQ, AudioQueueBufferRef  inBuffer, const AudioTimeStamp * inStartTime, UInt32 inNumberPacketDescriptions, const AudioStreamPacketDescription * inPacketDescs) {
 
 		// analyze agerage power of input signal
 		AudioQueueLevelMeterState channels[1];		// we only use MONO
