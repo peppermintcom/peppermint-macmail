@@ -38,14 +38,18 @@
 	XG_ASSERT([value isKindOfClass:[NSArray class]], @"Unsupported value type %@ for transformer XGArrayToBoolValueTransformer",
 			  NSStringFromClass([value class]));
 
-	// can't replyWithPeppermint to multiple messages simultaneously
-	// TODO: check the original reply behavior
-	if ([value count] != 1)
-		return @FALSE;
+	for (MCMessage* message in value)
+	{
+		for (NSString* key in @[@"from", @"to", @"cc"])
+		{
+			XG_DEBUG(@"%@ - %@", key, [message.headers addressListForKey:key]);
+			if ([[message.headers addressListForKey:key] count] > 0)
+				return @TRUE;
+		}
+	}
 
-	// check among the message there are at least one with the _sender field filled
-	MCMessage* message = [value lastObject];
-	return @(nil != message.headers._sender);
+	// nothing to reply to found
+	return @FALSE;
 }
 
 @end

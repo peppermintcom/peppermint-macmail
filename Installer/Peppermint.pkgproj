@@ -204,26 +204,8 @@
 													<array/>
 													<key>GID</key>
 													<integer>0</integer>
-													<key>LOCATORS</key>
-													<array>
-														<dict>
-															<key>DICTIONARY</key>
-															<dict>
-																<key>BUNDLE_IDENTIFIER</key>
-																<string>com.xgenmobile.Peppermint</string>
-																<key>DEFAULT_PATH</key>
-																<string>/Library/Mail/Bundles/Peppermint.mailbundle</string>
-															</dict>
-															<key>IDENTIFIER</key>
-															<string>fr.whitebox.Packages.locator.standard</string>
-															<key>NAME</key>
-															<string>Standard</string>
-															<key>STATE</key>
-															<true/>
-														</dict>
-													</array>
 													<key>PATH</key>
-													<string>/Users/boris/Library/Developer/Xcode/DerivedData/PeppermintMail-elpoxtglyilfvkdkemubnrgvavtm/Build/Products/Debug/Peppermint.mailbundle</string>
+													<string>/Users/boris/Library/Developer/Xcode/DerivedData/PeppermintMail-bwrnsujbyjcmojaimeqpmukdohae/Build/Products/Debug/Peppermint.mailbundle</string>
 													<key>PATH_TYPE</key>
 													<integer>0</integer>
 													<key>PERMISSIONS</key>
