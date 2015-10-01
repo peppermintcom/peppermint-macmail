@@ -91,7 +91,8 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 
 	// return item for the ReplyWithPeppermint button
 	XGToolbarItem* item = [[XGMessageViewerToolbarItem alloc] initWithItemIdentifier:XGReplyWithPeppermintToolbarItemIdentifier
-																		   imageName:@"btn_logo"];
+																		   imageName:@"icon_reply"];
+	item.minSize = CGSizeMake(60, item.minSize.height);
 	item.target = self;
 	item.action = @selector(replyWithPeppermint:);
 
