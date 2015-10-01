@@ -7,12 +7,15 @@
 //
 
 #import "XGAudioRecorderViewController.h"
+#import "InputDeviceMonitor/XGInputDeviceMonitor.h"
 #import "Core/XGTemporaryURL.h"
+#import "Core/XGLocalizedString.h"
 #import <CoreAudio/CoreAudioTypes.h>
 @import AVFoundation;
 
 
 static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3.0;
+static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3.0;
 
 
 @interface XGAudioRecorderViewController ()
@@ -172,8 +175,29 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 	self.elapsedSeconds = (millisecondsElapsed % 6000) / 100;
 	self.elapsedMilliseconds = millisecondsElapsed % 100;
 
-	if ((NSTimeInterval)millisecondsElapsed >= self.maxDuration * 100.0)
+	XG_DEBUG(@"Maximum signal level %f", [XGInputDeviceMonitor sharedMonitor].maximumSignalLevel);
+
+	if (millisecondsElapsed > XGAudioRecorderViewControllerMeasurementInterval * 100 &&
+		[XGInputDeviceMonitor sharedMonitor].maximumSignalLevel < 0.000001)
+	{
 		[self stop];
+		self.lastRecordedURL = nil;
+
+		// microphone signal is too weak, show error info
+		// TODO: show error
+		NSAlert* alert = [NSAlert new];
+		alert.messageText = XGLocalizedString(@"mic_not_works_title", "");
+		alert.informativeText = XGLocalizedString(@"mic_not_works_descr", "");
+		[alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {
+
+		}];
+	}
+	else
+	{
+		// check for exceeding max record interval
+		if ((NSTimeInterval)millisecondsElapsed >= self.maxDuration * 100.0)
+			[self stop];
+	}
 }
 
 - (BOOL)startRecording
@@ -213,11 +237,17 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 
 	self.recording = TRUE;
 
+	// start monitoring of audio level, over zero level (-40dB and less) will be treated as
+	// "mic not attached"
+	[[XGInputDeviceMonitor sharedMonitor] startMonitoring:NULL];
+
 	return TRUE;
 }
 
 - (void)stop
 {
+	[[XGInputDeviceMonitor sharedMonitor] stopMonitoring];
+
 	self.recording = FALSE;
 
 	if (self.recorder.recording)

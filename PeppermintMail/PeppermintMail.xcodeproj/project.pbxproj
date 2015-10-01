@@ -109,8 +109,6 @@
 		A1B8BC591BB0B48C0047ABC6 /* DocumentEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentEditor.h; sourceTree = "<group>"; };
 		A1B8BC5A1BB0B8EF0047ABC6 /* MFAttachmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFAttachmentViewController.h; sourceTree = "<group>"; };
 		A1B8BC5B1BB0B9F20047ABC6 /* EditableWebMessageDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditableWebMessageDocument.h; sourceTree = "<group>"; };
-		A1C772091BBB2D95008F6EEB /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
-		A1C7720A1BBB2D95008F6EEB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1C7720B1BBB2D95008F6EEB /* XGInputDeviceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGInputDeviceMonitor.h; sourceTree = "<group>"; };
 		A1C7720C1BBB2D95008F6EEB /* XGInputDeviceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGInputDeviceMonitor.m; sourceTree = "<group>"; };
 		A1C772101BBB389F008F6EEB /* icon_mic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_mic.png; sourceTree = "<group>"; };
@@ -197,8 +195,6 @@
 		A1C772081BBB2D95008F6EEB /* InputDeviceMonitor */ = {
 			isa = PBXGroup;
 			children = (
-				A1C772091BBB2D95008F6EEB /* CMakeLists.txt */,
-				A1C7720A1BBB2D95008F6EEB /* main.m */,
 				A1C7720B1BBB2D95008F6EEB /* XGInputDeviceMonitor.h */,
 				A1C7720C1BBB2D95008F6EEB /* XGInputDeviceMonitor.m */,
 			);
@@ -553,7 +549,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 27;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -602,7 +598,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 27;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -631,7 +627,7 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Peppermint/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Mail/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xgenmobile.Peppermint;
 				PRODUCT_NAME = Peppermint;
 				SKIP_INSTALL = YES;
@@ -644,7 +640,7 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Peppermint/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Mail/Bundles";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xgenmobile.Peppermint;
 				PRODUCT_NAME = Peppermint;
 				SKIP_INSTALL = YES;

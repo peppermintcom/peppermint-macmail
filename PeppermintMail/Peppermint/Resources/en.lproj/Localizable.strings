@@ -17,3 +17,5 @@ XGReplySubjectText = "";
 btn_record = "Record";
 btn_done = "Done";
 btn_cancel = "Cancel";
+mic_not_works_title = "Record Failed";
+mic_not_works_descr = "Looks your microphone is not working or signal is too weak. Please check your audio settings and try again";

@@ -31,16 +31,11 @@
 		NSString* path = [bundle pathForResource:imageName ofType:@"tiff"];
 		if (nil == path)
 			XG_ERROR(@"Resource %@ cound not be found in bundle %@", imageName, [bundle bundlePath]);
-
 		button.image = [[NSImage alloc] initWithContentsOfFile:path];
 		button.imagePosition = NSImageOnly;
-		self.minSize = CGSizeMake(40, 23);
 	}
-	else
-	{
-		self.minSize = CGSizeMake(48, 23);
-		button.title = XGLocalizedString([itemIdentifier stringByAppendingString:@"_label"], "String of form ToolbarItemIdentifier_label");
-	}
+
+	self.minSize = CGSizeMake(40, 23);
 
 	// initialize labels
 	self.label = XGLocalizedString([itemIdentifier stringByAppendingString:@"_label"], "String of form ToolbarItemIdentifier_label");

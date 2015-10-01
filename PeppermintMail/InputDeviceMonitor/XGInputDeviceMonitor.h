@@ -12,10 +12,11 @@
 
 @property (nonatomic, readonly) BOOL inputDevicePresents;
 @property (nonatomic, readonly) float currentSignalLevel;
+@property (nonatomic, readonly) float maximumSignalLevel;
 
 + (instancetype)sharedMonitor;
 
 - (BOOL)startMonitoring:(NSError**)error;
-- (void)stop;
+- (void)stopMonitoring;
 
 @end

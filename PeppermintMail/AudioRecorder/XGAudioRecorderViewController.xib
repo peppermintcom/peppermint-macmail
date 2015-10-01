@@ -103,14 +103,14 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="k9C-6S-Ntv">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NSNegateBoolean</string>
-                            </dictionary>
-                        </binding>
                         <binding destination="-2" name="value" keyPath="elapsedMilliseconds" id="JBF-Qh-b6g">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">XG2DigitsNumberFormatter</string>
+                            </dictionary>
+                        </binding>
+                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="k9C-6S-Ntv">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
                             </dictionary>
                         </binding>
                     </connections>
@@ -134,12 +134,12 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="gaz-mU-4hb"/>
                         <binding destination="-2" name="value" keyPath="elapsedSeconds" id="4bu-3J-G7B">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">XG2DigitsNumberFormatter</string>
                             </dictionary>
                         </binding>
+                        <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="gaz-mU-4hb"/>
                     </connections>
                 </textField>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cpR-a8-oGb">

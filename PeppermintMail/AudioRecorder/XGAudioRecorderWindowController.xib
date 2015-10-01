@@ -55,7 +55,7 @@ Gw
                         <connections>
                             <action selector="recordOrDone:" target="-2" id="ydl-km-9Au"/>
                             <binding destination="sq6-nW-Tno" name="enabled" keyPath="inputDevicePresents" id="mKT-wc-RLK"/>
-                            <binding destination="-2" name="title" keyPath="defaultButtonLocalizedTitle" id="maH-mb-0bB"/>
+                            <binding destination="-2" name="title" keyPath="localizedDefaultButtonTitle" id="nn3-eI-eH5"/>
                         </connections>
                     </button>
                 </subviews>

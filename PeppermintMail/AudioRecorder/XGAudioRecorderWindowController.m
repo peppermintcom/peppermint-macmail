@@ -96,12 +96,12 @@
 	[self.parentWindow endSheet:self.window returnCode:NSModalResponseCancel];
 }
 
-+ (NSSet*)keyPathsForValuesAffectingDefaultButtonLocalizedTitle
++ (NSSet*)keyPathsForValuesAffectingLocalizedDefaultButtonTitle
 {
-	return [NSSet setWithObjects:@"audioRecorder.recording", @"audioRecorder.recording", nil];
+	return [NSSet setWithObjects:@"audioRecorder.recording", @"audioRecorder.lastRecordedURL", nil];
 }
 
-- (NSString*)defaultButtonLocalizedTitle
+- (NSString*)localizedDefaultButtonTitle
 {
 	return (self.audioRecorder.recording || (nil != self.audioRecorder.lastRecordedURL)) ?
 		XGLocalizedString(@"btn_done", "") : XGLocalizedString(@"btn_record", "");

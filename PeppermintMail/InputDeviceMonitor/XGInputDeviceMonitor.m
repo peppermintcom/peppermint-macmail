@@ -13,6 +13,7 @@
 @interface XGInputDeviceMonitor()
 
 @property (nonatomic) float currentSignalLevel;
+@property (nonatomic) float maximumSignalLevel;
 
 @end
 
@@ -79,7 +80,7 @@ static XGInputDeviceMonitor* singleton = nil;
 {
 	if (self == singleton)
 		singleton = nil;
-	[self stopAudioInputMonitoring];
+	[self stopMonitoring];
 }
 
 - (BOOL)inputDevicePresents
@@ -106,7 +107,7 @@ static XGInputDeviceMonitor* singleton = nil;
 	if (noErr != result)
 	{
 		printf("Can't get the kAudioHardwarePropertyDefaultInputDevice property value, error %d\n", result);
-		[self stopAudioInputMonitoring];
+		[self stopMonitoring];
 		return;
 	}
 
@@ -116,18 +117,22 @@ static XGInputDeviceMonitor* singleton = nil;
 		return;
 
 	if (0 == defaultInput)
-		[self stopAudioInputMonitoring];
+		[self stopMonitoring];
 
 	[self willChangeValueForKey:@"inputDevicePresents"];
 	_currentInput = defaultInput;
 	[self didChangeValueForKey:@"inputDevicePresents"];
 }
 
-- (BOOL)startAudioInputMonitoring:(NSError**)error
+- (BOOL)startMonitoring:(NSError**)error
 {
 	XG_TRACE_FUNC();
 	if (_inputAudioQueue)
 		return TRUE;			// already started
+
+	// reset statistics
+	self.maximumSignalLevel = 0;
+	self.currentSignalLevel = 0;
 
 	NSError __autoreleasing* internalError = nil;
 	if (NULL == error)
@@ -167,6 +172,7 @@ static XGInputDeviceMonitor* singleton = nil;
 		Float32 leftChannelLevel = channels[0].mAveragePower;
 		dispatch_async(dispatch_get_main_queue(), ^{
 			self.currentSignalLevel = leftChannelLevel;
+			self.maximumSignalLevel = MAX(self.maximumSignalLevel, leftChannelLevel);
 		});
 
 		// return buffer to the queue
@@ -218,7 +224,7 @@ static XGInputDeviceMonitor* singleton = nil;
 	return TRUE;
 }
 
-- (void)stopAudioInputMonitoring
+- (void)stopMonitoring
 {
 	XG_TRACE_FUNC();
 	if (NULL == _inputAudioQueue)
@@ -226,8 +232,8 @@ static XGInputDeviceMonitor* singleton = nil;
 
 	self.currentSignalLevel = 0;
 
-	AudioQueueStop(_inputAudioQueue, YES);
-	AudioQueueDispose(_inputAudioQueue, YES);
+	AudioQueueStop(_inputAudioQueue, NO);
+	AudioQueueDispose(_inputAudioQueue, NO);
 	_inputAudioQueue = NULL;
 }
 
