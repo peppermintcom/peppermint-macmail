@@ -1,31 +1,29 @@
 //
-//  XGDocumentEditorSwizzler.m
-//  Peppermint
+//  XGComposeWindowControllerSwizzler.m
+//  PeppermintMail
 //
-//  Created by Boris Remizov on 21/09/15.
+//  Created by Boris Remizov on 03/10/15.
 //  Copyright © 2015 Xgen Mobile. All rights reserved.
 //
 
-#import "XGDocumentEditorSwizzler.h"
+#import "XGComposeWindowControllerSwizzler.h"
 #import "XGAttachementGenerator.h"
 #import "AudioRecorder/XGAudioRecorderWindowController.h"
 #import "Core/XGToolbarItem.h"
-#import "Mail/DocumentEditor.h"
-#import "Mail/MailWebViewEditor.h"
-#import "Mail/MCMessageGenerator.h"
-#import "Mail/MFWebMessageDocument.h"
-
+#import "Mail/ComposeWindowController.h"
+#import "Mail/ComposeViewController.h"
+#import "Mail/WebViewEditor.h"
 
 static NSString* const XGAttachWithPeppermintToolbarItemIdentifier = @"insertPeppermint";
 
-@implementation XGDocumentEditorSwizzler
+@implementation XGComposeWindowControllerSwizzler
 
 + (instancetype)sharedInstance
 {
-	static XGDocumentEditorSwizzler* singleton = nil;
+	static XGComposeWindowControllerSwizzler* singleton = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		singleton = [[XGDocumentEditorSwizzler alloc] initWithClass:NSClassFromString(@"DocumentEditor")];
+		singleton = [[XGComposeWindowControllerSwizzler alloc] initWithClass:NSClassFromString(@"ComposeWindowController")];
 	});
 	return singleton;
 }
@@ -80,18 +78,17 @@ static NSString* const XGAttachWithPeppermintToolbarItemIdentifier = @"insertPep
 
 	[[XGAudioRecorderWindowController controller] beginSheetModalForWindow:[sender window]
 															completionHandler:^(NSURL *audioFile, NSError *error) {
-		XG_DEBUG(@"Got audio file %@ after record sheet completed", audioFile);
-		if (nil == audioFile)
-			return;
-
+																XG_DEBUG(@"Got audio file %@ after record sheet completed", audioFile);
+																if (nil == audioFile)
+																	return;
 		// add attachment
-		DocumentEditor* documentEditor = (DocumentEditor*)[[sender window] delegate];
-		XG_ASSERT([documentEditor isKindOfClass:NSClassFromString(@"DocumentEditor")],
-				  @"Unexpected class of window's delegate %@", NSStringFromClass([documentEditor class]));
+		ComposeWindowController* windowController = (ComposeWindowController*)[[sender window] windowController];
+		XG_ASSERT([windowController isKindOfClass:NSClassFromString(@"ComposeWindowController")],
+				  @"Unexpected class of window's delegate %@", NSStringFromClass([windowController class]));
 
 		NSError* attachementError = nil;
-		BOOL result = [[XGAttachementGenerator generatorWithEditor:documentEditor.webViewEditor] addAudioAttachment:audioFile
-																											  error:&attachementError];
+		XGAttachementGenerator* generator = [XGAttachementGenerator generatorWithEditor:windowController.contentViewController.webViewEditor];
+		BOOL result = [generator addAudioAttachment:audioFile error:&attachementError];
 	}];
 }
 

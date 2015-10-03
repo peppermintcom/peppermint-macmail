@@ -12,6 +12,10 @@
 #import "AudioRecorder/XGAudioRecorderWindowController.h"
 #import "Mail/MessageViewer.h"
 #import "Mail/EditingMessageWebView.h"
+#import "Mail/ComposeWindowController.h"
+#import "Mail/ComposeViewController.h"
+#import "Mail/MailWebViewEditor.h"
+
 @import Cocoa;
 
 static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithPeppermint";
@@ -113,31 +117,45 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 		[[NSNotificationCenter defaultCenter] removeObserver:self.windowObserver];
 		self.windowObserver = nil;
 
-		NSWindow* documentEditorWindow = note.object;
-		XG_ASSERT([documentEditorWindow isKindOfClass:[NSWindow class]], @"Invalid object prameter, must be NSWindow");
-		
-		if (![[note.object delegate] isKindOfClass:NSClassFromString(@"DocumentEditor")])
+		NSWindow* window = note.object;
+		XG_ASSERT([window isKindOfClass:[NSWindow class]], @"Invalid object prameter, must be NSWindow");
+
+		// find WebViewEditor class
+		WebViewEditor* editor = nil;
+		if ([window.windowController isKindOfClass:NSClassFromString(@"ComposeWindowController")])
 		{
-			XG_DEBUG(@"Unexpected class of window delegate, skipping recording");
+			// Mail 9
+			editor = [(ComposeWindowController*)window.windowController contentViewController].webViewEditor;
+		}
+		else if ([window.delegate isKindOfClass:NSClassFromString(@"DocumentEditor")])
+		{
+			// Mail 8-
+			editor = [(DocumentEditor*)window.delegate webViewEditor];
+		}
+
+		if (nil == editor)
+		{
+			XG_DEBUG(@"WebViewEditor not found skipping recording");
 			return;
 		}
-		
+
+		// check we already replied to the window
 		NSSet* oldRecordings = [self.windowsBeingRepliedWithPeppermint objectsPassingTest:^BOOL(id obj, BOOL *stop) {
-			*stop = [obj pointerValue] == (__bridge void *)(documentEditorWindow);
+			*stop = [obj pointerValue] == (__bridge void *)(window);
 			return *stop;
 		}];
 
 		if ([oldRecordings count] > 0)
 		{
-			XG_TRACE(@"Already did a recording in %@, skipped", documentEditorWindow);
+			XG_TRACE(@"Already did a recording in %@, skipped", window);
 			return;
 		}
-		
-		[self.windowsBeingRepliedWithPeppermint addObject:[NSValue valueWithPointer:(__bridge const void *)(documentEditorWindow)]];
-		
+
+		[self.windowsBeingRepliedWithPeppermint addObject:[NSValue valueWithPointer:(__bridge const void *)(window)]];
+
+		// check another recording is already in progress
 		if (self.recordController)
 		{
-			// recording is already in progress
 			XG_DEBUG(@"Recording is already in progress, exiting");
 			return;
 		}
@@ -153,7 +171,7 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 			if (audioFile)
 			{
 				NSError* attachementError = nil;
-				[[XGAttachementGenerator generatorWithDocument:(DocumentEditor*)[note.object delegate]] addAudioAttachment:audioFile error:&attachementError];
+				[[XGAttachementGenerator generatorWithEditor:editor] addAudioAttachment:audioFile error:&attachementError];
 			}
 			
 			self.recordController = nil;

@@ -9,6 +9,7 @@
 #import "XGPeppermintPlugin.h"
 #import "XGMessageViewerSwizzler.h"
 #import "XGDocumentEditorSwizzler.h"
+#import "XGComposeWindowControllerSwizzler.h"
 
 @implementation XGPeppermintPlugin
 
@@ -40,7 +41,17 @@ id _swizzler2;
 + (BOOL)registerMessageWindowToolbarItem:(NSError**)error
 {
 	XG_TRACE_FUNC();
-	return ([XGDocumentEditorSwizzler sharedInstance] != nil);
+
+	if (NSClassFromString(@"DocumentEditor"))
+	{
+		// Mail 8 and below
+		return ([XGDocumentEditorSwizzler sharedInstance] != nil);
+	}
+	else
+	{
+		// Mail9
+		return [XGComposeWindowControllerSwizzler sharedInstance] != nil;
+	}
 }
 
 @end

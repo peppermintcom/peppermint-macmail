@@ -7,11 +7,12 @@
 //
 
 #import "Mail/DocumentEditor.h"
+#import "Mail/WebViewEditor.h"
 #import <Foundation/Foundation.h>
 
 @interface XGAttachementGenerator : NSObject
 
-+ (instancetype)generatorWithDocument:(DocumentEditor*)documentEditor;
++ (instancetype)generatorWithEditor:(WebViewEditor*)editor;
 
 - (BOOL)addAudioAttachment:(NSURL*)url error:(NSError**)error;
 

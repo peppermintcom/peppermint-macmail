@@ -16,16 +16,18 @@
 
 @interface XGAttachementGenerator()
 
-@property (nonatomic, strong) DocumentEditor* documentEditor;
+@property (nonatomic, strong) WebViewEditor* editor;
+@property (nonatomic, strong) ComposeBackEnd* backEnd;
 
 @end
 
 @implementation XGAttachementGenerator
 
-+ (instancetype)generatorWithDocument:(DocumentEditor*)documentEditor
++ (instancetype)generatorWithEditor:(WebViewEditor*)editor
 {
 	XGAttachementGenerator* maker = [XGAttachementGenerator new];
-	maker.documentEditor = documentEditor;
+	maker.editor = editor;
+	maker.backEnd = editor.composeBackEnd;
 	return maker;
 }
 
@@ -33,20 +35,20 @@
 {
 	XG_ASSERT(url, @"url must be non-nil to attach");
 	
-	[self.documentEditor.webViewEditor addAttachmentsForFiles:@[url]];
+	[self.editor addAttachmentsForFiles:@[url]];
 	
 	// determine what is it - new mail or reply
 	NSString* audioCommentString = nil;
-	if (self.documentEditor.backEnd.originalMessageHeaders._sender > 0)
+	if (self.backEnd.originalMessageHeaders._sender > 0)
 	{
 		// it is reply
-		XG_TRACE(@"Getting reply comment, due to original headers: %@", self.documentEditor.backEnd.originalMessageHeaders);
+		XG_TRACE(@"Getting reply comment, due to original headers: %@", self.backEnd.originalMessageHeaders);
 		audioCommentString = [[XGPreferences activePreferences].replyBodyText stringByAppendingString:@"\n\n"];
 	}
 	else
 	{
 		// looks like it is composing (new mail)
-		XG_TRACE(@"Getting compose (new mail) comment, due to original headers: %@", self.documentEditor.backEnd.originalMessageHeaders);
+		XG_TRACE(@"Getting compose (new mail) comment, due to original headers: %@", self.backEnd.originalMessageHeaders);
 		audioCommentString = [[XGPreferences activePreferences].composeBodyText stringByAppendingString:@"\n\n"];
 	}
 	
@@ -55,7 +57,7 @@
 	{
 		NSAttributedString* attributedComent = [[NSAttributedString alloc] initWithHTML:[audioCommentString dataUsingEncoding:NSUTF8StringEncoding]
 																	 documentAttributes:nil];
-		[self.documentEditor.webViewEditor.webView insertText:attributedComent replacementRange:NSMakeRange(0, 0)];
+		[self.editor.webView insertText:attributedComent replacementRange:NSMakeRange(0, 0)];
 	}
 	else
 		XG_DEBUG(@"Skipping insertion of body text %@", audioCommentString);

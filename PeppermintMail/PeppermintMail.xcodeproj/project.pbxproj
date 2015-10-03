@@ -19,6 +19,7 @@
 		A12E2A671BB880A3004A311B /* btn_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A12E2A631BB880A3004A311B /* btn_logo.png */; settings = {ASSET_TAGS = (); }; };
 		A12E2A681BB880A3004A311B /* btn_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A12E2A641BB880A3004A311B /* btn_logo@2x.png */; settings = {ASSET_TAGS = (); }; };
 		A12E2A691BB880A3004A311B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A12E2A651BB880A3004A311B /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
+		A170A3B41BBF405100637AEA /* XGComposeWindowControllerSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = A170A3B31BBF405100637AEA /* XGComposeWindowControllerSwizzler.m */; settings = {ASSET_TAGS = (); }; };
 		A1AE41C51BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1AE41C21BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib */; };
 		A1AE41C61BB5A4C800B06BD3 /* XGAudioRecorderWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE41C41BB5A4C800B06BD3 /* XGAudioRecorderWindowController.m */; };
 		A1AE41CD1BB5A66B00B06BD3 /* XGAttachementGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE41C81BB5A66B00B06BD3 /* XGAttachementGenerator.m */; };
@@ -78,6 +79,10 @@
 		A12E2A631BB880A3004A311B /* btn_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_logo.png; sourceTree = "<group>"; };
 		A12E2A641BB880A3004A311B /* btn_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_logo@2x.png"; sourceTree = "<group>"; };
 		A12E2A661BB880A3004A311B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A170A3B11BBF3F8000637AEA /* ComposeWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeWindowController.h; sourceTree = "<group>"; };
+		A170A3B21BBF405100637AEA /* XGComposeWindowControllerSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGComposeWindowControllerSwizzler.h; sourceTree = "<group>"; };
+		A170A3B31BBF405100637AEA /* XGComposeWindowControllerSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGComposeWindowControllerSwizzler.m; sourceTree = "<group>"; };
+		A170A3B51BBF41FE00637AEA /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		A1AE41C21BB5A4C800B06BD3 /* XGAudioRecorderWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XGAudioRecorderWindowController.xib; sourceTree = "<group>"; };
 		A1AE41C31BB5A4C800B06BD3 /* XGAudioRecorderWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGAudioRecorderWindowController.h; sourceTree = "<group>"; };
 		A1AE41C41BB5A4C800B06BD3 /* XGAudioRecorderWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGAudioRecorderWindowController.m; sourceTree = "<group>"; };
@@ -205,6 +210,9 @@
 			isa = PBXGroup;
 			children = (
 				A1B8BC591BB0B48C0047ABC6 /* DocumentEditor.h */,
+				A170A3B11BBF3F8000637AEA /* ComposeWindowController.h */,
+				A170A3B51BBF41FE00637AEA /* ComposeViewController.h */,
+				A1B4277D1BB4A3BF007345A1 /* ComposeBackEnd.h */,
 				A1B427731BB20FBC007345A1 /* WebViewEditor.h */,
 				A1B427791BB34532007345A1 /* MailWebViewEditor.h */,
 				A1B8BC5B1BB0B9F20047ABC6 /* EditableWebMessageDocument.h */,
@@ -212,7 +220,6 @@
 				A1B4277A1BB495FD007345A1 /* EditingMessageWebView.h */,
 				A1B4277F1BB4A433007345A1 /* ImageResizerDelegate.h */,
 				A1B8BC521BB0B02E0047ABC6 /* MessageViewer.h */,
-				A1B4277D1BB4A3BF007345A1 /* ComposeBackEnd.h */,
 				A1B4277E1BB4A3DD007345A1 /* NSUserActivityDelegate.h */,
 				A1B4277C1BB496DD007345A1 /* NSInspectorBarClient.h */,
 				A1B8BC531BB0B0400047ABC6 /* MCMessageGenerator.h */,
@@ -262,6 +269,8 @@
 				A1AE41C81BB5A66B00B06BD3 /* XGAttachementGenerator.m */,
 				A1AE41C91BB5A66B00B06BD3 /* XGDocumentEditorSwizzler.h */,
 				A1AE41CA1BB5A66B00B06BD3 /* XGDocumentEditorSwizzler.m */,
+				A170A3B21BBF405100637AEA /* XGComposeWindowControllerSwizzler.h */,
+				A170A3B31BBF405100637AEA /* XGComposeWindowControllerSwizzler.m */,
 				A1AE41CB1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.h */,
 				A1AE41CC1BB5A66B00B06BD3 /* XGMessageViewerSwizzler.m */,
 				A12058991BB6EBE900D9DF09 /* XGMessageViewerToolbarItem.h */,
@@ -470,6 +479,7 @@
 				A11CB6441BAD89B500E77061 /* XGLogger.m in Sources */,
 				A11CB64C1BAD8E0400E77061 /* XGBinding.m in Sources */,
 				A1F6B1ED1BAA280000075351 /* XGSwizzle.m in Sources */,
+				A170A3B41BBF405100637AEA /* XGComposeWindowControllerSwizzler.m in Sources */,
 				A1AE41D21BB5A68B00B06BD3 /* XGPreferences.m in Sources */,
 				A1F6B1EE1BAA280000075351 /* XGToolbarDelegateSwizzler.m in Sources */,
 				A1AE41CD1BB5A66B00B06BD3 /* XGAttachementGenerator.m in Sources */,
