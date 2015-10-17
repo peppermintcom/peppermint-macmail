@@ -10,6 +10,8 @@
 
 @protocol MCMessageSortingInterface;
 
+@class MCMessageBody;
+
 @interface MCMessage : NSObject <MCMessageSortingInterface, NSCopying>
 
 + (BOOL)isMessageURLString:(id)arg1;
@@ -141,7 +143,7 @@
 - (id)messageBodyUpdatingFlags:(BOOL)arg1;
 - (id)messageBodyFetchIfNotAvailable:(BOOL)arg1 allowPartial:(BOOL)arg2;
 - (id)messageBodyIfAvailable;
-- (id)messageBody;
+- (MCMessageBody*)messageBody;
 - (id)attachmentNamesIfAvailable;
 - (void)removeGmailLabels:(id)arg1;
 - (void)addGmailLabels:(id)arg1;

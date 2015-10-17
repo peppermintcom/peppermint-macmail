@@ -60,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A10F25FF1BD2CE8D00761C76 /* MCMessageBody.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCMessageBody.h; sourceTree = "<group>"; };
+		A10F26001BD2D11000761C76 /* MCOutgoingMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCOutgoingMessage.h; sourceTree = "<group>"; };
 		A11CB6401BAD89B500E77061 /* XGLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGLogger.h; sourceTree = "<group>"; };
 		A11CB6411BAD89B500E77061 /* XGLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGLogger.m; sourceTree = "<group>"; };
 		A11CB6421BAD89B500E77061 /* XGTemporaryURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGTemporaryURL.h; sourceTree = "<group>"; };
@@ -231,6 +233,8 @@
 				A1B427801BB4A4C6007345A1 /* MCActivityTarget.h */,
 				A1B8BC5A1BB0B8EF0047ABC6 /* MFAttachmentViewController.h */,
 				A12058981BB6E77F00D9DF09 /* MCMessage.h */,
+				A10F25FF1BD2CE8D00761C76 /* MCMessageBody.h */,
+				A10F26001BD2D11000761C76 /* MCOutgoingMessage.h */,
 			);
 			path = Mail;
 			sourceTree = "<group>";

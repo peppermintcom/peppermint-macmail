@@ -11,6 +11,7 @@
 @import Cocoa;
 
 @class DOMNode, EditableWebMessageDocument, MCInvocationQueue, MCParsedMessage, MFMailAccount, MFMailbox, NSArray, NSInputStream, NSMutableArray, NSMutableData, NSMutableDictionary, NSMutableSet, NSNumber, NSOutputStream, NSPort, NSString, NSURL, NSUUID, NSUndoManager, NSUserActivity, StationeryController;
+@class MCOutgoingMessage, MCMessageBody, MCMessage;
 
 @interface ComposeBackEnd : NSObject <ImageResizerDelegate, MCActivityTarget, NSStreamDelegate, NSUserActivityDelegate>
 {
@@ -247,7 +248,7 @@
 - (void)setDeliveryAccount:(id)arg1;
 - (id)deliveryAccount;
 @property(retain, nonatomic) MFMailAccount *account;
-- (id)message;
+- (MCOutgoingMessage*)message;
 - (id)plainTextMessage;
 - (id)_makeMessageWithContents:(id)arg1 isDraft:(BOOL)arg2 shouldSign:(BOOL)arg3 shouldEncrypt:(BOOL)arg4 shouldSkipSignature:(BOOL)arg5 shouldBePlainText:(BOOL)arg6;
 - (unsigned long long)_encodingHint;
@@ -264,10 +265,10 @@
 - (id)attachments;
 - (void)setOriginalMessages:(id)arg1;
 - (id)_knownMessageIds;
-- (id)originalMessageBody;
+- (MCMessageBody*)originalMessageBody;
 - (MCMessageHeaders*)originalMessageHeaders;
 - (void)setOriginalMessage:(id)arg1;
-- (id)originalMessage;
+- (MCMessage*)originalMessage;
 - (void)setSendWindowsFriendlyAttachments:(BOOL)arg1;
 - (BOOL)sendWindowsFriendlyAttachments;
 - (void)setShouldDownloadRemoteAttachments:(BOOL)arg1;

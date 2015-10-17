@@ -548,7 +548,7 @@
 				<key>RELOCATABLE</key>
 				<true/>
 				<key>VERSION</key>
-				<string>1.0</string>
+				<string>1.0.1</string>
 			</dict>
 			<key>UUID</key>
 			<string>D65C24E6-74A1-4BBB-AF37-F41755A7D2EC</string>

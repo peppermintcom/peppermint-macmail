@@ -12,6 +12,8 @@
 #import "Mail/ComposeBackEnd.h"
 #import "Mail/MCMutableMessageHeaders.h"
 #import "Mail/EditingMessageWebView.h"
+#import "Mail/MCOutgoingMessage.h"
+#import "Mail/MCMessageBody.h"
 
 
 @interface XGAttachementGenerator()
@@ -34,9 +36,9 @@
 - (BOOL)addAudioAttachment:(NSURL*)url error:(NSError**)error
 {
 	XG_ASSERT(url, @"url must be non-nil to attach");
-	
+
 	[self.editor addAttachmentsForFiles:@[url]];
-	
+
 	// determine what is it - new mail or reply
 	NSString* audioCommentString = nil;
 	if (self.backEnd.originalMessageHeaders._sender > 0)
@@ -51,17 +53,39 @@
 		XG_TRACE(@"Getting compose (new mail) comment, due to original headers: %@", self.backEnd.originalMessageHeaders);
 		audioCommentString = [[XGPreferences activePreferences].composeBodyText stringByAppendingString:@"\n\n"];
 	}
-	
-	// add text comment to attachement
-	if ([audioCommentString length] > 0)
+
+	if ([audioCommentString length] == 0)
 	{
-		NSAttributedString* attributedComent = [[NSAttributedString alloc] initWithHTML:[audioCommentString dataUsingEncoding:NSUTF8StringEncoding]
-																	 documentAttributes:nil];
-		[self.editor.webView insertText:attributedComent replacementRange:NSMakeRange(0, 0)];
-	}
-	else
 		XG_DEBUG(@"Skipping insertion of body text %@", audioCommentString);
-	
+		return TRUE;
+	}
+
+	NSAttributedString* attributedComment = [[NSAttributedString alloc] initWithHTML:[audioCommentString dataUsingEncoding:NSUTF8StringEncoding]
+																documentAttributes:nil];
+	NSString* __block stringToMatch = nil;
+	[attributedComment enumerateAttributesInRange:NSMakeRange(0, attributedComment.length)
+										  options:0
+									   usingBlock:^(NSDictionary*attrs, NSRange range, BOOL *stop){
+		// unattributed string
+		NSString* strippedSubstring = [[attributedComment attributedSubstringFromRange:range] string];
+		if ([strippedSubstring length] > [stringToMatch length])
+			stringToMatch = strippedSubstring;
+	}];
+
+	if ([stringToMatch length] > 5)
+	{
+		// check mail already have some peppermint attachements
+		NSString* bodyString = [[NSString alloc] initWithData:self.backEnd.message.bodyData
+													 encoding:NSUTF8StringEncoding];
+		if ([bodyString rangeOfString:stringToMatch].location != NSNotFound)
+		{
+			XG_DEBUG(@"Skipping insertion of duplicate audio comment string %@", audioCommentString);
+			return TRUE;
+		}
+	}
+
+	[self.editor.webView insertText:attributedComment replacementRange:NSMakeRange(0, 0)];
+
 	return TRUE;
 }
 
