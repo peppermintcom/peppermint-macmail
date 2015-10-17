@@ -60,7 +60,7 @@ static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3
 
 	// set some default values
 	self.preparationInterval = XGAudioRecorderViewControllerPreparationInterval;
-	self.maxDuration = 60.0;
+	self.maxDuration = 600.0;		// 10 minutes
 
 	return self;
 }
