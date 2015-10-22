@@ -204,7 +204,7 @@ static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3
 {
 	XG_ASSERT(self.preparationCounter == 0 && self.preparationTimer == nil, @"The preparationTimer must be nil on startRecording");
 
-	BOOL result = [self.recorder recordForDuration:30.0];
+	BOOL result = [self.recorder recordForDuration:self.maxDuration];
 	if (!result)
 	{
 		XG_ERROR(@"Can not start recording at path", self.recorder.url);
