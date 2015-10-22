@@ -2,3 +2,7 @@
 
 defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.apple.mail.plist EnableBundles -bool true
 defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.apple.mail.plist BundleCompatibilityVersion 4
+
+osascript -e "tell application \"Mail\"
+activate
+end tell"
