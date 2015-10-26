@@ -122,15 +122,18 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 
 		// find WebViewEditor class
 		WebViewEditor* editor = nil;
+		HeadersEditor* headersEditor = nil;
 		if ([window.windowController isKindOfClass:NSClassFromString(@"ComposeWindowController")])
 		{
 			// Mail 9
 			editor = [(ComposeWindowController*)window.windowController contentViewController].webViewEditor;
+			headersEditor = [(ComposeWindowController*)window.windowController contentViewController].headersEditor;
 		}
 		else if ([window.delegate isKindOfClass:NSClassFromString(@"DocumentEditor")])
 		{
 			// Mail 8-
 			editor = [(DocumentEditor*)window.delegate webViewEditor];
+			headersEditor = [(DocumentEditor*)window.delegate headersEditor];
 		}
 
 		if (nil == editor)
@@ -171,7 +174,7 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 			if (audioFile)
 			{
 				NSError* attachementError = nil;
-				[[XGAttachementGenerator generatorWithEditor:editor] addAudioAttachment:audioFile error:&attachementError];
+				[[XGAttachementGenerator generatorWithEditor:editor headersEditor:headersEditor] addAudioAttachment:audioFile error:&attachementError];
 			}
 			
 			self.recordController = nil;

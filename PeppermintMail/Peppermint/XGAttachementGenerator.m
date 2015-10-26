@@ -9,9 +9,10 @@
 #import "XGAttachementGenerator.h"
 #import "Core/XGPreferences.h"
 #import "Mail/MailWebViewEditor.h"
+#import "Mail/EditingMessageWebView.h"
+#import "Mail/HeadersEditor.h"
 #import "Mail/ComposeBackEnd.h"
 #import "Mail/MCMutableMessageHeaders.h"
-#import "Mail/EditingMessageWebView.h"
 #import "Mail/MCOutgoingMessage.h"
 #import "Mail/MCMessageBody.h"
 
@@ -20,16 +21,18 @@
 
 @property (nonatomic, strong) WebViewEditor* editor;
 @property (nonatomic, strong) ComposeBackEnd* backEnd;
+@property (nonatomic, strong) HeadersEditor* headersEditor;
 
 @end
 
 @implementation XGAttachementGenerator
 
-+ (instancetype)generatorWithEditor:(WebViewEditor*)editor
++ (instancetype)generatorWithEditor:(WebViewEditor*)editor headersEditor:(HeadersEditor*)headersEditor
 {
 	XGAttachementGenerator* maker = [XGAttachementGenerator new];
 	maker.editor = editor;
 	maker.backEnd = editor.composeBackEnd;
+	maker.headersEditor = headersEditor;
 	return maker;
 }
 
@@ -37,6 +40,18 @@
 {
 	XG_ASSERT(url, @"url must be non-nil to attach");
 
+	// compose the Subject
+	XG_DEBUG(@"Subj(%@):%@", NSStringFromClass([self.backEnd.subject class]), self.backEnd.subject);
+
+	if ([self.backEnd.subject length] == 0)
+	{
+		// insert our header
+		NSString* localizedSubject = [XGPreferences activePreferences].composeSubjectText;
+		[self.headersEditor.subjectField setStringValue:localizedSubject];
+		self.backEnd.subject = localizedSubject;
+	}
+
+	// add attachement
 	[self.editor addAttachmentsForFiles:@[url]];
 
 	// determine what is it - new mail or reply

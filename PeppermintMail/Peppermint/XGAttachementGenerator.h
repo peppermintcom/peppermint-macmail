@@ -12,7 +12,7 @@
 
 @interface XGAttachementGenerator : NSObject
 
-+ (instancetype)generatorWithEditor:(WebViewEditor*)editor;
++ (instancetype)generatorWithEditor:(WebViewEditor*)editor headersEditor:(HeadersEditor*)headersEditor;
 
 - (BOOL)addAudioAttachment:(NSURL*)url error:(NSError**)error;
 

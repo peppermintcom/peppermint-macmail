@@ -102,4 +102,24 @@ static NSString* const XGPreferencesReplySubjectTextKey = @"XGReplySubjectText";
 	return [self valueForKey:@"replyBodyText"];
 }
 
+- (NSString*)composeSubjectText
+{
+	return [self valueForKey:@"composeSubjectText"];
+}
+
+- (void)setComposeSubjectText:(NSString *)composeSubjectText
+{
+	[self setValue:composeSubjectText forKey:@"composeSubjectText"];
+}
+
+- (NSString*)replySubjectText
+{
+	return [self valueForKey:@"replySubjectText"];
+}
+
+- (void)setReplySubjectText:(NSString *)replySubjectText
+{
+	[self setValue:replySubjectText forKey:@"replySubjectText"];
+}
+
 @end

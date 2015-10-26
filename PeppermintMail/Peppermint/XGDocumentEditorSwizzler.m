@@ -90,7 +90,8 @@ static NSString* const XGAttachWithPeppermintToolbarItemIdentifier = @"insertPep
 				  @"Unexpected class of window's delegate %@", NSStringFromClass([documentEditor class]));
 
 		NSError* attachementError = nil;
-		BOOL result = [[XGAttachementGenerator generatorWithEditor:documentEditor.webViewEditor] addAudioAttachment:audioFile
+		BOOL result = [[XGAttachementGenerator generatorWithEditor:documentEditor.webViewEditor
+													 headersEditor:documentEditor.headersEditor] addAudioAttachment:audioFile
 																											  error:&attachementError];
 	}];
 }
