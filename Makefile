@@ -5,7 +5,7 @@ UNCOMMITED_CHANGES=$(shell git status --porcelain)
 
 build/Peppermint.mailbundle: build
 	@echo $(words $(UNCOMMITED_CHANGES))
-	ifneq(,$(words $(UNCOMMITED_CHANGES)))
+	ifneq(,$(UNCOMMITED_CHANGES))
 		$(error Abort)
 	endif
 	cd PeppermintMail && xcodebuild CONFIGURATION_BUILD_DIR="$(ROOT)/build"
