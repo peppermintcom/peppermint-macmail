@@ -3,7 +3,7 @@ DMG_VOLUME_NAME="PeppermintMail"
 
 UNCOMMITED_CHANGES=$(shell git status --porcelain)
 CURRENT_PROJECT_VERSION=$(shell cd PeppermintMail && agvtool vers -terse)
-MARKETING_VERSION=$(shell cd PeppermintMail && agvtool mvers -terse | grep Peppermint/Info.plist | awk -F= "{print $2}")
+MARKETING_VERSION=$(shell cd PeppermintMail && agvtool mvers -terse | grep Peppermint/Info.plist | awk -F'=' '{print $$2}')
 
 build/Peppermint.mailbundle: build
 	# build the product
