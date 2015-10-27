@@ -51,8 +51,22 @@
 		self.backEnd.subject = localizedSubject;
 	}
 
-	// add attachement
-	[self.editor addAttachmentsForFiles:@[url]];
+	// add attachement with user friendly name
+	NSDateFormatter* formatter = [NSDateFormatter new];
+	formatter.dateFormat= @"yyyy-MM-dd_hh-mm";
+	NSString* fileName = [NSString stringWithFormat:@"Peppermint Message %@.%@",
+						  [formatter stringFromDate:[NSDate date]], [url pathExtension]];
+	NSURL* targetURL = [[url URLByDeletingLastPathComponent] URLByAppendingPathComponent:fileName];
+
+	BOOL result = [[NSFileManager defaultManager] moveItemAtPath:[url path]
+														  toPath:[targetURL path] error:error];
+	if (!result)
+	{
+		XG_ERROR(@"Could not move %@ to %@. %@", url, targetURL, error);
+		return FALSE;
+	}
+
+	[self.editor addAttachmentsForFiles:@[targetURL]];
 
 	// determine what is it - new mail or reply
 	NSString* audioCommentString = nil;
