@@ -4,10 +4,7 @@ DMG_VOLUME_NAME="PeppermintMail"
 UNCOMMITED_CHANGES=$(shell git status --porcelain)
 
 build/Peppermint.mailbundle: build
-	@echo $(words $(UNCOMMITED_CHANGES))
-	ifneq(,$(UNCOMMITED_CHANGES))
-		$(error Abort)
-	endif
+	$(foreach var,$(UNCOMMITED_CHANGES),$(error You have uncommited changes))
 	cd PeppermintMail && xcodebuild CONFIGURATION_BUILD_DIR="$(ROOT)/build"
 
 build:
