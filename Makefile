@@ -5,7 +5,7 @@ UNCOMMITED_CHANGES=$(shell git status --porcelain)
 CURRENT_PROJECT_VERSION=$(shell cd PeppermintMail && agvtool vers -terse)
 MARKETING_VERSION=$(shell cd PeppermintMail && agvtool mvers -terse | grep Peppermint/Info.plist | awk -F'=' '{print $$2}')
 
-build/Peppermint.mailbundle: build
+build/Peppermint.mailbundle: build .git
 	# build the product
 	cd PeppermintMail && xcodebuild CONFIGURATION_BUILD_DIR="$(ROOT)/build"
 	# synchronize version of pkg with mvers and build package
