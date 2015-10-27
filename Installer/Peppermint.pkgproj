@@ -205,9 +205,9 @@
 													<key>GID</key>
 													<integer>0</integer>
 													<key>PATH</key>
-													<string>/Users/boris/Library/Developer/Xcode/DerivedData/PeppermintMail-bwrnsujbyjcmojaimeqpmukdohae/Build/Products/Debug/Peppermint.mailbundle</string>
+													<string>Peppermint.mailbundle</string>
 													<key>PATH_TYPE</key>
-													<integer>0</integer>
+													<integer>3</integer>
 													<key>PERMISSIONS</key>
 													<integer>493</integer>
 													<key>TYPE</key>
