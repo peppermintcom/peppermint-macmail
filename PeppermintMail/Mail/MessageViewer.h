@@ -5,97 +5,12 @@
  */
 
 #import <Cocoa/Cocoa.h>
-//#import "FlaggedStatusToolbarItemDelegate.h"
-//#import "MCActivityTarget.h"
-//#import "MVMailboxSelectionOwner-Protocol.h"
-//#import "MVTerminationHandler-Protocol.h"
-//#import "MailTableViewDelegateDelegate-Protocol.h"
-//#import "MailboxesOutlineViewControllerDelegate.h"
-//#import "MessageTransferDelegate.h"
-//#import "MessageViewerSearchFieldFocusDelegate.h"
-//#import "NSAnimationDelegate.h"
-//#import "NSSpeechSynthesizerDelegate.h"
-//#import "NSToolbarDelegate.h"
-//#import "NSUserInterfaceValidations.h"
-//#import "NSWindowDelegate.h"
-//#import "SGTSearchFieldQueryScopeDelegate.h"
 
 @class ActivityViewController, ContentSplitViewController, FavoritesBarView, FavoritesBarViewController, FlaggedStatusToolbarItem, FullScreenModalCapableWindow, FullScreenWindowController, MFBehaviorTracker, MailBarContainerView, MailSplitView, MailToolbar, MailboxesOutlineViewController, MailboxesSplitViewController, MessageListContainerView, MessageMall, MessageViewerLazyPopUpButton, MessageViewerSearchField, NSArray, NSDictionary, NSLayoutConstraint, NSMenu, NSMenuItem, NSMutableArray, NSNumber, NSSet, NSString, NSTextField, NSTimer, NSToolbarItem, NSView, NSWindow, TableViewManager, ViewingPaneViewController;
 
 @protocol FlaggedStatusToolbarItemDelegate, MessageViewerSearchFieldFocusDelegate, MailboxesOutlineViewControllerDelegate, MailTableViewDelegateDelegate, MCActivityTarget, MessageTransferDelegate, MVMailboxSelectionOwner, MVTerminationHandler, SGTSearchFieldQueryScopeDelegate;
 
-@interface MessageViewer : NSResponder <FlaggedStatusToolbarItemDelegate, MessageViewerSearchFieldFocusDelegate, NSToolbarDelegate, MailboxesOutlineViewControllerDelegate, MailTableViewDelegateDelegate, MCActivityTarget, MessageTransferDelegate, MVMailboxSelectionOwner, MVTerminationHandler, NSAnimationDelegate, NSSpeechSynthesizerDelegate, NSUserInterfaceValidations, NSWindowDelegate, SGTSearchFieldQueryScopeDelegate>
-{
-    MessageMall *_messageMall;
-    NSString *_searchPhrase;
-    NSSet *_initiallySelectedMessages;
-    NSMutableArray *_transferOperations;
-    FullScreenWindowController *_fullScreenWindowController;
-    MailboxesSplitViewController *_mailboxesSplitViewController;
-    struct __MDQuery *_lowPriorityQuery;
-    struct __MDQuery *_highPriorityQuery;
-    BOOL _ignoreSearchBarUpdates;
-    BOOL _previouslyHadSentScope;
-    BOOL _allowShowingDeletedMessages;
-    BOOL _suppressWindowTitleUpdates;
-    BOOL _didSetupUI;
-    BOOL _shouldCascadeWhenShowing;
-    BOOL _atLeastOneSelectedMessageIsInOutbox;
-    BOOL _atLeastOneSelectedMessageIsInOutboxIsValid;
-    BOOL _atLeastOneSelectedMessageIsInDrafts;
-    BOOL _atLeastOneSelectedMessageIsInDraftsIsValid;
-    BOOL _changingSplitViewOrientation;
-    BOOL _timeMachineRestoreIsInProgress;
-    BOOL _performedEarlyDealloc;
-    int _searchTarget;
-    TableViewManager *_tableManager;
-    NSView *_viewingPaneContainerView;
-    ViewingPaneViewController *_viewingPaneViewController;
-    MailboxesOutlineViewController *_outlineViewController;
-    FullScreenModalCapableWindow *_window;
-    MailSplitView *_contentSplitView;
-    MessageListContainerView *_messageListContainerView;
-    MailSplitView *_mailboxesSplitView;
-    NSView *_viewerContainer;
-    NSView *_mailboxesView;
-    NSView *_mailboxesContainer;
-    NSLayoutConstraint *_mailboxesWidthConstraint;
-    ActivityViewController *_activityViewController;
-    MessageViewerSearchField *_searchField;
-    NSToolbarItem *_searchViewItem;
-    FlaggedStatusToolbarItem *_flaggedStatusToolbarItem;
-    NSToolbarItem *_fullScreenFlagMenuToolbarItem;
-    MailToolbar *_toolbar;
-    NSDictionary *_toolbarItems;
-    NSMenu *_tableHeaderMenu;
-    NSMenu *_sortByTableHeaderMenu;
-    MessageViewerLazyPopUpButton *_makeNewMailboxButton;
-    MessageViewerLazyPopUpButton *_actionButton;
-    NSDictionary *_savedAttributes;
-    NSWindow *_timeMachineRestoreMessagesWindow;
-    NSTextField *_timeMachineRestoreMessagesField;
-    NSWindow *_timeMachineRestoreMailboxWindow;
-    NSTextField *_timeMachineRestoreMailboxField;
-    FavoritesBarViewController *_favoritesBarViewController;
-    NSString *_searchQuery;
-    long long _currentSearchField;
-    long long _selectedTag;
-    NSMenu *_messageColumnsMenu;
-    NSMenu *_messageSortByMenu;
-    NSMenuItem *_columnsMenuItem;
-    NSMenuItem *_sortByMenuItem;
-    NSMenuItem *_dateReceivedMenuItem;
-    NSMenuItem *_dateSentMenuItem;
-    NSMenuItem *_dateReceivedTableHeaderMenuItem;
-    NSMenuItem *_dateSentTableHeaderMenuItem;
-    double _restoreMailboxPaneToWidthAfterDragOperation;
-    NSArray *_mailboxesToDisplayWhenVisible;
-    NSDictionary *_initialWindowState;
-    NSNumber *_uniqueID;
-    NSTimer *_timeMachineRestoreSheetTimer;
-    ContentSplitViewController *_contentSplitViewController;
-    MFBehaviorTracker *_behaviorTracker;
-}
+@interface MessageViewer : NSResponder
 
 + (id)_messageViewersByUniqueID;
 + (void)restoreWindowWithIdentifier:(id)arg1 state:(id)arg2 completionHandler:(id)arg3;
