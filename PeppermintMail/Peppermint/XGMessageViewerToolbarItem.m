@@ -28,7 +28,7 @@
 	return NO;
 }
 
-- (nullable id)transformedValue:(nullable id)value
+- (id)transformedValue:(id)value
 {
 	XG_DEBUG(@"%d messages to bool", [value count]);
 
