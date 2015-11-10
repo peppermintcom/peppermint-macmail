@@ -53,7 +53,7 @@
 
 	// add attachement with user friendly name
 	NSDateFormatter* formatter = [NSDateFormatter new];
-	formatter.dateFormat= @"yyyy-MM-dd_hh-mm";
+	formatter.dateFormat= @"yyyy-MM-dd_hhmmss";
 	NSString* fileName = [NSString stringWithFormat:@"Peppermint Message %@.%@",
 						  [formatter stringFromDate:[NSDate date]], [url pathExtension]];
 	NSURL* targetURL = [[url URLByDeletingLastPathComponent] URLByAppendingPathComponent:fileName];
