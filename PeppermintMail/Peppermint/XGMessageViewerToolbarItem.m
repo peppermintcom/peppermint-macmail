@@ -10,6 +10,7 @@
 #import "Mail/MessageViewer.h"
 #import "Mail/MCMessage.h"
 #import "Mail/MCMessageHeaders.h"
+#import <Availability.h>
 
 @interface XGMessagesToBoolValueTransformer : NSValueTransformer
 
@@ -65,6 +66,9 @@
 
 - (void)validate
 {
+#if __MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_10
+	self.enabled = TRUE;
+#else
 	if (self.messageViewer)
 	{
 		self.enabled = [[[XGMessagesToBoolValueTransformer new] transformedValue:self.messageViewer.selectedMessages] boolValue];
@@ -75,13 +79,13 @@
 		self.messageViewer = (MessageViewer*)self.view.window.delegate;
 		XG_ASSERT([self.messageViewer isKindOfClass:NSClassFromString(@"MessageViewer")], @"Unexpected class %@ of MessageViewer",
 				  NSStringFromClass([self.messageViewer class]));
-
 	//	[self.messageViewer addObserver:self forKeyPath:@"selectedMessages" options:NSKeyValueObservingOptionNew context:NULL];
 
 		[self bind:@"enabled" toObject:self.messageViewer withKeyPath:@"selectedMessages" options:@{
 			NSValueTransformerBindingOption : [XGMessagesToBoolValueTransformer new]
 		}];
 	}
+#endif
 }
 
 - (void)dealloc

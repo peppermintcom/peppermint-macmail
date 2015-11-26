@@ -65,8 +65,9 @@ static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3
 	return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)loadView
+{
+    [super loadView];
 
 	// bind the play/stop button state with recording state
 	[self.playStopButton bind:@"state" toObject:self withKeyPath:@"recording" options:nil];
@@ -207,7 +208,7 @@ static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3
 	BOOL result = [self.recorder recordForDuration:self.maxDuration];
 	if (!result)
 	{
-		XG_ERROR(@"Can not start recording at path", self.recorder.url);
+		XG_ERROR(@"Can not start recording at path %@", self.recorder.url);
 		self.recorder = nil;
 		return false;
 	}

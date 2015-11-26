@@ -13,7 +13,7 @@
 @class DOMNode, EditableWebMessageDocument, MCInvocationQueue, MCParsedMessage, MFMailAccount, MFMailbox, NSArray, NSInputStream, NSMutableArray, NSMutableData, NSMutableDictionary, NSMutableSet, NSNumber, NSOutputStream, NSPort, NSString, NSURL, NSUUID, NSUndoManager, NSUserActivity, StationeryController;
 @class MCOutgoingMessage, MCMessageBody, MCMessage;
 
-@interface ComposeBackEnd : NSObject <ImageResizerDelegate, MCActivityTarget, NSStreamDelegate, NSUserActivityDelegate>
+@interface ComposeBackEnd : NSObject <ImageResizerDelegate, MCActivityTarget, NSStreamDelegate>
 {
     id _delegate;
     StationeryController *_stationeryController;

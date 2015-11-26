@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="XGAudioRecorderViewController">
@@ -22,7 +22,7 @@
                         <constraint firstAttribute="width" constant="50" id="PxV-3d-obm"/>
                     </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="BC5-p5-4fD">
-                        <font key="font" size="36" name=".HelveticaNeueDeskInterface-Thin"/>
+                        <font key="font" metaFont="system" size="36"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -39,13 +39,13 @@
                         </binding>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nbN-Wd-Rrc">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbN-Wd-Rrc">
                     <rect key="frame" x="60" y="9" width="54" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="A75-is-IOk"/>
                     </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="kiN-2V-r51">
-                        <font key="font" size="36" name=".HelveticaNeueDeskInterface-Thin"/>
+                        <font key="font" metaFont="system" size="36"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -62,10 +62,10 @@
                         </binding>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MXu-ud-8Oa">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MXu-ud-8Oa">
                     <rect key="frame" x="111" y="9" width="19" height="44"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title=":" id="iNL-Uu-Tbo">
-                        <font key="font" size="36" name=".HelveticaNeueDeskInterface-Thin"/>
+                        <font key="font" metaFont="system" size="36"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -77,10 +77,10 @@
                         </binding>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MHN-3r-W6X">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHN-3r-W6X">
                     <rect key="frame" x="175" y="9" width="19" height="44"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title=":" id="mWA-4g-WM5">
-                        <font key="font" size="36" name=".HelveticaNeueDeskInterface-Thin"/>
+                        <font key="font" metaFont="system" size="36"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -92,13 +92,13 @@
                         </binding>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E0Y-ua-Qsy">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0Y-ua-Qsy">
                     <rect key="frame" x="187" y="9" width="58" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="54" id="L2p-Ci-eFJ"/>
                     </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="beh-9s-p6J">
-                        <font key="font" size="36" name=".HelveticaNeueDeskInterface-Thin"/>
+                        <font key="font" metaFont="system" size="36"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -126,19 +126,14 @@
                         <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="dp4-PL-N6o"/>
                     </connections>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yud-1G-5a6">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yud-1G-5a6">
                     <rect key="frame" x="73" y="18" width="154" height="24"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="No MIC Attached" id="A2h-zB-A9f">
-                        <font key="font" size="20" name=".HelveticaNeueDeskInterface-Thin"/>
+                        <font key="font" metaFont="system" size="20"/>
                         <color key="textColor" red="1" green="0.037557740190000001" blue="0.044115084190000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="elapsedSeconds" id="4bu-3J-G7B">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">XG2DigitsNumberFormatter</string>
-                            </dictionary>
-                        </binding>
                         <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="gaz-mU-4hb"/>
                     </connections>
                 </textField>

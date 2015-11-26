@@ -50,6 +50,8 @@ static XGInputDeviceMonitor* singleton = nil;
 
 	singleton = self;
 
+	_currentInput = -1;
+	
 	// monitor change of the default input device
 	AudioObjectPropertyAddress address = {
 		kAudioHardwarePropertyDefaultInputDevice,
@@ -97,7 +99,7 @@ static XGInputDeviceMonitor* singleton = nil;
 	AudioObjectPropertyAddress address = {
 		kAudioHardwarePropertyDefaultInputDevice,
 		kAudioObjectPropertyScopeGlobal,
-		0
+		kAudioObjectPropertyElementMaster
 	};
 
 	// check current input device is configured
@@ -105,13 +107,9 @@ static XGInputDeviceMonitor* singleton = nil;
 	UInt32 dataSize = sizeof(defaultInput);
 	OSStatus result = AudioObjectGetPropertyData(kAudioObjectSystemObject, &address, 0, NULL, &dataSize, &defaultInput);
 	if (noErr != result)
-	{
-		printf("Can't get the kAudioHardwarePropertyDefaultInputDevice property value, error %d\n", result);
-		[self stopMonitoring];
-		return;
-	}
+		XG_TRACE(@"Can't get the kAudioHardwarePropertyDefaultInputDevice property value, error %d", result);
 
-	printf("Default audio input is 0x%x\n", defaultInput);
+	XG_TRACE(@"Default audio input is 0x%x", defaultInput);
 
 	if (_currentInput == defaultInput)
 		return;
