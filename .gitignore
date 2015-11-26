@@ -8,5 +8,3 @@ build
 *.pbxuser
 *.xcuserdatad
 .git
-xcshareddata
-
