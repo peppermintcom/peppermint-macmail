@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="XGAudioRecorderViewController">
@@ -21,6 +20,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="PxV-3d-obm"/>
                     </constraints>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="BC5-p5-4fD">
                         <font key="font" metaFont="system" size="36"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -39,11 +39,12 @@
                         </binding>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbN-Wd-Rrc">
-                    <rect key="frame" x="60" y="9" width="54" height="44"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nbN-Wd-Rrc">
+                    <rect key="frame" x="61" y="9" width="54" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="A75-is-IOk"/>
                     </constraints>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="kiN-2V-r51">
                         <font key="font" metaFont="system" size="36"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -62,8 +63,9 @@
                         </binding>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MXu-ud-8Oa">
-                    <rect key="frame" x="111" y="9" width="19" height="44"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MXu-ud-8Oa">
+                    <rect key="frame" x="112" y="9" width="18" height="44"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title=":" id="iNL-Uu-Tbo">
                         <font key="font" metaFont="system" size="36"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -77,8 +79,9 @@
                         </binding>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHN-3r-W6X">
-                    <rect key="frame" x="175" y="9" width="19" height="44"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MHN-3r-W6X">
+                    <rect key="frame" x="175" y="9" width="18" height="44"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title=":" id="mWA-4g-WM5">
                         <font key="font" metaFont="system" size="36"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -92,11 +95,12 @@
                         </binding>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0Y-ua-Qsy">
-                    <rect key="frame" x="187" y="9" width="58" height="44"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E0Y-ua-Qsy">
+                    <rect key="frame" x="186" y="9" width="58" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="54" id="L2p-Ci-eFJ"/>
                     </constraints>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00" id="beh-9s-p6J">
                         <font key="font" metaFont="system" size="36"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -121,13 +125,15 @@
                         <constraint firstAttribute="width" constant="86" id="gEY-5V-i6z"/>
                         <constraint firstAttribute="height" constant="86" id="sm7-Pu-H9e"/>
                     </constraints>
+                    <animations/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="icon_mic_off" id="UuA-Jx-8X7"/>
                     <connections>
                         <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="dp4-PL-N6o"/>
                     </connections>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yud-1G-5a6">
-                    <rect key="frame" x="73" y="18" width="154" height="24"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yud-1G-5a6">
+                    <rect key="frame" x="69" y="18" width="162" height="24"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="No MIC Attached" id="A2h-zB-A9f">
                         <font key="font" metaFont="system" size="20"/>
                         <color key="textColor" red="1" green="0.037557740190000001" blue="0.044115084190000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -143,6 +149,7 @@
                         <constraint firstAttribute="width" constant="86" id="WNw-Xo-JRN"/>
                         <constraint firstAttribute="height" constant="86" id="hVB-YQ-dIV"/>
                     </constraints>
+                    <animations/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="icon_mic_on" id="kFm-Cn-JD4"/>
                     <connections>
                         <binding destination="3Ob-Dc-BBd" name="hidden" keyPath="inputDevicePresents" id="LPL-DL-5eF">
@@ -171,6 +178,7 @@
                 <constraint firstItem="1S9-bm-3OX" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="nXW-4e-sQY"/>
                 <constraint firstItem="MXu-ud-8Oa" firstAttribute="leading" secondItem="nbN-Wd-Rrc" secondAttribute="trailing" constant="1" id="wF7-aI-JvL"/>
             </constraints>
+            <animations/>
             <point key="canvasLocation" x="322" y="180.5"/>
         </customView>
         <customObject id="3Ob-Dc-BBd" customClass="XGInputDeviceMonitor"/>
