@@ -108,7 +108,8 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 	XG_TRACE_FUNC();
 
 	MessageViewer* messageViewer = (MessageViewer*)[[sender window] delegate];
-	XG_ASSERT([messageViewer isKindOfClass:NSClassFromString(@"MessageViewer")], @"Unexpected class %@ of MessageViewer", NSStringFromClass([messageViewer class]));
+	XG_ASSERT([messageViewer isKindOfClass:NSClassFromString(@"MessageViewer")],
+			  @"Unexpected class %@ of MessageViewer", NSStringFromClass([messageViewer class]));
 
 	// subscribe on window appearence events to catch event the DocumentEditor appeared and make it showing the recording sheet
 	self.windowObserver = [[NSNotificationCenter defaultCenter] addObserverForName:NSWindowDidBecomeKeyNotification object:nil queue:[NSOperationQueue currentQueue] usingBlock:^(NSNotification *note) {

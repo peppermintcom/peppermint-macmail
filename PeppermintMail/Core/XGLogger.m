@@ -41,35 +41,35 @@ static NSFileHandle* createLogFileForFile(NSString* file)
     if ([file isEqual:@"stderr"])
         return [NSFileHandle fileHandleWithStandardError];
 
+	file = [file stringByExpandingTildeInPath];
+
     // roll old log files
     NSNumber* traceHistory = [[NSUserDefaults standardUserDefaults] objectForKey:XGTraceHistory];
     rollTraceFiles(file, MIN(traceHistory ? [traceHistory unsignedIntegerValue] : 2, 9));
 
     // output to file
+	[[NSFileManager defaultManager] createFileAtPath:file contents:[NSData data] attributes:nil];
     return [NSFileHandle fileHandleForWritingAtPath:file];
 }
 
+static NSFileHandle* logFile = nil;
+static NSDateFormatter* dateFormatter = nil;
 
 int XGLog(NSInteger logLevel, NSString* format, ...)
 {
-    static NSFileHandle* logFile = nil;
-    static NSDateFormatter* dateFormatter = nil;
-
     if ([[NSUserDefaults standardUserDefaults] integerForKey:XGTraceLevelKey] < logLevel)
         return 0;
 
-    if (nil == logFile)
-    {
-        NSString* traceTo = [[NSUserDefaults standardUserDefaults] objectForKey:XGTraceFileKey];
-        logFile = createLogFileForFile(traceTo ? traceTo : @"stdout");
-    }
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
 
-    if (nil == dateFormatter)
-    {
-        dateFormatter = [NSDateFormatter new];
-        dateFormatter.dateStyle = NSDateFormatterShortStyle;
-        dateFormatter.timeStyle = NSDateFormatterMediumStyle;
-    }
+		NSString* traceTo = [[NSUserDefaults standardUserDefaults] objectForKey:XGTraceFileKey];
+		logFile = createLogFileForFile(traceTo ? traceTo : @"stdout");
+
+		dateFormatter = [NSDateFormatter new];
+		dateFormatter.dateStyle = NSDateFormatterShortStyle;
+		dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+	});
 
     va_list ap;
     va_start(ap, format);

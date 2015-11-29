@@ -23,7 +23,7 @@ id _swizzler2;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 
-		XG_PRINT(@"Peppermint plugin loaded");
+		XG_PRINT(@"Peppermint plugin %d loaded", CURRENT_PROJECT_VERSION);
 
 		// instantiate plugin objects and register them into app infrastructure
 		NSError* error = nil;
