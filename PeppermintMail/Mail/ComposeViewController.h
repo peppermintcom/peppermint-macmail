@@ -12,7 +12,7 @@
 
 @class ColorBackgroundView, ComposeBackEnd, ComposeStatusView, DeliveryFailure, EditingMessageWebView, EditingWebMessageController, HeadersEditor, LoadingOverlay, MCAttachment, NSArray, NSButton, NSDictionary, NSMutableArray, NSMutableDictionary, NSOperation, NSOperationQueue, NSStackView, NSString, NSTextField, NSTextFinder, NSView, NSWindow, StationerySelector, WebArchive, WebViewEditor, _ControllerTitleTransformer;
 @protocol ComposeBackEndDelegate, ImageResizerDelegate, MCActivityTarget, PopoutAnimationContentProvider, TerminationHandler;
-
+@protocol MCAccount;
 @interface ComposeViewController : NSViewController <ComposeBackEndDelegate, ImageResizerDelegate, MCActivityTarget, NSTextFinderClient, NSSharingServiceDelegate, NSUserInterfaceValidations, PopoutAnimationContentProvider, TerminationHandler>
 {
     NSMutableArray *_imageResizers;
@@ -273,8 +273,8 @@
 - (void)_setSendWindowsFriendlyAttachments:(BOOL)arg1;
 - (void)sendWindowsFriendlyAttachments:(id)arg1;
 - (void)insertFile:(id)arg1;
-- (void)setDeliveryAccount:(id)arg1;
-- (id)deliveryAccount;
+- (void)setDeliveryAccount:(id<MCAccount>)arg1;
+- (id<MCAccount>)deliveryAccount;
 - (id)webMessageDocument;
 - (void)_hideStatusBar;
 - (void)_showStatusBar;

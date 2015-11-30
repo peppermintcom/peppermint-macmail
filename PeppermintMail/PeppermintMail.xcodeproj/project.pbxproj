@@ -81,6 +81,7 @@
 		A12E2A631BB880A3004A311B /* btn_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_logo.png; sourceTree = "<group>"; };
 		A12E2A641BB880A3004A311B /* btn_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_logo@2x.png"; sourceTree = "<group>"; };
 		A12E2A661BB880A3004A311B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A14DC6871C0CF43500052DBB /* MCAccount-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCAccount-Protocol.h"; sourceTree = "<group>"; };
 		A170A3B11BBF3F8000637AEA /* ComposeWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeWindowController.h; sourceTree = "<group>"; };
 		A170A3B21BBF405100637AEA /* XGComposeWindowControllerSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGComposeWindowControllerSwizzler.h; sourceTree = "<group>"; };
 		A170A3B31BBF405100637AEA /* XGComposeWindowControllerSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGComposeWindowControllerSwizzler.m; sourceTree = "<group>"; };
@@ -236,6 +237,7 @@
 				A1B8BC5A1BB0B8EF0047ABC6 /* MFAttachmentViewController.h */,
 				A12058981BB6E77F00D9DF09 /* MCMessage.h */,
 				A10F25FF1BD2CE8D00761C76 /* MCMessageBody.h */,
+				A14DC6871C0CF43500052DBB /* MCAccount-Protocol.h */,
 				A10F26001BD2D11000761C76 /* MCOutgoingMessage.h */,
 			);
 			path = Mail;

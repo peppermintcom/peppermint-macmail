@@ -12,6 +12,7 @@
 
 @class DOMNode, EditableWebMessageDocument, MCInvocationQueue, MCParsedMessage, MFMailAccount, MFMailbox, NSArray, NSInputStream, NSMutableArray, NSMutableData, NSMutableDictionary, NSMutableSet, NSNumber, NSOutputStream, NSPort, NSString, NSURL, NSUUID, NSUndoManager, NSUserActivity, StationeryController;
 @class MCOutgoingMessage, MCMessageBody, MCMessage;
+@protocol MCAccount;
 
 @interface ComposeBackEnd : NSObject <ImageResizerDelegate, MCActivityTarget, NSStreamDelegate>
 {
@@ -245,8 +246,8 @@
 - (void)_setCleanHeaders:(id)arg1;
 - (id)cleanHeaders;
 @property(retain, nonatomic) NSString *sender;
-- (void)setDeliveryAccount:(id)arg1;
-- (id)deliveryAccount;
+- (void)setDeliveryAccount:(id<MCAccount>)arg1;
+- (id<MCAccount>)deliveryAccount;
 @property(retain, nonatomic) MFMailAccount *account;
 - (MCOutgoingMessage*)message;
 - (id)plainTextMessage;

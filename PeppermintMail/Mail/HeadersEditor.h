@@ -8,7 +8,7 @@
 
 @class AccountStatusDataSource, ComposeHeaderRowView, DocumentEditor, MUIAddressField, NSButtonCell, NSMenu, NSMutableArray, NSPopUpButton, NSSegmentedControl, NSStackView, NSString, NSTextField, NSView;
 
-@protocol AccountStatusDataSourceDelegate;
+@protocol AccountStatusDataSourceDelegate, MCAccount;
 
 @interface HeadersEditor : NSObject <AccountStatusDataSourceDelegate, NSStackViewDelegate, NSUserInterfaceValidations>
 {
@@ -112,8 +112,8 @@
 - (void)_accountStatusDidChange:(id)arg1;
 - (id)mailAccount;
 - (void)setDeliveryAccount:(id)arg1;
-- (void)_setDynamicDeliveryAccountForAccount:(id)arg1;
-- (id)deliveryAccount;
+- (void)_setDynamicDeliveryAccountForAccount:(id<MCAccount>)arg1;
+- (id<MCAccount>)deliveryAccount;
 - (void)setSelectedAccount:(id)arg1;
 - (void)toggleAccountLock:(id)arg1;
 - (void)editServerList:(id)arg1 selectedAccount:(id)arg2;

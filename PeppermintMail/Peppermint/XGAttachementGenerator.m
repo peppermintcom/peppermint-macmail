@@ -14,6 +14,7 @@
 #import "Mail/ComposeBackEnd.h"
 #import "Mail/MCMutableMessageHeaders.h"
 #import "Mail/MCOutgoingMessage.h"
+#import "Mail/MCAccount-Protocol.h"
 #import "Mail/MCMessageBody.h"
 
 
@@ -33,6 +34,7 @@
 	maker.editor = editor;
 	maker.backEnd = editor.composeBackEnd;
 	maker.headersEditor = headersEditor;
+
 	return maker;
 }
 
@@ -88,6 +90,14 @@
 		XG_DEBUG(@"Skipping insertion of body text %@", audioCommentString);
 		return TRUE;
 	}
+
+	// place some variables into the comment
+	audioCommentString = [audioCommentString stringByReplacingOccurrencesOfString:@"$(SENDER_EMAIL)"
+												  withString:[self.backEnd.deliveryAccount.canonicalEmailAddress stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	audioCommentString = [audioCommentString stringByReplacingOccurrencesOfString:@"$(SENDER_NAME)"
+												  withString:[self.backEnd.message.senderDisplayName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+
+	XG_TRACE(@"Audio comment: %@", audioCommentString);
 
 	NSAttributedString* attributedComment = [[NSAttributedString alloc] initWithHTML:[audioCommentString dataUsingEncoding:NSUTF8StringEncoding]
 																documentAttributes:nil];

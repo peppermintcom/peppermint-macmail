@@ -7,7 +7,8 @@
 @import Cocoa;
 
 @class CALayer, ColorBackgroundView, ComposeBackEnd, ComposeStatusView, DeliveryFailure, EditingMessageWebView, EditingWebMessageController, HeadersEditor, LoadingOverlay, MCAttachment, MailInspectorBar, MailInspectorBarItemController, MailToolbar, MailWebViewEditor, MailWindowShadowLayer, MessageViewer, NSArray, NSButton, NSDictionary, NSMutableArray, NSMutableDictionary, NSOperation, NSOperationQueue, NSRunningApplication, NSStackView, NSString, NSTextField, NSTextFinder, NSUUID, NSView, NSWindow, StationerySelector, TypeAheadWindow, WebArchive;
-@protocol ImageResizerDelegate, MailFullScreenWindowDelegate, MCActivityTarget, MVTerminationHandler;
+@protocol ImageResizerDelegate, MailFullScreenWindowDelegate, MVTerminationHandler;
+@protocol MCAccount, MCActivityTarget;
 @interface DocumentEditor : NSObject <NSToolbarDelegate, NSSharingServiceDelegate, ImageResizerDelegate, MailFullScreenWindowDelegate, MCActivityTarget, MVTerminationHandler, NSAnimationDelegate, NSTextFinderClient, NSUserInterfaceValidations, NSWindowDelegate>
 {
     ComposeBackEnd *_backEnd;
@@ -309,8 +310,8 @@
 - (void)_changeSharedURLToDisplayType:(long long)arg1;
 - (void)refreshShareContentsForDisplayType:(long long)arg1;
 - (void)URLPickerPopupChanged:(id)arg1;
-- (void)setDeliveryAccount:(id)arg1;
-- (id)deliveryAccount;
+- (void)setDeliveryAccount:(id<MCAccount>)arg1;
+- (id<MCAccount>)deliveryAccount;
 - (void)editSignatures:(id)arg1;
 - (void)changeSignature:(id)arg1;
 - (void)showImmediately;
