@@ -92,16 +92,19 @@
 	}
 
 	// place some variables into the comment
+	NSString* email = self.backEnd.deliveryAccount.canonicalEmailAddress ? self.backEnd.deliveryAccount.canonicalEmailAddress : @"";
 	audioCommentString = [audioCommentString stringByReplacingOccurrencesOfString:@"$(SENDER_EMAIL)"
-												  withString:[self.backEnd.deliveryAccount.canonicalEmailAddress stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+																	   withString:[email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	NSString* name = self.backEnd.message.senderDisplayName ? self.backEnd.message.senderDisplayName : @"";
 	audioCommentString = [audioCommentString stringByReplacingOccurrencesOfString:@"$(SENDER_NAME)"
-												  withString:[self.backEnd.message.senderDisplayName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+																	   withString:[name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 
 	XG_TRACE(@"Audio comment: %@", audioCommentString);
 
-	NSAttributedString* attributedComment = [[NSAttributedString alloc] initWithHTML:[audioCommentString dataUsingEncoding:NSUTF8StringEncoding]
-																documentAttributes:nil];
 	NSString* __block stringToMatch = nil;
+	NSAttributedString* attributedComment = [[NSAttributedString alloc] initWithHTML:[audioCommentString dataUsingEncoding:NSUTF8StringEncoding]
+																  documentAttributes:nil];
+	
 	[attributedComment enumerateAttributesInRange:NSMakeRange(0, attributedComment.length)
 										  options:0
 									   usingBlock:^(NSDictionary*attrs, NSRange range, BOOL *stop){
