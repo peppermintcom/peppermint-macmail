@@ -195,72 +195,6 @@
 								</dict>
 								<dict>
 									<key>CHILDREN</key>
-									<array>
-										<dict>
-											<key>CHILDREN</key>
-											<array>
-												<dict>
-													<key>CHILDREN</key>
-													<array/>
-													<key>GID</key>
-													<integer>0</integer>
-													<key>PATH</key>
-													<string>Peppermint.mailbundle</string>
-													<key>PATH_TYPE</key>
-													<integer>3</integer>
-													<key>PERMISSIONS</key>
-													<integer>493</integer>
-													<key>TYPE</key>
-													<integer>3</integer>
-													<key>UID</key>
-													<integer>0</integer>
-												</dict>
-												<dict>
-													<key>CHILDREN</key>
-													<array/>
-													<key>GID</key>
-													<integer>0</integer>
-													<key>PATH</key>
-													<string>Peppermint.mailbundle.dSYM</string>
-													<key>PATH_TYPE</key>
-													<integer>3</integer>
-													<key>PERMISSIONS</key>
-													<integer>493</integer>
-													<key>TYPE</key>
-													<integer>3</integer>
-													<key>UID</key>
-													<integer>0</integer>
-												</dict>
-											</array>
-											<key>GID</key>
-											<integer>0</integer>
-											<key>PATH</key>
-											<string>Bundles</string>
-											<key>PATH_TYPE</key>
-											<integer>0</integer>
-											<key>PERMISSIONS</key>
-											<integer>493</integer>
-											<key>TYPE</key>
-											<integer>2</integer>
-											<key>UID</key>
-											<integer>0</integer>
-										</dict>
-									</array>
-									<key>GID</key>
-									<integer>0</integer>
-									<key>PATH</key>
-									<string>Mail</string>
-									<key>PATH_TYPE</key>
-									<integer>0</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>2</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
 									<array/>
 									<key>GID</key>
 									<integer>0</integer>
@@ -532,6 +466,8 @@
 				</dict>
 				<key>PAYLOAD_TYPE</key>
 				<integer>0</integer>
+				<key>SPLIT_FORKS</key>
+				<true/>
 				<key>VERSION</key>
 				<integer>3</integer>
 			</dict>
@@ -552,7 +488,24 @@
 					<integer>1</integer>
 				</dict>
 				<key>RESOURCES</key>
-				<array/>
+				<array>
+					<dict>
+						<key>CHILDREN</key>
+						<array/>
+						<key>GID</key>
+						<integer>0</integer>
+						<key>PATH</key>
+						<string>../build/Peppermint.mailbundle</string>
+						<key>PATH_TYPE</key>
+						<integer>1</integer>
+						<key>PERMISSIONS</key>
+						<integer>493</integer>
+						<key>TYPE</key>
+						<integer>3</integer>
+						<key>UID</key>
+						<integer>0</integer>
+					</dict>
+				</array>
 			</dict>
 			<key>PACKAGE_SETTINGS</key>
 			<dict>
@@ -569,9 +522,9 @@
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>RELOCATABLE</key>
-				<true/>
+				<false/>
 				<key>VERSION</key>
-				<string>1.0</string>
+				<string>dev</string>
 			</dict>
 			<key>UUID</key>
 			<string>D65C24E6-74A1-4BBB-AF37-F41755A7D2EC</string>
@@ -635,7 +588,7 @@
 				<key>INSTALLATION TYPE</key>
 				<integer>0</integer>
 				<key>MODE</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<key>INSTALLATION_STEPS</key>
 			<array>
@@ -793,8 +746,6 @@
 		<dict>
 			<key>ADVANCED_OPTIONS</key>
 			<dict>
-				<key>installer-script.domains:enable_currentUserHome</key>
-				<true/>
 				<key>installer-script.options.platforms.client:arch</key>
 				<array>
 					<string>x86_64</string>

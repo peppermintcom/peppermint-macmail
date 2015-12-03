@@ -1,9 +1,33 @@
 #!/bin/bash
-echo "Enabling Mail bundles..."
-defaults write com.apple.mail EnableBundles -bool true || exit 1
-defaults write com.apple.mail BundleCompatibilityVersion 4 || exit 1
+
+echo "Running script under $(whoami)..."
+
+RESOURCES_PATH=$(dirname "$0")
+
+echo "Copying the plugin on to place..."
+
+for DIRITEM in $(ls "/Users" | grep -v Shared); do
+
+  INSTALL_HOME=/Users/$DIRITEM
+  if [ ! -d "$INSTALL_HOME/Library/Mail" ]; then
+    continue
+  fi;
+
+  INSTALL_USER=$(basename "$INSTALL_HOME")
+
+  echo "Installing the plugin for user $INSTALL_USER..."
+  if [ -d "$INSTALL_HOME/Library/Mail/Bundles" ]; then
+    rm -rf "$INSTALL_HOME/Library/Mail/Bundles/Peppermint.mailbundle"
+  else
+    sudo -u $INSTALL_USER mkdir -p "$INSTALL_HOME/Library/Mail/Bundles" || continue
+  fi
+  sudo -u $INSTALL_USER cp -r "$RESOURCES_PATH/Peppermint.mailbundle" "$INSTALL_HOME/Library/Mail/Bundles/" || exit $?
+
+  sudo -u $INSTALL_USER defaults write com.apple.mail EnableBundles -bool YES || exit $?
+  sudo -u $INSTALL_USER defaults write com.apple.mail BundleCompatibilityVersion 4 || exit $?
+done
 
 echo "Starting Mail..."
-osascript -e "tell application \"Mail\"
+sudo -u $USER osascript -e "tell application \"Mail\"
 activate
 end tell"
