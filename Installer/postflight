@@ -1,8 +1,9 @@
 #!/bin/bash
+echo "Enabling Mail bundles..."
+defaults write com.apple.mail EnableBundles -bool true || exit 1
+defaults write com.apple.mail BundleCompatibilityVersion 4 || exit 1
 
-defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.apple.mail.plist EnableBundles -bool true
-defaults write ~/Library/Containers/com.apple.mail/Data/Library/Preferences/com.apple.mail.plist BundleCompatibilityVersion 4
-
+echo "Starting Mail..."
 osascript -e "tell application \"Mail\"
 activate
 end tell"

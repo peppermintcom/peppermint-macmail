@@ -22,7 +22,7 @@ devbuild:
 	# build the product
 	cd PeppermintMail && xcodebuild CONFIGURATION_BUILD_DIR="$(ROOT)/build"
 	# synchronize version of pkg with mvers and build package
-	packagesutil --file Installer/Peppermint.pkgproj set package com.xgenmobile.pkg.peppermint version "1.0.0.0d"
+	packagesutil --file Installer/Peppermint.pkgproj set package com.xgenmobile.pkg.peppermint version "dev"
 	packagesbuild -F build Installer/Peppermint.pkgproj
 	mv Installer/build/Peppermint.pkg build/Peppermint-$(MARKETING_VERSION)-$(CURRENT_PROJECT_VERSION).pkg
 
