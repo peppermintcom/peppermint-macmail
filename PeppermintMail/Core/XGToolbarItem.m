@@ -10,6 +10,10 @@
 #import "Core/XGLocalizedString.h"
 
 @implementation XGToolbarItem
+{
+	SEL _action;
+	id _target;
+}
 
 - (instancetype)initWithItemIdentifier:(NSString *)itemIdentifier imageName:(NSString*)imageName
 {
@@ -35,6 +39,9 @@
 		button.imagePosition = NSImageOnly;
 	}
 
+	button.target = self;
+	button.action = @selector(buttonPressed:);
+
 	self.minSize = CGSizeMake(40, 23);
 
 	// initialize labels
@@ -42,6 +49,32 @@
 	self.paletteLabel = XGLocalizedString([itemIdentifier stringByAppendingString:@"_paletteLabel"], "String of form ToolbarItemIdentifier_paletteLabel");
 	
 	return self;
+}
+
+- (void)buttonPressed:(id)sender
+{
+	if (_target && _action)
+		[_target performSelector:_action withObject:self];
+}
+
+- (void)setTarget:(id)target
+{
+	_target = target;
+}
+
+- (id)target
+{
+	return _target;
+}
+
+- (void)setAction:(SEL)action
+{
+	_action = action;
+}
+
+- (SEL)action
+{
+	return _action;
 }
 
 @end

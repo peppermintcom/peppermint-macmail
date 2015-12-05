@@ -43,7 +43,7 @@
 	{
 		for (NSString* key in @[@"from", @"to", @"cc"])
 		{
-			XG_DEBUG(@"%@ - %@", key, [message.headers addressListForKey:key]);
+//			XG_DEBUG(@"%@ - %@", key, [message.headers addressListForKey:key]);
 			if ([[message.headers addressListForKey:key] count] > 0)
 				return @TRUE;
 		}

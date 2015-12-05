@@ -22,6 +22,6 @@
 // @return Initial object (but you are NOT allowed to use [self.currentSwizzledObject toolbar:...]
 //	       invocations due to swizzle mechanism features - use [super toolbar:...] instead)
 //		   or nil (if called outside the method calls. Calls on non-main thread are not allowed.
-- (id)curentSwizzledObject;
+- (id)currentlySwizzledObject;
 
 @end

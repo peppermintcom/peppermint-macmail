@@ -42,7 +42,7 @@ static NSString* const XGAttachWithPeppermintToolbarItemIdentifier = @"insertPep
 {
 	XG_TRACE_FUNC();
 
-	XG_DEBUG(@"Providing toolbar items list for %@", [self curentSwizzledObject]);
+	XG_DEBUG(@"Providing toolbar items list for %@", [self currentlySwizzledObject]);
 
 	NSMutableArray* items = [NSMutableArray arrayWithArray:[super toolbarDefaultItemIdentifiers:toolbar]];
 	if (![items containsObject:XGAttachWithPeppermintToolbarItemIdentifier])

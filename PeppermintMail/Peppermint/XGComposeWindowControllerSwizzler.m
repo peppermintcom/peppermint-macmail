@@ -40,7 +40,7 @@ static NSString* const XGAttachWithPeppermintToolbarItemIdentifier = @"insertPep
 {
 	XG_TRACE_FUNC();
 
-	XG_DEBUG(@"Providing toolbar items list for %@", [self curentSwizzledObject]);
+	XG_DEBUG(@"Providing toolbar items list for %@", [self currentlySwizzledObject]);
 
 	NSMutableArray* items = [NSMutableArray arrayWithArray:[super toolbarDefaultItemIdentifiers:toolbar]];
 	if (![items containsObject:XGAttachWithPeppermintToolbarItemIdentifier])
@@ -64,8 +64,9 @@ static NSString* const XGAttachWithPeppermintToolbarItemIdentifier = @"insertPep
 		return [super toolbar:toolbar itemForItemIdentifier:identifier willBeInsertedIntoToolbar:flag];
 
 	// return item for the ReplyWithPeppermint button
-	NSToolbarItem* item = [[XGToolbarItem alloc] initWithItemIdentifier:XGAttachWithPeppermintToolbarItemIdentifier
+	XGToolbarItem* item = [[XGToolbarItem alloc] initWithItemIdentifier:XGAttachWithPeppermintToolbarItemIdentifier
 															  imageName:@"icon_mic"];
+	item.hint = self.currentlySwizzledObject;
 	item.target = self;
 	item.action = @selector(attachWithPeppermint:);
 
@@ -76,13 +77,13 @@ static NSString* const XGAttachWithPeppermintToolbarItemIdentifier = @"insertPep
 {
 	XG_TRACE_FUNC();
 
-	[[XGAudioRecorderWindowController controller] beginSheetModalForWindow:[sender window]
+	[[XGAudioRecorderWindowController controller] beginSheetModalForWindow:[[sender view] window]
 															completionHandler:^(NSURL *audioFile, NSError *error) {
-																XG_DEBUG(@"Got audio file %@ after record sheet completed", audioFile);
-																if (nil == audioFile)
-																	return;
+		XG_DEBUG(@"Got audio file %@ after record sheet completed", audioFile);
+		if (nil == audioFile)
+			return;
 		// add attachment
-		ComposeWindowController* windowController = (ComposeWindowController*)[[sender window] windowController];
+		ComposeWindowController* windowController = [sender hint];
 		XG_ASSERT([windowController isKindOfClass:NSClassFromString(@"ComposeWindowController")],
 				  @"Unexpected class of window's delegate %@", NSStringFromClass([windowController class]));
 

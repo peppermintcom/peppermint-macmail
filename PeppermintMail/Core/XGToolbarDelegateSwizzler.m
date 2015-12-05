@@ -110,7 +110,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	// TODO: unswizzle
 }
 
-- (id)curentSwizzledObject
+- (id)currentlySwizzledObject
 {
 	// call original method (got from current context)
 	NSDictionary* context = swizzleContextForClass(self.swizzledClass);
@@ -123,7 +123,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	XG_TRACE_FUNC();
 
 	// call original method (got from current context)
-	id<XGToolbarDelegateSwizzlerOriginal> original = self.curentSwizzledObject;
+	id<XGToolbarDelegateSwizzlerOriginal> original = self.currentlySwizzledObject;
 	XG_ASSERT(original, @"The Original pointer not found in swizzle context");
 	return [original originalToolbar:toolbar itemForItemIdentifier:itemIdentifier willBeInsertedIntoToolbar:flag];
 }
@@ -133,7 +133,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	XG_TRACE_FUNC();
 
 	// call original method (got from current context)
-	id<XGToolbarDelegateSwizzlerOriginal> original = self.curentSwizzledObject;
+	id<XGToolbarDelegateSwizzlerOriginal> original = self.currentlySwizzledObject;
 	XG_ASSERT(original, @"The Original pointer not found in swizzle context");
 	return [original originalToolbarDefaultItemIdentifiers:toolbar];
 }
@@ -143,7 +143,7 @@ static NSMutableDictionary* swizzleContextForClass(Class class)
 	XG_TRACE_FUNC();
 
 	// call original method (got from current context)
-	id<XGToolbarDelegateSwizzlerOriginal> original = self.curentSwizzledObject;
+	id<XGToolbarDelegateSwizzlerOriginal> original = self.currentlySwizzledObject;
 	XG_ASSERT(original, @"The Original pointer not found in swizzle context");
 	return [original originalToolbarAllowedItemIdentifiers:toolbar];
 }

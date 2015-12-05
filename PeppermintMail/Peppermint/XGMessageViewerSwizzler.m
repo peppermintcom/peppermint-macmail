@@ -63,7 +63,7 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 {
 	XG_TRACE_FUNC();
 
-	XG_DEBUG(@"Providing toolbar items list for %@", [self curentSwizzledObject]);
+	XG_DEBUG(@"Providing toolbar items list for %@", [self currentlySwizzledObject]);
 
 	NSMutableArray* items = [NSMutableArray arrayWithArray:[super toolbarDefaultItemIdentifiers:toolbar]];
 	if (![items containsObject:XGReplyWithPeppermintToolbarItemIdentifier])
@@ -89,6 +89,7 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 - (NSToolbarItem*)toolbar:(NSToolbar*)toolbar itemForItemIdentifier:(NSString*)identifier willBeInsertedIntoToolbar:(BOOL)flag
 {
 	XG_TRACE_FUNC();
+	XG_TRACE(@"Swizzled object of class %@", NSStringFromClass([self.currentlySwizzledObject class]));
 
 	if (![identifier isEqual:XGReplyWithPeppermintToolbarItemIdentifier])
 		return [super toolbar:toolbar itemForItemIdentifier:identifier willBeInsertedIntoToolbar:flag];
@@ -96,6 +97,7 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 	// return item for the ReplyWithPeppermint button
 	XGToolbarItem* item = [[XGMessageViewerToolbarItem alloc] initWithItemIdentifier:XGReplyWithPeppermintToolbarItemIdentifier
 																		   imageName:@"icon_reply"];
+	item.hint = self.currentlySwizzledObject;
 	item.minSize = CGSizeMake(60, item.minSize.height);
 	item.target = self;
 	item.action = @selector(replyWithPeppermint:);
@@ -107,7 +109,9 @@ static NSString* const XGReplyWithPeppermintToolbarItemIdentifier = @"replyWithP
 {
 	XG_TRACE_FUNC();
 
-	MessageViewer* messageViewer = (MessageViewer*)[[sender window] delegate];
+	XG_TRACE(@"Sender class %@", NSStringFromClass([sender class]));
+
+	MessageViewer* messageViewer = [sender hint];
 	XG_ASSERT([messageViewer isKindOfClass:NSClassFromString(@"MessageViewer")],
 			  @"Unexpected class %@ of MessageViewer", NSStringFromClass([messageViewer class]));
 

@@ -10,6 +10,8 @@
 
 @interface XGToolbarItem : NSToolbarItem
 
+@property (nonatomic, assign) id hint;
+
 - (instancetype)initWithItemIdentifier:(NSString *)itemIdentifier imageName:(NSString*)imageName;
 
 @end
