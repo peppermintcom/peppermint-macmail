@@ -18,7 +18,7 @@ static const NSTimeInterval XGAudioRecorderViewControllerPreparationInterval = 3
 static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3.0;
 
 
-@interface XGAudioRecorderViewController ()
+@interface XGAudioRecorderViewController ()<AVAudioRecorderDelegate>
 
 @property (nonatomic, strong) AVAudioRecorder* recorder;
 @property (nonatomic, copy) NSURL* lastRecordedURL;
@@ -43,6 +43,8 @@ static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3
 - (BOOL)startRecording;
 
 @end
+
+static BOOL recordingInProgress = NO;
 
 @implementation XGAudioRecorderViewController
 
@@ -113,6 +115,14 @@ static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3
 {
 	XG_ASSERT(nil == self.recorder, @"Recording is already in progress");
 
+	if (recordingInProgress)
+	{
+		// lock another instance of the class is already doing recording
+		if (error)
+			*error = [NSError errorWithDomain:NSPOSIXErrorDomain code:EBUSY userInfo:nil];
+		return FALSE;
+	}
+
 	// record to temporary file
 	NSDictionary* settings = @{
 		AVFormatIDKey:@(kAudioFormatMPEG4AAC_HE),
@@ -145,13 +155,61 @@ static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3
 															   selector:@selector(preparationTimerDidTick:)
 															   userInfo:NULL
 																repeats:YES];
-		return TRUE;
 	}
 	else
 	{
 		// start recording immediately
-		return [self startRecording];
+		if (![self startRecording])
+			return FALSE;
+
 	}
+
+	recordingInProgress = TRUE;
+	return TRUE;
+}
+
+- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
+{
+	self.recording = FALSE;
+
+	self.recorder = nil;
+
+	self.recordStartTime = nil;
+
+	[self.preparationTimer invalidate];
+	self.preparationTimer = nil;
+
+	[self.refreshTimer invalidate];
+	self.refreshTimer = nil;
+
+	self.preparationCounter = 0;
+	self.elapsedMilliseconds = 0;
+	self.elapsedSeconds = 0;
+	self.elapsedMilliseconds = 0;
+
+	recordingInProgress = FALSE;
+}
+
+- (void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError * __nullable)error
+{
+	self.recording = FALSE;
+
+	self.recorder = nil;
+
+	self.recordStartTime = nil;
+
+	[self.preparationTimer invalidate];
+	self.preparationTimer = nil;
+
+	[self.refreshTimer invalidate];
+	self.refreshTimer = nil;
+
+	self.preparationCounter = 0;
+	self.elapsedMilliseconds = 0;
+	self.elapsedSeconds = 0;
+	self.elapsedMilliseconds = 0;
+
+	recordingInProgress = FALSE;
 }
 
 - (void)preparationTimerDidTick:(NSTimer*)timer
@@ -164,7 +222,7 @@ static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3
 		[timer invalidate];
 		self.preparationTimer = nil;
 
-		[self startRecording];
+		recordingInProgress = [self startRecording];
 	}
 }
 
@@ -176,7 +234,7 @@ static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3
 	self.elapsedSeconds = (millisecondsElapsed % 6000) / 100;
 	self.elapsedMilliseconds = millisecondsElapsed % 100;
 
-	XG_DEBUG(@"Maximum signal level %f", [XGInputDeviceMonitor sharedMonitor].maximumSignalLevel);
+//	XG_DEBUG(@"Maximum signal level %f", [XGInputDeviceMonitor sharedMonitor].maximumSignalLevel);
 
 	if (millisecondsElapsed > XGAudioRecorderViewControllerMeasurementInterval * 100 &&
 		[XGInputDeviceMonitor sharedMonitor].maximumSignalLevel < 0.000001)
@@ -247,12 +305,15 @@ static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3
 
 - (void)stop
 {
-	[[XGInputDeviceMonitor sharedMonitor] stopMonitoring];
+	XG_ASSERT(recordingInProgress, @"Looks synchromization with recordingInProgress failed");
 
-	self.recording = FALSE;
+	[[XGInputDeviceMonitor sharedMonitor] stopMonitoring];
 
 	if (self.recorder.recording)
 		[self.recorder stop];
+
+	self.recording = FALSE;
+
 	self.recorder = nil;
 
 	self.recordStartTime = nil;
@@ -267,6 +328,8 @@ static const NSTimeInterval XGAudioRecorderViewControllerMeasurementInterval = 3
 	self.elapsedMilliseconds = 0;
 	self.elapsedSeconds = 0;
 	self.elapsedMilliseconds = 0;
+
+	recordingInProgress = FALSE;
 }
 
 - (IBAction)recStopDidToggle:(id)sender

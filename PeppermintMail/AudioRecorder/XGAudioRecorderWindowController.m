@@ -17,6 +17,7 @@
 @property (nonatomic, assign) IBOutlet NSView* audioRecorderFrameView;
 @property (nonatomic, strong) NSWindow* parentWindow;
 @property (nonatomic, readonly, copy) NSString* defaultButtonLocalizedTitle;
+
 @end
 
 @implementation XGAudioRecorderWindowController
