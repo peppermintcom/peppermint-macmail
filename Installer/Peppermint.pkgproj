@@ -524,7 +524,7 @@
 				<key>RELOCATABLE</key>
 				<false/>
 				<key>VERSION</key>
-				<string>1.0</string>
+				<string>dev</string>
 			</dict>
 			<key>UUID</key>
 			<string>D65C24E6-74A1-4BBB-AF37-F41755A7D2EC</string>
@@ -652,19 +652,7 @@
 			<key>INTRODUCTION</key>
 			<dict>
 				<key>LOCALIZATIONS</key>
-				<array>
-					<dict>
-						<key>LANGUAGE</key>
-						<string>English</string>
-						<key>VALUE</key>
-						<dict>
-							<key>PATH</key>
-							<string>Introduction.rtf</string>
-							<key>PATH_TYPE</key>
-							<integer>1</integer>
-						</dict>
-					</dict>
-				</array>
+				<array/>
 			</dict>
 			<key>LICENSE</key>
 			<dict>
@@ -740,7 +728,7 @@
 			<key>RESOURCES</key>
 			<array/>
 			<key>ROOT_VOLUME_ONLY</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>PROJECT_SETTINGS</key>
 		<dict>
